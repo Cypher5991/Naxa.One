@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antigravity Digital | Growth & Digital Literacy Agency</title>
-    <meta name="description" content="Antigravity Digital (Naxa.One) empowers Indian MSMEs & scale-ups with custom web apps, eCommerce conversion engineering, Tally ERP/WhatsApp automations, and digital literacy retainers.">
-    <meta name="keywords" content="Digital Agency India, eCommerce Development, Digital Maturity Audit, Tally ERP Sync, WhatsApp API Integration, Next.js Web Apps, Chandigarh Tech Agency">
+    <title>Naxa.One — Growth & Digital Development Agency</title>
+    <meta name="description" content="Naxa.One empowers Indian MSMEs & scale-ups with custom web apps, eCommerce conversion engineering, Tally ERP/WhatsApp automations, and digital literacy retainers.">
+    <meta name="keywords" content="Naxa.One, Digital Agency India, eCommerce Development, Digital Maturity Audit, Tally ERP Sync, WhatsApp API Integration, Next.js Web Apps">
     <link rel="canonical" href="https://naxa-one.vercel.app/">
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://naxa-one.vercel.app/">
-    <meta property="og:title" content="Antigravity Digital | Growth & Digital Literacy Agency">
+    <meta property="og:title" content="Naxa.One — Growth & Digital Development Agency">
     <meta property="og:description" content="Stop surviving. Start scaling. Bridging the gap between executive vision and digital execution for Indian MSMEs & scale-ups.">
     <meta property="og:image" content="https://naxa-one.vercel.app/logo.png">
-    <meta property="og:site_name" content="Antigravity Digital">
+    <meta property="og:site_name" content="Naxa.One">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://naxa-one.vercel.app/">
-    <meta name="twitter:title" content="Antigravity Digital | Growth & Digital Literacy Agency">
+    <meta name="twitter:title" content="Naxa.One — Growth & Digital Development Agency">
     <meta name="twitter:description" content="Stop surviving. Start scaling. Bridging the gap between executive vision and digital execution.">
     <meta name="twitter:image" content="https://naxa-one.vercel.app/logo.png">
 
@@ -32,11 +32,11 @@
         {
           "@type": "Organization",
           "@id": "https://naxa-one.vercel.app/#organization",
-          "name": "Antigravity Digital",
-          "alternateName": "Naxa.One",
+          "name": "Naxa.One",
+          "alternateName": "Naxa.One Digital",
           "url": "https://naxa-one.vercel.app/",
           "logo": "https://naxa-one.vercel.app/logo.png",
-          "email": "hello@antigravity.in",
+          "email": "hello@naxa.one",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Chandigarh",
@@ -50,7 +50,7 @@
         {
           "@type": "ProfessionalService",
           "@id": "https://naxa-one.vercel.app/#service",
-          "name": "Antigravity Digital",
+          "name": "Naxa.One",
           "url": "https://naxa-one.vercel.app/",
           "priceRange": "₹35,000 - ₹500,000 INR",
           "areaServed": "India",
@@ -70,15 +70,15 @@
             },
             {
               "@type": "Question",
-              "name": "What are Antigravity Digital's retainer pricing tiers?",
+              "name": "What are Naxa.One's retainer pricing tiers?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Antigravity Digital offers 3 monthly retainer tiers: Tier 1 (SMB Sprint) at ₹35,000–₹75,000/mo, Tier 2 (Mid-Market Scale) at ₹1.25L–₹3.0L/mo, and Tier 3 (Enterprise Pod) at ₹5.0L+/mo."
+                "text": "Naxa.One offers 3 monthly retainer tiers: Tier 1 (SMB Sprint) at ₹35,000–₹75,000/mo, Tier 2 (Mid-Market Scale) at ₹1.25L–₹3.0L/mo, and Tier 3 (Enterprise Pod) at ₹5.0L+/mo."
               }
             },
             {
               "@type": "Question",
-              "name": "How does Antigravity integrate Tally ERP and WhatsApp APIs?",
+              "name": "How does Naxa.One integrate Tally ERP and WhatsApp APIs?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "We build custom middleware and web app bridges connecting your website or CRM directly to Tally ERP and Interakt/WhatsApp APIs, eliminating manual data entry and speeding up order processing."
@@ -229,40 +229,56 @@
 <body class="antialiased selection:bg-blue-700 selection:text-white relative">
     <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+    <!-- Transparent Navbar with Scroll Hamburger Collapse -->
+    <nav class="fixed w-full z-50 bg-transparent transition-all duration-500 py-4" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <a href="index.html" class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
-                    <img src="logo.png" alt="Antigravity Logo" class="w-10 h-10 object-contain rounded-lg">
-                    <span class="font-extrabold text-xl tracking-tight text-slate-900">Antigravity<span class="text-blue-600">.</span>Digital</span>
+            <div class="flex items-center justify-between h-16 transition-all duration-500" id="nav-container">
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer group">
+                    <img src="logo.png" alt="Naxa.One Logo" class="w-9 h-9 object-contain rounded-lg">
+                    <span class="font-extrabold text-xl tracking-tight text-slate-950">Naxa<span class="text-emerald-500">.</span>One</span>
                 </a>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-6">
-                        <a href="#philosophy" class="text-slate-700 hover:text-blue-700 font-semibold transition-colors px-3 py-2 rounded-md text-sm">Philosophy</a>
-                        <a href="#services" class="text-slate-700 hover:text-blue-700 font-semibold transition-colors px-3 py-2 rounded-md text-sm">Retainers & Tiers</a>
-                        <a href="#hubs" class="text-slate-700 hover:text-blue-700 font-semibold transition-colors px-3 py-2 rounded-md text-sm">Dedicated Hubs</a>
-                        <a href="#audit" class="text-slate-700 hover:text-blue-700 font-semibold transition-colors px-3 py-2 rounded-md text-sm">The 1-Wk Audit</a>
-                        <a href="#calculator" class="text-slate-700 hover:text-blue-700 font-semibold transition-colors px-3 py-2 rounded-md text-sm">Mini-Audit</a>
-                        <a href="#contact" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-5 py-2.5 rounded-full text-sm transition-all shadow-md shadow-blue-700/20">Book Discovery</a>
+                <div class="hidden md:block transition-all duration-300" id="desktop-nav-wrapper">
+                    <div class="flex items-center space-x-6">
+                        <a href="#philosophy" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Philosophy</a>
+                        <a href="#services" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Retainers & Tiers</a>
+                        <a href="#hubs" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Dedicated Hubs</a>
+                        <a href="#audit" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">The 1-Wk Audit</a>
+                        <a href="#calculator" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Mini-Audit</a>
+                        <a href="#contact" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-5 py-2.5 rounded-full text-sm transition-all shadow-md shadow-blue-700/20">Book Discovery</a>
                     </div>
                 </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-slate-700 hover:text-blue-700 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+                <!-- Hamburger Button (Activates on scroll or mobile) -->
+                <button id="nav-hamburger-btn" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold px-4 py-2 rounded-full shadow-md backdrop-blur-md transition-all">
+                    <i class="fas fa-bars text-lg text-blue-700"></i>
+                    <span class="text-xs font-extrabold uppercase tracking-wider hidden sm:inline">Menu</span>
+                </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass-nav border-t border-slate-200">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#philosophy" class="text-slate-700 hover:text-blue-700 font-semibold block px-3 py-2 rounded-md text-base">Philosophy</a>
-                <a href="#services" class="text-slate-700 hover:text-blue-700 font-semibold block px-3 py-2 rounded-md text-base">Retainers & Tiers</a>
-                <a href="#hubs" class="text-slate-700 hover:text-blue-700 font-semibold block px-3 py-2 rounded-md text-base">Dedicated Hubs</a>
-                <a href="#audit" class="text-slate-700 hover:text-blue-700 font-semibold block px-3 py-2 rounded-md text-base">The 1-Wk Audit</a>
-                <a href="#calculator" class="text-slate-700 hover:text-blue-700 font-semibold block px-3 py-2 rounded-md text-base">Mini-Audit</a>
+
+        <!-- Full Navigation Drawer Modal -->
+        <div id="nav-drawer" class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-md transition-opacity">
+            <div class="fixed top-6 right-6 max-w-sm w-full bg-white rounded-3xl p-8 border border-slate-200 shadow-2xl space-y-6">
+                <div class="flex justify-between items-center pb-4 border-b border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <img src="logo.png" alt="Naxa.One Logo" class="w-8 h-8 object-contain">
+                        <span class="font-extrabold text-lg text-slate-900">Naxa<span class="text-emerald-500">.</span>One</span>
+                    </div>
+                    <button id="close-drawer-btn" class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:text-slate-900">
+                        <i class="fas fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4 font-bold text-slate-800">
+                    <a href="index.html" class="hover:text-blue-700 py-1 transition-colors drawer-link">Home</a>
+                    <a href="#philosophy" class="hover:text-blue-700 py-1 transition-colors drawer-link">Philosophy</a>
+                    <a href="#services" class="hover:text-blue-700 py-1 transition-colors drawer-link">Retainers & Pricing Tiers</a>
+                    <a href="#hubs" class="hover:text-blue-700 py-1 transition-colors drawer-link">Dedicated Service Hubs</a>
+                    <a href="#audit" class="hover:text-blue-700 py-1 transition-colors drawer-link">The 1-Week Audit</a>
+                    <a href="#calculator" class="hover:text-blue-700 py-1 transition-colors drawer-link">Digital Maturity Calculator</a>
+                    <a href="#faq" class="hover:text-blue-700 py-1 transition-colors drawer-link">FAQ</a>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <a href="#contact" class="drawer-link block w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-full text-sm shadow-md shadow-blue-700/20">Book Discovery Call</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -712,8 +728,8 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-2">
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="logo.png" alt="Antigravity Logo" class="w-8 h-8 object-contain rounded">
-                        <span class="font-extrabold text-lg text-white">Antigravity Digital</span>
+                        <img src="logo.png" alt="Naxa.One Logo" class="w-8 h-8 object-contain rounded">
+                        <span class="font-extrabold text-lg text-white">Naxa<span class="text-emerald-500">.</span>One</span>
                     </div>
                     <p class="text-slate-400 text-sm max-w-sm mb-6">Bridging the gap between executive vision and flawless digital execution. Elevating Indian businesses through technology and literacy.</p>
                     <div class="flex space-x-4">
@@ -728,7 +744,7 @@
                     <address class="not-italic text-sm text-slate-400 space-y-2">
                         <p>Tech Park Sector 22</p>
                         <p>Chandigarh, India 160022</p>
-                        <p class="pt-2"><a href="mailto:hello@antigravity.in" class="hover:text-blue-400">hello@antigravity.in</a></p>
+                        <p class="pt-2"><a href="mailto:hello@naxa.one" class="hover:text-blue-400">hello@naxa.one</a></p>
                     </address>
                 </div>
 
@@ -744,7 +760,7 @@
             </div>
             
             <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-slate-500 text-xs">© 2026 Antigravity Digital. All rights reserved.</p>
+                <p class="text-slate-500 text-xs">© 2026 Naxa.One. All rights reserved.</p>
                 <p class="text-slate-500 text-xs mt-2 md:mt-0">Designed for scale.</p>
             </div>
         </div>
@@ -752,14 +768,37 @@
 
     <!-- Interactive Logic & Animations -->
     <script>
-        // Navbar scroll effect
+        // Transparent Navbar at top -> Collapses Desktop Links into Hamburger Button on Scroll
         const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('shadow-md');
+        const desktopNavWrapper = document.getElementById('desktop-nav-wrapper');
+        const navHamburgerBtn = document.getElementById('nav-hamburger-btn');
+        const navDrawer = document.getElementById('nav-drawer');
+        const closeDrawerBtn = document.getElementById('close-drawer-btn');
+
+        function handleScroll() {
+            if (window.scrollY > 50) {
+                navbar.classList.remove('bg-transparent', 'py-4');
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2', 'border-b', 'border-slate-200');
+                if (desktopNavWrapper) desktopNavWrapper.classList.add('hidden');
+                if (navHamburgerBtn) navHamburgerBtn.classList.remove('hidden');
             } else {
-                navbar.classList.remove('shadow-md');
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2', 'border-b', 'border-slate-200');
+                navbar.classList.add('bg-transparent', 'py-4');
+                if (desktopNavWrapper) desktopNavWrapper.classList.remove('hidden');
             }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+
+        if (navHamburgerBtn) {
+            navHamburgerBtn.addEventListener('click', () => navDrawer.classList.remove('hidden'));
+        }
+        if (closeDrawerBtn) {
+            closeDrawerBtn.addEventListener('click', () => navDrawer.classList.add('hidden'));
+        }
+        document.querySelectorAll('.drawer-link').forEach(link => {
+            link.addEventListener('click', () => navDrawer.classList.add('hidden'));
         });
 
         // Mobile menu toggle
