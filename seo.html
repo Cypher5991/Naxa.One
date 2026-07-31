@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine Optimization (SEO) — Naxa.One</title>
+    <meta name="description" content="Naxa.One delivers technical SEO audits, keyword dominance strategies, and authority building engineered to generate compounding organic traffic.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:          #FAFBFC;
+            --bg-alt:      #F0F2F5;
+            --bg-card:     #FFFFFF;
+            --bg-dark:     #0A0E17;
+            --text:        #111111;
+            --text-muted:  #5A6270;
+            --green:       #10B981;
+            --green-light: #34D399;
+            --green-bg:    rgba(16,185,129,0.06);
+            --cyan:        #00B4D8;
+            --radius:      16px;
+            --radius-lg:   24px;
+            --radius-xl:   32px;
+            --shadow-sm:   0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md:   0 4px 20px rgba(0,0,0,0.06);
+            --shadow-lg:   0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0;
+            background: rgba(250,251,252,0.85); backdrop-filter: blur(16px); transition: all 0.3s;
+        }
+        .navbar.scrolled { background: rgba(255,255,255,0.96); box-shadow: 0 1px 20px rgba(0,0,0,0.06); padding: 12px 0; }
+        .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; }
+        .logo-img { width: 36px; height: 36px; object-fit: contain; }
+        .logo-text { font-size: 22px; font-weight: 800; color: #000; }
+        .logo-text .dot { color: var(--green); }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color 0.3s; }
+        .nav-links a.active, .nav-links a:hover { color: #000; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px;
+            border-radius: 100px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; border: none;
+        }
+        .btn-primary { background: var(--green); color: #fff; }
+        .btn-primary:hover { background: #059669; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(16,185,129,0.3); }
+
+        /* HERO */
+        .page-hero { padding: 140px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px; background: var(--green-bg);
+            border: 1px solid rgba(16,185,129,0.2); padding: 8px 20px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; color: var(--green); margin-bottom: 24px;
+        }
+        .page-hero h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; color: #000; }
+        .page-hero h1 .highlight { color: var(--green); }
+        .page-hero p { font-size: 18px; color: var(--text-muted); max-width: 680px; line-height: 1.7; margin-bottom: 36px; }
+
+        /* CALCULATOR */
+        .calc-section { padding: 80px 0; background: var(--bg-alt); }
+        .calc-card { background: var(--bg-card); border-radius: var(--radius-xl); padding: 48px; border: 1px solid rgba(0,0,0,0.06); box-shadow: var(--shadow-lg); }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .calc-controls { display: flex; flex-direction: column; gap: 32px; }
+        .calc-control-group { display: flex; flex-direction: column; gap: 12px; }
+        .calc-label { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; color: #000; }
+        .calc-val { color: var(--green); font-weight: 800; font-size: 20px; }
+        input[type="range"] {
+            -webkit-appearance: none; width: 100%; height: 8px; background: var(--bg-alt);
+            border-radius: 100px; outline: none; cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 26px; height: 26px; background: var(--green);
+            border-radius: 50%; cursor: pointer; box-shadow: 0 0 0 4px rgba(16,185,129,0.15);
+        }
+        .calc-results { display: flex; flex-direction: column; gap: 20px; }
+        .calc-box { background: var(--bg); border-radius: var(--radius-lg); padding: 28px; border: 1px solid rgba(0,0,0,0.05); text-align: center; }
+        .calc-box .num { font-size: 42px; font-weight: 800; color: var(--green); letter-spacing: -1px; margin-bottom: 4px; }
+        .calc-box .label { font-size: 13px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* PILLARS */
+        .pillars-section { padding: 100px 0; background: var(--bg); }
+        .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .pillar-card {
+            background: var(--bg-card); border-radius: var(--radius-lg); padding: 36px;
+            border: 1px solid rgba(0,0,0,0.05); box-shadow: var(--shadow-sm); transition: all 0.3s;
+        }
+        .pillar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(16,185,129,0.2); }
+        .pillar-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--green-bg); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; color: var(--green); }
+        .pillar-card h3 { font-size: 20px; font-weight: 700; color: #000; margin-bottom: 10px; }
+        .pillar-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+        /* CTA */
+        .cta-section { padding: 100px 0; background: var(--bg); }
+        .cta-card { background: var(--bg-dark); border-radius: var(--radius-xl); padding: 64px 48px; text-align: center; color: #fff; }
+        .cta-card h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+
+        /* FOOTER */
+        .footer { border-top: 1px solid rgba(0,0,0,0.06); padding: 40px 0; background: var(--bg); }
+        .footer .container { display: flex; justify-content: space-between; align-items: center; }
+        .footer p { font-size: 13px; color: var(--text-muted); }
+
+        @media (max-width: 768px) {
+            .calc-grid { grid-template-columns: 1fr; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .footer .container { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo-wrapper">
+                <img src="logo.png" alt="Naxa.One Logo" class="logo-img">
+                <div class="logo-text">Naxa<span class="dot">.</span>One</div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="ecommerce.html">eCommerce</a>
+                <a href="content.html">Content</a>
+                <a href="seo.html" class="active">SEO</a>
+                <a href="smm.html">SMM</a>
+                <a href="index.html#contact" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge">Organic Search Dominance</div>
+            <h1>Permanent Search Traffic That <span class="highlight">Replaces Ad Spend</span></h1>
+            <p>We build technical search engine optimization architectures that position your business at the top of Google — capturing high-intent buyer traffic without recurring ad costs.</p>
+            <div style="margin-bottom:48px;">
+                <a href="#calc" class="btn btn-primary">Calculate Your SEO Traffic Value →</a>
+            </div>
+            <div style="border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-xl); border:1px solid rgba(0,0,0,0.08);">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="SEO Organic Search Growth Analytics Dashboard" style="width:100%; height:400px; object-fit:cover; display:block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section class="calc-section" id="calc">
+        <div class="container">
+            <div class="calc-card reveal">
+                <h2 style="font-size:28px; font-weight:800; color:#000; margin-bottom:12px;">Interactive SEO Organic ROI Calculator</h2>
+                <p style="font-size:15px; color:var(--text-muted); margin-bottom:32px;">Estimate the monthly traffic and equivalent Google Ad value Naxa.One's SEO strategy can deliver for your brand.</p>
+
+                <div class="calc-grid">
+                    <div class="calc-controls">
+                        <div class="calc-control-group">
+                            <div class="calc-label">
+                                <span>Monthly Target Keyword Searches</span>
+                                <span class="calc-val" id="search-val">40,000</span>
+                            </div>
+                            <input type="range" id="search-slider" min="5000" max="200000" step="5000" value="40000">
+                        </div>
+                        <div class="calc-control-group">
+                            <div class="calc-label">
+                                <span>Average CPC Ad Cost</span>
+                                <span class="calc-val" id="cpc-val">$3.50</span>
+                            </div>
+                            <input type="range" id="cpc-slider" min="1.00" max="15.00" step="0.50" value="3.50">
+                        </div>
+                    </div>
+                    <div class="calc-results">
+                        <div class="calc-box">
+                            <div class="num" id="traffic-num">8,400</div>
+                            <div class="label">Projected Monthly Organic Visitors</div>
+                        </div>
+                        <div class="calc-box">
+                            <div class="num" id="value-num">$29,400</div>
+                            <div class="label">Equivalent Monthly Ad Spend Saved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PILLARS OF SEO -->
+    <section class="pillars-section">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:56px;">
+                <h2 style="font-size:36px; font-weight:800; color:#000; margin-bottom:12px;">The 4 SEO Growth Pillars</h2>
+                <p style="font-size:16px; color:var(--text-muted); max-width:560px; margin:0 auto;">Comprehensive organic search infrastructure built for lasting Google dominance.</p>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">⚙️</div>
+                    <h3>Technical SEO & Speed Audits</h3>
+                    <p>Optimizing site crawlability, Core Web Vitals, indexation hierarchy, and structured schema data to ensure Google ranks your pages first.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">🎯</div>
+                    <h3>High-Intent Keyword Mapping</h3>
+                    <p>Identifying transactional search terms used by active buyers, structuring content clusters that capture top-of-funnel and bottom-of-funnel demand.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">🔗</div>
+                    <h3>Domain Authority & Backlinks</h3>
+                    <p>Earning high-authority media mentions and relevant industry backlink profiles that solidify your domain's trust score in Google's algorithm.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">📈</div>
+                    <h3>Conversion-Focused Search Content</h3>
+                    <p>Creating comprehensive search content that doesn't just rank, but actively converts organic readers into leads and paying clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card reveal">
+                <h2>Ready to Own Your Search Category?</h2>
+                <p>Get a comprehensive technical SEO audit and keyword roadmap from Naxa.One.</p>
+                <a href="index.html#contact" class="btn btn-primary">Claim Free Audit →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Naxa.One. All rights reserved.</p>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="ecommerce.html">eCommerce</a>
+                <a href="content.html">Content</a>
+                <a href="seo.html">SEO</a>
+                <a href="smm.html">SMM</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    const sSlider = document.getElementById('search-slider');
+    const cSlider = document.getElementById('cpc-slider');
+    const sDisplay = document.getElementById('search-val');
+    const cDisplay = document.getElementById('cpc-val');
+    const tDisplay = document.getElementById('traffic-num');
+    const vDisplay = document.getElementById('value-num');
+
+    function updateCalc() {
+        const s = parseInt(sSlider.value);
+        const c = parseFloat(cSlider.value);
+        sDisplay.textContent = s.toLocaleString();
+        cDisplay.textContent = '$' + c.toFixed(2);
+
+        const organicCtr = 0.21; // 21% CTR for Top 3 rankings
+        const visitors = Math.round(s * organicCtr);
+        const adValue = Math.round(visitors * c);
+
+        tDisplay.textContent = visitors.toLocaleString();
+        vDisplay.textContent = '$' + adValue.toLocaleString();
+    }
+    sSlider.addEventListener('input', updateCalc);
+    cSlider.addEventListener('input', updateCalc);
+    updateCalc();
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

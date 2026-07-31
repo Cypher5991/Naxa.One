@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eCommerce Development & Conversion Engineering — Naxa.One</title>
+    <meta name="description" content="Naxa.One builds high-converting, lightning-fast eCommerce platforms engineered to maximize conversion rates, average order value, and recurring sales.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:          #FAFBFC;
+            --bg-alt:      #F0F2F5;
+            --bg-card:     #FFFFFF;
+            --bg-dark:     #0A0E17;
+            --text:        #111111;
+            --text-muted:  #5A6270;
+            --cyan:        #00B4D8;
+            --cyan-light:  #33D4FF;
+            --cyan-dark:   #0090AB;
+            --cyan-bg:     rgba(0,180,216,0.06);
+            --green:       #10B981;
+            --green-bg:    rgba(16,185,129,0.06);
+            --purple:      #8B5CF6;
+            --radius:      16px;
+            --radius-lg:   24px;
+            --radius-xl:   32px;
+            --shadow-sm:   0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md:   0 4px 20px rgba(0,0,0,0.06);
+            --shadow-lg:   0 12px 40px rgba(0,0,0,0.08);
+            --shadow-xl:   0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0;
+            background: rgba(250,251,252,0.85); backdrop-filter: blur(16px); transition: all 0.3s;
+        }
+        .navbar.scrolled { background: rgba(255,255,255,0.96); box-shadow: 0 1px 20px rgba(0,0,0,0.06); padding: 12px 0; }
+        .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; }
+        .logo-img { width: 36px; height: 36px; object-fit: contain; }
+        .logo-text { font-size: 22px; font-weight: 800; color: #000; }
+        .logo-text .dot { color: var(--cyan); }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color 0.3s; }
+        .nav-links a.active, .nav-links a:hover { color: #000; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px;
+            border-radius: 100px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; border: none;
+        }
+        .btn-primary { background: var(--cyan); color: #fff; }
+        .btn-primary:hover { background: var(--cyan-dark); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,180,216,0.3); }
+
+        /* HERO */
+        .page-hero { padding: 140px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px; background: var(--cyan-bg);
+            border: 1px solid rgba(0,180,216,0.2); padding: 8px 20px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; color: var(--cyan-dark); margin-bottom: 24px;
+        }
+        .page-hero h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; color: #000; }
+        .page-hero h1 .highlight { color: var(--cyan-dark); }
+        .page-hero p { font-size: 18px; color: var(--text-muted); max-width: 680px; line-height: 1.7; margin-bottom: 36px; }
+
+        /* SIMULATOR SECTION */
+        .simulator-section { padding: 80px 0; background: var(--bg-alt); }
+        .sim-card {
+            background: var(--bg-card); border-radius: var(--radius-xl); padding: 48px;
+            border: 1px solid rgba(0,0,0,0.06); box-shadow: var(--shadow-lg);
+        }
+        .sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .sim-controls { display: flex; flex-direction: column; gap: 32px; }
+        .sim-control-group { display: flex; flex-direction: column; gap: 12px; }
+        .sim-control-label { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; color: #000; }
+        .sim-val-display { color: var(--cyan-dark); font-weight: 800; font-size: 20px; }
+        input[type="range"] {
+            -webkit-appearance: none; width: 100%; height: 8px; background: var(--bg-alt);
+            border-radius: 100px; outline: none; cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 26px; height: 26px; background: var(--cyan);
+            border-radius: 50%; cursor: pointer; box-shadow: 0 0 0 4px rgba(0,180,216,0.15);
+        }
+        .sim-results { display: flex; flex-direction: column; gap: 20px; }
+        .sim-result-box {
+            background: var(--bg); border-radius: var(--radius-lg); padding: 28px;
+            border: 1px solid rgba(0,0,0,0.05); text-align: center;
+        }
+        .sim-result-box .num { font-size: 42px; font-weight: 800; color: var(--green); letter-spacing: -1px; margin-bottom: 4px; }
+        .sim-result-box .label { font-size: 13px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* VALUE DRIVERS */
+        .drivers-section { padding: 100px 0; background: var(--bg); }
+        .drivers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .driver-card {
+            background: var(--bg-card); border-radius: var(--radius-lg); padding: 36px;
+            border: 1px solid rgba(0,0,0,0.05); box-shadow: var(--shadow-sm); transition: all 0.3s;
+        }
+        .driver-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(0,180,216,0.2); }
+        .driver-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--cyan-bg); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; }
+        .driver-card h3 { font-size: 20px; font-weight: 700; color: #000; margin-bottom: 10px; }
+        .driver-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+        /* STACK SHOWCASE */
+        .stack-section { padding: 80px 0; background: var(--bg-dark); color: #fff; }
+        .stack-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .stack-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 28px; }
+        .stack-card .name { font-size: 18px; font-weight: 700; color: var(--cyan); margin-bottom: 6px; }
+        .stack-card .desc { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+        /* CTA */
+        .cta-section { padding: 100px 0; background: var(--bg); }
+        .cta-card { background: var(--bg-dark); border-radius: var(--radius-xl); padding: 64px 48px; text-align: center; color: #fff; }
+        .cta-card h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+
+        /* FOOTER */
+        .footer { border-top: 1px solid rgba(0,0,0,0.06); padding: 40px 0; background: var(--bg); }
+        .footer .container { display: flex; justify-content: space-between; align-items: center; }
+        .footer p { font-size: 13px; color: var(--text-muted); }
+
+        @media (max-width: 768px) {
+            .sim-grid { grid-template-columns: 1fr; }
+            .drivers-grid { grid-template-columns: 1fr; }
+            .stack-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer .container { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo-wrapper">
+                <img src="logo.png" alt="Naxa.One Logo" class="logo-img">
+                <div class="logo-text">Naxa<span class="dot">.</span>One</div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="ecommerce.html" class="active">eCommerce</a>
+                <a href="content.html">Content</a>
+                <a href="seo.html">SEO</a>
+                <a href="smm.html">SMM</a>
+                <a href="index.html#contact" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge">eCommerce Conversion Engineering</div>
+            <h1>Transform Your Online Store Into a <span class="highlight">Revenue Engine</span></h1>
+            <p>We build lightning-fast, custom eCommerce platforms designed to increase conversion rates, slash cart abandonment, and maximize your average order value (AOV).</p>
+            <div style="margin-bottom:48px;">
+                <a href="#simulator" class="btn btn-primary">Simulate Your Profit Growth →</a>
+            </div>
+            <div style="border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-xl); border:1px solid rgba(0,0,0,0.08);">
+                <img src="https://images.unsplash.com/photo-1556742049-0a675663546a?auto=format&fit=crop&w=1200&q=80" alt="High-Converting eCommerce Storefront Preview" style="width:100%; height:400px; object-fit:cover; display:block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE PROFIT SIMULATOR -->
+    <section class="simulator-section" id="simulator">
+        <div class="container">
+            <div class="sim-card reveal">
+                <h2 style="font-size:28px; font-weight:800; color:#000; margin-bottom:12px;">Interactive eCommerce Revenue Simulator</h2>
+                <p style="font-size:15px; color:var(--text-muted); margin-bottom:36px;">Adjust your current store traffic and order value to calculate your revenue upside with Naxa.One's custom eCommerce optimization.</p>
+                <div class="sim-grid">
+                    <div class="sim-controls">
+                        <div class="sim-control-group">
+                            <div class="sim-control-label">
+                                <span>Monthly Store Visitors</span>
+                                <span class="sim-val-display" id="visitors-val">25,000</span>
+                            </div>
+                            <input type="range" id="visitors-slider" min="5000" max="200000" step="5000" value="25000">
+                        </div>
+                        <div class="sim-control-group">
+                            <div class="sim-control-label">
+                                <span>Average Order Value (AOV)</span>
+                                <span class="sim-val-display" id="aov-val">$85</span>
+                            </div>
+                            <input type="range" id="aov-slider" min="20" max="300" step="5" value="85">
+                        </div>
+                    </div>
+                    <div class="sim-results">
+                        <div class="sim-result-box">
+                            <div class="num" id="conv-increase">+3.2%</div>
+                            <div class="label">Projected Conversion Rate Gain</div>
+                        </div>
+                        <div class="sim-result-box">
+                            <div class="num" id="rev-gain">+$68,000</div>
+                            <div class="label">Projected Monthly Revenue Gain</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE DRIVERS -->
+    <section class="drivers-section">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:56px;">
+                <h2 style="font-size:36px; font-weight:800; color:#000; margin-bottom:12px;">The 4 Pillars of eCommerce Value</h2>
+                <p style="font-size:16px; color:var(--text-muted); max-width:560px; margin:0 auto;">How our grass-root eCommerce engineering turns storefront visitors into loyal customers.</p>
+            </div>
+            <div class="drivers-grid">
+                <div class="driver-card reveal">
+                    <div class="driver-icon">⚡</div>
+                    <h3>Sub-Second Load Times</h3>
+                    <p>Every 100ms delay costs 7% in conversions. Our custom storefront architectures load under 1.2 seconds globally for maximum retention.</p>
+                </div>
+                <div class="driver-card reveal reveal-delay-1">
+                    <div class="driver-icon">🛒</div>
+                    <h3>Frictionless One-Page Checkout</h3>
+                    <p>Streamlined checkout flows with Apple Pay, Google Pay, and guest checkout options that reduce cart drop-off by up to 45%.</p>
+                </div>
+                <div class="driver-card reveal">
+                    <div class="driver-icon">🔄</div>
+                    <h3>Smart Upsell & Bundle Engines</h3>
+                    <p>Automated post-purchase upsells, dynamic bundle recommendations, and subscription triggers engineered to raise your Average Order Value.</p>
+                </div>
+                <div class="driver-card reveal reveal-delay-1">
+                    <div class="driver-icon">🔌</div>
+                    <h3>ERP & Inventory Integration</h3>
+                    <p>Real-time sync between your web store, warehouse, accounting, and CRM platforms to prevent stockouts and automate fulfillment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section class="stack-section">
+        <div class="container">
+            <h2 style="font-size:28px; font-weight:800; text-align:center; margin-bottom:40px;">eCommerce Technology Ecosystem</h2>
+            <div class="stack-grid">
+                <div class="stack-card"><div class="name">Shopify Plus</div><div class="desc">Enterprise scalability</div></div>
+                <div class="stack-card"><div class="name">Headless Commerce</div><div class="desc">Next.js & React storefronts</div></div>
+                <div class="stack-card"><div class="name">Stripe & Gateways</div><div class="desc">Global payment security</div></div>
+                <div class="stack-card"><div class="name">Klaviyo & CRM</div><div class="desc">Automated lifecycle flows</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card reveal">
+                <h2>Ready to Scale Your eCommerce Revenue?</h2>
+                <p>Schedule a strategy session with Naxa.One's eCommerce engineering team to audit your store.</p>
+                <a href="index.html#contact" class="btn btn-primary">Book Strategy Call →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Naxa.One. All rights reserved.</p>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="ecommerce.html">eCommerce</a>
+                <a href="content.html">Content</a>
+                <a href="seo.html">SEO</a>
+                <a href="smm.html">SMM</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Simulator logic
+    const vSlider = document.getElementById('visitors-slider');
+    const aSlider = document.getElementById('aov-slider');
+    const vDisplay = document.getElementById('visitors-val');
+    const aDisplay = document.getElementById('aov-val');
+    const convDisplay = document.getElementById('conv-increase');
+    const revDisplay = document.getElementById('rev-gain');
+
+    function updateSim() {
+        const v = parseInt(vSlider.value);
+        const a = parseInt(aSlider.value);
+        vDisplay.textContent = v.toLocaleString();
+        aDisplay.textContent = '$' + a;
+
+        const additionalConv = 0.032; // 3.2% boost
+        const additionalOrders = Math.round(v * additionalConv);
+        const gain = Math.round(additionalOrders * a);
+
+        convDisplay.textContent = '+3.2%';
+        revDisplay.textContent = '+$' + gain.toLocaleString();
+    }
+    vSlider.addEventListener('input', updateSim);
+    aSlider.addEventListener('input', updateSim);
+    updateSim();
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

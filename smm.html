@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Marketing (SMM) — Naxa.One</title>
+    <meta name="description" content="Naxa.One builds multi-platform social media campaigns, short-form video strategies, and performance marketing that amplify brand presence.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:          #FAFBFC;
+            --bg-alt:      #F0F2F5;
+            --bg-card:     #FFFFFF;
+            --bg-dark:     #0A0E17;
+            --text:        #111111;
+            --text-muted:  #5A6270;
+            --orange:      #F59E0B;
+            --orange-bg:   rgba(245,158,11,0.06);
+            --cyan:        #00B4D8;
+            --radius:      16px;
+            --radius-lg:   24px;
+            --radius-xl:   32px;
+            --shadow-sm:   0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md:   0 4px 20px rgba(0,0,0,0.06);
+            --shadow-lg:   0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0;
+            background: rgba(250,251,252,0.85); backdrop-filter: blur(16px); transition: all 0.3s;
+        }
+        .navbar.scrolled { background: rgba(255,255,255,0.96); box-shadow: 0 1px 20px rgba(0,0,0,0.06); padding: 12px 0; }
+        .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; }
+        .logo-img { width: 36px; height: 36px; object-fit: contain; }
+        .logo-text { font-size: 22px; font-weight: 800; color: #000; }
+        .logo-text .dot { color: var(--orange); }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color 0.3s; }
+        .nav-links a.active, .nav-links a:hover { color: #000; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px;
+            border-radius: 100px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; border: none;
+        }
+        .btn-primary { background: var(--orange); color: #fff; }
+        .btn-primary:hover { background: #D97706; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(245,158,11,0.3); }
+
+        /* HERO */
+        .page-hero { padding: 140px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px; background: var(--orange-bg);
+            border: 1px solid rgba(245,158,11,0.2); padding: 8px 20px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; color: var(--orange); margin-bottom: 24px;
+        }
+        .page-hero h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; color: #000; }
+        .page-hero h1 .highlight { color: var(--orange); }
+        .page-hero p { font-size: 18px; color: var(--text-muted); max-width: 680px; line-height: 1.7; margin-bottom: 36px; }
+
+        /* ESTIMATOR */
+        .est-section { padding: 80px 0; background: var(--bg-alt); }
+        .est-card { background: var(--bg-card); border-radius: var(--radius-xl); padding: 48px; border: 1px solid rgba(0,0,0,0.06); box-shadow: var(--shadow-lg); }
+        .est-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .est-controls { display: flex; flex-direction: column; gap: 32px; }
+        .est-control-group { display: flex; flex-direction: column; gap: 12px; }
+        .est-label { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; color: #000; }
+        .est-val { color: var(--orange); font-weight: 800; font-size: 20px; }
+        input[type="range"] {
+            -webkit-appearance: none; width: 100%; height: 8px; background: var(--bg-alt);
+            border-radius: 100px; outline: none; cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; width: 26px; height: 26px; background: var(--orange);
+            border-radius: 50%; cursor: pointer; box-shadow: 0 0 0 4px rgba(245,158,11,0.15);
+        }
+        .est-results { display: flex; flex-direction: column; gap: 20px; }
+        .est-box { background: var(--bg); border-radius: var(--radius-lg); padding: 28px; border: 1px solid rgba(0,0,0,0.05); text-align: center; }
+        .est-box .num { font-size: 42px; font-weight: 800; color: var(--orange); letter-spacing: -1px; margin-bottom: 4px; }
+        .est-box .label { font-size: 13px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* PILLARS */
+        .pillars-section { padding: 100px 0; background: var(--bg); }
+        .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .pillar-card {
+            background: var(--bg-card); border-radius: var(--radius-lg); padding: 36px;
+            border: 1px solid rgba(0,0,0,0.05); box-shadow: var(--shadow-sm); transition: all 0.3s;
+        }
+        .pillar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(245,158,11,0.2); }
+        .pillar-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--orange-bg); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; color: var(--orange); }
+        .pillar-card h3 { font-size: 20px; font-weight: 700; color: #000; margin-bottom: 10px; }
+        .pillar-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+        /* CTA */
+        .cta-section { padding: 100px 0; background: var(--bg); }
+        .cta-card { background: var(--bg-dark); border-radius: var(--radius-xl); padding: 64px 48px; text-align: center; color: #fff; }
+        .cta-card h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+
+        /* FOOTER */
+        .footer { border-top: 1px solid rgba(0,0,0,0.06); padding: 40px 0; background: var(--bg); }
+        .footer .container { display: flex; justify-content: space-between; align-items: center; }
+        .footer p { font-size: 13px; color: var(--text-muted); }
+
+        @media (max-width: 768px) {
+            .est-grid { grid-template-columns: 1fr; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .footer .container { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo-wrapper">
+                <img src="logo.png" alt="Naxa.One Logo" class="logo-img">
+                <div class="logo-text">Naxa<span class="dot">.</span>One</div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="ecommerce.html">eCommerce</a>
+                <a href="content.html">Content</a>
+                <a href="seo.html">SEO</a>
+                <a href="smm.html" class="active">SMM</a>
+                <a href="index.html#contact" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge">Social Media Marketing & Growth</div>
+            <h1>Turn Social Attention Into <span class="highlight">Brand Authority</span></h1>
+            <p>We build short-form video strategies, targeted Meta/LinkedIn ad campaigns, and community growth systems that amplify your brand presence across all digital channels.</p>
+            <div style="margin-bottom:48px;">
+                <a href="#est" class="btn btn-primary">Estimate Your Social Reach →</a>
+            </div>
+            <div style="border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-xl); border:1px solid rgba(0,0,0,0.08);">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80" alt="Social Media Content & Creator Studio" style="width:100%; height:400px; object-fit:cover; display:block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- ESTIMATOR -->
+    <section class="est-section" id="est">
+        <div class="container">
+            <div class="est-card reveal">
+                <h2 style="font-size:28px; font-weight:800; color:#000; margin-bottom:12px;">Interactive Social Reach & Lead Estimator</h2>
+                <p style="font-size:15px; color:var(--text-muted); margin-bottom:32px;">Adjust your monthly short-form content output to project total monthly impressions and lead generation.</p>
+
+                <div class="est-grid">
+                    <div class="est-controls">
+                        <div class="est-control-group">
+                            <div class="est-label">
+                                <span>Monthly Video / Content Pieces</span>
+                                <span class="est-val" id="content-val">16 Reels / Shorts</span>
+                            </div>
+                            <input type="range" id="content-slider" min="4" max="60" step="4" value="16">
+                        </div>
+                        <div class="est-control-group">
+                            <div class="est-label">
+                                <span>Monthly Paid Ad Budget</span>
+                                <span class="est-val" id="ad-val">$2,500</span>
+                            </div>
+                            <input type="range" id="ad-slider" min="500" max="25000" step="500" value="2500">
+                        </div>
+                    </div>
+                    <div class="est-results">
+                        <div class="est-box">
+                            <div class="num" id="impressions-num">480,000</div>
+                            <div class="label">Projected Monthly Impressions</div>
+                        </div>
+                        <div class="est-box">
+                            <div class="num" id="leads-num">240 Leads</div>
+                            <div class="label">Projected Inbound Leads & Sales</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PILLARS OF SMM -->
+    <section class="pillars-section">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:56px;">
+                <h2 style="font-size:36px; font-weight:800; color:#000; margin-bottom:12px;">The 4 Pillars of Social Visibility</h2>
+                <p style="font-size:16px; color:var(--text-muted); max-width:560px; margin:0 auto;">Connecting strategic short-form content with high-converting performance advertising.</p>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">🎬</div>
+                    <h3>Short-Form Video Production</h3>
+                    <p>High-energy Instagram Reels, YouTube Shorts, and TikTok videos scripted and edited specifically to hook viewer attention in under 3 seconds.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">🎯</div>
+                    <h3>Meta & LinkedIn Paid Ads</h3>
+                    <p>Precision audience targeting, retargeting funnels, and A/B ad creative testing that turn ad dollars into positive Return on Ad Spend (ROAS).</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">💬</div>
+                    <h3>Community Engagement</h3>
+                    <p>Active comment management, DM automation, and follower interaction tactics that build a passionate organic brand community.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">📊</div>
+                    <h3>Performance Analytics</h3>
+                    <p>Transparent monthly reporting tracking reach, CTR, cost-per-lead, and revenue generated from social channels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card reveal">
+                <h2>Ready to Scale Your Social Reach?</h2>
+                <p>Book a social growth consultation with Naxa.One's social strategy team.</p>
+                <a href="index.html#contact" class="btn btn-primary">Book Consultation Call →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Naxa.One. All rights reserved.</p>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="ecommerce.html">eCommerce</a>
+                <a href="content.html">Content</a>
+                <a href="seo.html">SEO</a>
+                <a href="smm.html">SMM</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    const cSlider = document.getElementById('content-slider');
+    const aSlider = document.getElementById('ad-slider');
+    const cDisplay = document.getElementById('content-val');
+    const aDisplay = document.getElementById('ad-val');
+    const impDisplay = document.getElementById('impressions-num');
+    const leadDisplay = document.getElementById('leads-num');
+
+    function updateEst() {
+        const c = parseInt(cSlider.value);
+        const a = parseInt(aSlider.value);
+        cDisplay.textContent = c + ' Reels / Shorts';
+        aDisplay.textContent = '$' + a.toLocaleString();
+
+        const organicImp = c * 15000;
+        const paidImp = a * 120;
+        const totalImp = organicImp + paidImp;
+        const estimatedLeads = Math.round(totalImp * 0.0005);
+
+        impDisplay.textContent = totalImp.toLocaleString();
+        leadDisplay.textContent = estimatedLeads.toLocaleString() + ' Leads';
+    }
+    cSlider.addEventListener('input', updateEst);
+    aSlider.addEventListener('input', updateEst);
+    updateEst();
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

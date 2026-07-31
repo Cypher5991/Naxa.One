@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Strategy & Brand Storytelling — Naxa.One</title>
+    <meta name="description" content="Naxa.One crafts high-converting copy, brand messaging frameworks, and visual storytelling assets that turn casual visitors into loyal advocates.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:          #FAFBFC;
+            --bg-alt:      #F0F2F5;
+            --bg-card:     #FFFFFF;
+            --bg-dark:     #0A0E17;
+            --text:        #111111;
+            --text-muted:  #5A6270;
+            --purple:      #8B5CF6;
+            --purple-light:#A78BFA;
+            --purple-bg:   rgba(139,92,246,0.06);
+            --cyan:        #00B4D8;
+            --radius:      16px;
+            --radius-lg:   24px;
+            --radius-xl:   32px;
+            --shadow-sm:   0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md:   0 4px 20px rgba(0,0,0,0.06);
+            --shadow-lg:   0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 16px 0;
+            background: rgba(250,251,252,0.85); backdrop-filter: blur(16px); transition: all 0.3s;
+        }
+        .navbar.scrolled { background: rgba(255,255,255,0.96); box-shadow: 0 1px 20px rgba(0,0,0,0.06); padding: 12px 0; }
+        .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+        .logo-wrapper { display: flex; align-items: center; gap: 12px; }
+        .logo-img { width: 36px; height: 36px; object-fit: contain; }
+        .logo-text { font-size: 22px; font-weight: 800; color: #000; }
+        .logo-text .dot { color: var(--purple); }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { font-size: 14px; font-weight: 500; color: var(--text-muted); transition: color 0.3s; }
+        .nav-links a.active, .nav-links a:hover { color: #000; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; padding: 12px 28px;
+            border-radius: 100px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; border: none;
+        }
+        .btn-primary { background: var(--purple); color: #fff; }
+        .btn-primary:hover { background: #7C3AED; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(139,92,246,0.3); }
+
+        /* HERO */
+        .page-hero { padding: 140px 0 80px; background: var(--bg); position: relative; overflow: hidden; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px; background: var(--purple-bg);
+            border: 1px solid rgba(139,92,246,0.2); padding: 8px 20px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; color: var(--purple); margin-bottom: 24px;
+        }
+        .page-hero h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px; color: #000; }
+        .page-hero h1 .highlight { color: var(--purple); }
+        .page-hero p { font-size: 18px; color: var(--text-muted); max-width: 680px; line-height: 1.7; margin-bottom: 36px; }
+
+        /* BRAND MATRIX */
+        .matrix-section { padding: 80px 0; background: var(--bg-alt); }
+        .matrix-card { background: var(--bg-card); border-radius: var(--radius-xl); padding: 48px; border: 1px solid rgba(0,0,0,0.06); box-shadow: var(--shadow-lg); }
+        .matrix-tabs { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+        .matrix-tab {
+            padding: 12px 24px; border-radius: 100px; background: var(--bg-alt); border: none;
+            font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s; color: var(--text-muted);
+        }
+        .matrix-tab.active { background: var(--purple); color: #fff; }
+        .matrix-display {
+            background: var(--bg-dark); color: #fff; border-radius: var(--radius-lg); padding: 36px; position: relative;
+        }
+        .matrix-display .tag { font-size: 12px; font-weight: 700; color: var(--purple-light); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+        .matrix-display .headline { font-size: 28px; font-weight: 800; margin-bottom: 16px; line-height: 1.3; }
+        .matrix-display .desc { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+        /* PILLARS */
+        .pillars-section { padding: 100px 0; background: var(--bg); }
+        .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .pillar-card {
+            background: var(--bg-card); border-radius: var(--radius-lg); padding: 36px;
+            border: 1px solid rgba(0,0,0,0.05); box-shadow: var(--shadow-sm); transition: all 0.3s;
+        }
+        .pillar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(139,92,246,0.2); }
+        .pillar-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--purple-bg); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 20px; color: var(--purple); }
+        .pillar-card h3 { font-size: 20px; font-weight: 700; color: #000; margin-bottom: 10px; }
+        .pillar-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+        /* CTA */
+        .cta-section { padding: 100px 0; background: var(--bg); }
+        .cta-card { background: var(--bg-dark); border-radius: var(--radius-xl); padding: 64px 48px; text-align: center; color: #fff; }
+        .cta-card h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+
+        /* FOOTER */
+        .footer { border-top: 1px solid rgba(0,0,0,0.06); padding: 40px 0; background: var(--bg); }
+        .footer .container { display: flex; justify-content: space-between; align-items: center; }
+        .footer p { font-size: 13px; color: var(--text-muted); }
+
+        @media (max-width: 768px) {
+            .pillars-grid { grid-template-columns: 1fr; }
+            .footer .container { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo-wrapper">
+                <img src="logo.png" alt="Naxa.One Logo" class="logo-img">
+                <div class="logo-text">Naxa<span class="dot">.</span>One</div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="ecommerce.html">eCommerce</a>
+                <a href="content.html" class="active">Content</a>
+                <a href="seo.html">SEO</a>
+                <a href="smm.html">SMM</a>
+                <a href="index.html#contact" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-badge">Brand Storytelling & Copywriting</div>
+            <h1>Words & Visuals That Build <span class="highlight">Unshakeable Trust</span></h1>
+            <p>We craft brand messaging frameworks, high-converting website copy, and visual asset systems that transform casual visitors into passionate brand advocates.</p>
+            <div style="margin-bottom:48px;">
+                <a href="#matrix" class="btn btn-primary">Test Our Messaging Matrix →</a>
+            </div>
+            <div style="border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-xl); border:1px solid rgba(0,0,0,0.08);">
+                <img src="https://images.unsplash.com/photo-1542744094-3a3121699497?auto=format&fit=crop&w=1200&q=80" alt="Brand Messaging & Content Strategy Studio" style="width:100%; height:400px; object-fit:cover; display:block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND VOICE MATRIX -->
+    <section class="matrix-section" id="matrix">
+        <div class="container">
+            <div class="matrix-card reveal">
+                <h2 style="font-size:28px; font-weight:800; color:#000; margin-bottom:12px;">Interactive Brand Voice Matrix</h2>
+                <p style="font-size:15px; color:var(--text-muted); margin-bottom:32px;">See how Naxa.One shapes brand positioning across different industries and target audiences.</p>
+                
+                <div class="matrix-tabs">
+                    <button class="matrix-tab active" onclick="switchTone('bold', this)">Bold & Disruptive</button>
+                    <button class="matrix-tab" onclick="switchTone('corporate', this)">Corporate & Executive</button>
+                    <button class="matrix-tab" onclick="switchTone('warm', this)">Warm & Premium</button>
+                </div>
+
+                <div class="matrix-display">
+                    <div class="tag" id="matrix-tag">Positioning Strategy</div>
+                    <div class="headline" id="matrix-headline">"We Don't Follow Industry Standards. We Define Them."</div>
+                    <div class="desc" id="matrix-desc">Engineered for challenger brands looking to disrupt overcrowded markets with high-energy value propositions, confident typography, and direct action.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PILLARS OF CONTENT -->
+    <section class="pillars-section">
+        <div class="container">
+            <div style="text-align:center; margin-bottom:56px;">
+                <h2 style="font-size:36px; font-weight:800; color:#000; margin-bottom:12px;">The 4 Content Architecture Pillars</h2>
+                <p style="font-size:16px; color:var(--text-muted); max-width:560px; margin:0 auto;">Strategic content assets built for clarity, conversion, and brand longevity.</p>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">✍️</div>
+                    <h3>High-Converting Copywriting</h3>
+                    <p>Persuasive headline systems, subheadings, and product copy engineered to guide visitor eye movement and prompt immediate call-to-action clicks.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">📘</div>
+                    <h3>Brand Guidelines & Voice</h3>
+                    <p>Comprehensive style guides defining tone of voice, messaging dos/don'ts, typography standards, and brand positioning statements.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">🎨</div>
+                    <h3>Visual Asset Direction</h3>
+                    <p>Cohesive brand iconography, custom graphics, and UI imagery designed to communicate product value instantly without clutter.</p>
+                </div>
+                <div class="pillar-card reveal">
+                    <div class="pillar-icon">🎯</div>
+                    <h3>Value Proposition Design</h3>
+                    <p>Synthesizing complex technical features into clear, simple benefit statements that resonate with decision-makers in under 5 seconds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card reveal">
+                <h2>Ready to Define Your Brand Story?</h2>
+                <p>Book a messaging consultation with Naxa.One's brand content strategists.</p>
+                <a href="index.html#contact" class="btn btn-primary">Book Consultation Call →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Naxa.One. All rights reserved.</p>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="ecommerce.html">eCommerce</a>
+                <a href="content.html">Content</a>
+                <a href="seo.html">SEO</a>
+                <a href="smm.html">SMM</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    const tones = {
+        bold: {
+            tag: "Challenger Brand Positioning",
+            headline: '"We Don\'t Follow Industry Standards. We Define Them."',
+            desc: "Engineered for challenger brands looking to disrupt overcrowded markets with high-energy value propositions, confident typography, and direct action."
+        },
+        corporate: {
+            tag: "Enterprise & Investor Positioning",
+            headline: '"Grass-Root Digital Infrastructure Engineered for Predictable Scale."',
+            desc: "Tailored for B2B enterprises and institutional clients requiring institutional trust, clear ROI metrics, compliance messaging, and executive clarity."
+        },
+        warm: {
+            tag: "Boutique & Premium Lifestyle",
+            headline: '"Crafted with Intent. Built for People Who Demand Excellence."',
+            desc: "Designed for premium DTC brands and lifestyle businesses focused on story-driven connection, customer intimacy, and lasting emotional resonance."
+        }
+    };
+
+    function switchTone(key, btn) {
+        document.querySelectorAll('.matrix-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const t = tones[key];
+        document.getElementById('matrix-tag').textContent = t.tag;
+        document.getElementById('matrix-headline').textContent = t.headline;
+        document.getElementById('matrix-desc').textContent = t.desc;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

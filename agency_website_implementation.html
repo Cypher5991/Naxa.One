@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Agency | Growth & Literacy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0F172A', // Gunmetal Slate
+                        darker: '#020617', // Deep Industrial Black
+                        card: 'rgba(255, 255, 255, 0.95)',
+                        primary: '#1D4ED8', // Corporate Blue (Blue-700)
+                        secondary: '#059669', // Growth Green (Emerald-600)
+                        industrial: '#334155', // Steel Slate (Slate-700)
+                        steel: '#64748B', // Steel Gray (Slate-500)
+                        bronze: '#B45309', // Warm Industrial Bronze (Amber-700)
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F8FAFC;
+            color: #0F172A;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Scrollbar - Industrial Steel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F1F5F9; }
+        ::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+        }
+
+        .glass-card {
+            background: #FFFFFF;
+            border: 1px solid #CBD5E1;
+            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: #2563EB;
+            box-shadow: 0 20px 35px -5px rgba(29, 78, 216, 0.15), 0 10px 10px -5px rgba(5, 150, 105, 0.10);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #1D4ED8, #059669, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #1E3A8A, #0284C7, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Slider styling - Corporate Blue & Steel */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 22px;
+            width: 22px;
+            border-radius: 50%;
+            background: #1D4ED8;
+            cursor: pointer;
+            margin-top: -9px;
+            box-shadow: 0 0 12px rgba(29, 78, 216, 0.5);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #CBD5E1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-700 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-700 via-slate-800 to-emerald-600 flex items-center justify-center font-bold text-white shadow-md shadow-blue-900/20">
+                        AG
+                    </div>
+                    <span class="font-extrabold text-xl tracking-tight text-slate-900">Antigravity</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#philosophy" class="text-slate-700 hover:text-blue-700 font-semibold transition-colors px-3 py-2 rounded-md text-sm">Our Philosophy</a>
+                        <a href="#services" class="text-slate-700 hover:text-blue-700 font-semibold transition-colors px-3 py-2 rounded-md text-sm">Solutions</a>
+                        <a href="#audit" class="text-slate-700 hover:text-blue-700 font-semibold transition-colors px-3 py-2 rounded-md text-sm">The Audit</a>
+                        <a href="#contact" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-5 py-2.5 rounded-full text-sm transition-all shadow-md shadow-blue-700/20">Book Discovery</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-700 hover:text-blue-700 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden glass-nav border-t border-slate-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#philosophy" class="text-slate-700 hover:text-blue-700 font-semibold block px-3 py-2 rounded-md text-base">Philosophy</a>
+                <a href="#services" class="text-slate-700 hover:text-blue-700 font-semibold block px-3 py-2 rounded-md text-base">Solutions</a>
+                <a href="#audit" class="text-slate-700 hover:text-blue-700 font-semibold block px-3 py-2 rounded-md text-base">The Audit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-b from-slate-100 via-slate-50 to-blue-50/50">
+        <!-- Background industrial blobs -->
+        <div class="absolute top-10 -left-10 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div class="absolute top-10 -right-10 w-96 h-96 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-10 left-32 w-96 h-96 bg-slate-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-300 text-sm font-semibold text-slate-800 mb-8 shadow-sm">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                Partnering with Indian MSMEs & Enterprises
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 mb-6">
+                Stop surviving.<br>
+                <span class="text-gradient">Start scaling.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl text-lg md:text-xl text-slate-600 mx-auto mb-10 font-normal leading-relaxed">
+                Tech shouldn't be a black box. We translate "geek" into "growth", bridging the gap between your executive vision and flawless digital execution. No jargon. Just ROI.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#calculator" class="bg-gradient-to-r from-blue-700 via-slate-800 to-emerald-600 hover:from-blue-800 hover:to-emerald-700 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg shadow-blue-900/20 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                    Test Your Digital Maturity <i class="fas fa-arrow-right text-sm"></i>
+                </a>
+                <a href="#services" class="bg-white hover:bg-slate-100 border border-slate-300 text-slate-800 font-bold px-8 py-4 rounded-full transition-all shadow-sm flex items-center justify-center">
+                    Explore Solutions
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Problem & Philosophy -->
+    <section id="philosophy" class="py-24 relative z-10 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Why most digital projects <span class="text-gradient-blue">fail.</span></h2>
+                <p class="text-slate-600 max-w-2xl mx-auto font-medium">Most agencies keep you in the dark to create dependency. We educate you so you can own your digital future. We call it <span class="text-slate-900 font-bold">Digital Literacy.</span></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card rounded-2xl p-8 animate-on-scroll border-t-4 border-t-slate-700">
+                    <div class="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center mb-6 text-slate-800 font-bold">
+                        <i class="fas fa-link-slash text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Siloed Systems</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">Your CRM doesn't talk to your Tally ERP, and web leads sit in an inbox for hours. Manual data entry is draining your team's energy and killing speed.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-card rounded-2xl p-8 animate-on-scroll border-t-4 border-t-blue-700" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-6 text-blue-700 font-bold">
+                        <i class="fas fa-chart-pie text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Blind Analytics</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">You have Google Analytics installed, but nobody knows what it means. Decisions are made on gut feeling rather than attribution models and hard data.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-card rounded-2xl p-8 animate-on-scroll border-t-4 border-t-emerald-600" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center mb-6 text-emerald-700 font-bold">
+                        <i class="fas fa-handshake-angle text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">The Antigravity Fix</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">We build the bridges. From WhatsApp APIs to custom dashboards, we implement the tech and train your internal team so you are never held hostage by code.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Tiers -->
+    <section id="services" class="py-24 relative z-10 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Scalable Solutions for <span class="text-gradient">Every Stage</span></h2>
+                <p class="text-slate-600 max-w-2xl mx-auto font-medium">From lean SMB sprints to dedicated Enterprise agile pods, our retainer models are built around tangible business impact and operational cost reduction.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Tier 1 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col animate-on-scroll border border-slate-300">
+                    <div class="mb-4">
+                        <span class="text-slate-800 font-bold text-xs tracking-wider uppercase bg-slate-100 px-3 py-1 rounded-full">Tier 1</span>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-3">SMB Sprint</h3>
+                        <p class="text-sm text-slate-500 mt-1">For local services & early-stage startups.</p>
+                    </div>
+                    <div class="text-3xl font-extrabold text-slate-900 mb-6">₹35k - ₹75k<span class="text-base font-normal text-slate-500">/mo</span></div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-slate-700 mt-1"></i> <span>High-converting web presence & maintenance</span></li>
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-slate-700 mt-1"></i> <span>Basic CRM & Zapier/Make automations</span></li>
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-slate-700 mt-1"></i> <span>GA4 & Lead intake tracking</span></li>
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-slate-700 mt-1"></i> <span>Monthly Tech Literacy training</span></li>
+                    </ul>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col relative transform lg:-translate-y-4 border-2 border-blue-700 shadow-xl shadow-blue-900/10 animate-on-scroll" style="transition-delay: 100ms;">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-700 to-emerald-700 text-white text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wide shadow-md">
+                        Most Popular
+                    </div>
+                    <div class="mb-4 mt-2">
+                        <span class="text-blue-700 font-bold text-xs tracking-wider uppercase bg-blue-50 px-3 py-1 rounded-full">Tier 2</span>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-3">Mid-Market Scale</h3>
+                        <p class="text-sm text-slate-500 mt-1">For high-growth scale-ups & D2C brands.</p>
+                    </div>
+                    <div class="text-3xl font-extrabold text-slate-900 mb-6">₹1.25L - ₹3L<span class="text-base font-normal text-slate-500">/mo</span></div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-700 mt-1"></i> <span>Custom Web Apps & Middleware (Next.js)</span></li>
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-700 mt-1"></i> <span>WhatsApp API (Interakt) & Tally Sync</span></li>
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-700 mt-1"></i> <span>Razorpay / Shiprocket API automation</span></li>
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-700 mt-1"></i> <span>Bi-weekly Executive Strategy Sessions</span></li>
+                    </ul>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col animate-on-scroll border border-slate-300" style="transition-delay: 200ms;">
+                    <div class="mb-4">
+                        <span class="text-emerald-700 font-bold text-xs tracking-wider uppercase bg-emerald-50 px-3 py-1 rounded-full">Tier 3</span>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-3">Enterprise Pod</h3>
+                        <p class="text-sm text-slate-500 mt-1">For legacy corporates & high-compliance orgs.</p>
+                    </div>
+                    <div class="text-3xl font-extrabold text-slate-900 mb-6">₹5L+<span class="text-base font-normal text-slate-500">/mo</span></div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-700 mt-1"></i> <span>Dedicated Agile Senior Dev Pod</span></li>
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-700 mt-1"></i> <span>Cloud Ops (AWS/GCP) & Custom APIs</span></li>
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-700 mt-1"></i> <span>SOC2/GDPR Compliance & Security</span></li>
+                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-700 mt-1"></i> <span>Weekly C-Suite Tech Advisory</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Paid Audit -->
+    <section id="audit" class="py-24 relative z-10 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-3xl overflow-hidden shadow-2xl text-white animate-on-scroll">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-10 md:p-14 flex flex-col justify-center">
+                        <div class="inline-block px-3.5 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full text-xs font-bold uppercase tracking-wider mb-6 w-max">Gateway Service</div>
+                        <h2 class="text-3xl md:text-4xl font-extrabold mb-4">The 1-Week Digital Maturity Audit</h2>
+                        <p class="text-slate-300 mb-6">Before we build, we diagnose. Our intensive 7-day technical evaluation pinpoints security vulnerabilities, manual bottlenecks, and analytics drops.</p>
+                        
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3"><i class="fas fa-shield-halved text-emerald-400 w-5"></i> <span class="text-sm text-slate-200">Identify Technical Debt & Speed Bottlenecks</span></div>
+                            <div class="flex items-center gap-3"><i class="fas fa-network-wired text-emerald-400 w-5"></i> <span class="text-sm text-slate-200">Map WhatsApp, CRM, and ERP/Tally Workflows</span></div>
+                            <div class="flex items-center gap-3"><i class="fas fa-map-location-dot text-emerald-400 w-5"></i> <span class="text-sm text-slate-200">Deliver a 12-Month Modernization Roadmap</span></div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-center gap-4">
+                            <div class="text-3xl font-extrabold text-emerald-400">₹35,000</div>
+                            <span class="text-slate-500 text-sm hidden sm:block">|</span>
+                            <div class="text-sm text-slate-300"><span class="text-emerald-400 font-bold">100% credited</span> towards your first retainer.</div>
+                        </div>
+                    </div>
+                    <div class="bg-slate-950/80 p-10 flex items-center justify-center relative border-l border-slate-800">
+                        <!-- Abstract Roadmap graphic -->
+                        <div class="relative w-full max-w-sm">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-emerald-600/20 rounded-full blur-2xl"></div>
+                            <div class="relative space-y-4">
+                                <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl flex items-center gap-4 transform -translate-x-4 border-l-4 border-l-blue-400 border border-white/10">
+                                    <div class="w-8 h-8 rounded-full bg-blue-500/30 flex items-center justify-center text-blue-300 font-bold text-sm">1</div>
+                                    <div class="text-sm font-semibold">Access & Kickoff</div>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl flex items-center gap-4 transform translate-x-4 border-l-4 border-l-emerald-400 border border-white/10">
+                                    <div class="w-8 h-8 rounded-full bg-emerald-500/30 flex items-center justify-center text-emerald-300 font-bold text-sm">3</div>
+                                    <div class="text-sm font-semibold">Automation & Integrations</div>
+                                </div>
+                                <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl flex items-center gap-4 transform -translate-x-2 border-l-4 border-l-slate-400 border border-white/10">
+                                    <div class="w-8 h-8 rounded-full bg-slate-500/30 flex items-center justify-center text-slate-300 font-bold text-sm">6</div>
+                                    <div class="text-sm font-semibold">Executive Strategy Briefing</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Calculator -->
+    <section id="calculator" class="py-24 relative z-10 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Try the <span class="text-gradient">Mini-Audit</span></h2>
+                <p class="text-slate-600 text-sm font-medium">Rate your current business operations (1 = Non-Existent, 5 = Fully Optimized). See where you stand instantly.</p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 md:p-10 animate-on-scroll shadow-xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    
+                    <!-- Sliders -->
+                    <div class="space-y-8" id="calc-sliders">
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-bold text-slate-800">Infrastructure & Speed</label>
+                                <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-infra">2/5</span>
+                            </div>
+                            <input type="range" id="slider-infra" min="1" max="5" value="2" oninput="updateAudit()">
+                            <p class="text-xs text-slate-500 mt-1">Hosting, security, load times.</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-bold text-slate-800">Workflow Automation</label>
+                                <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-auto">2/5</span>
+                            </div>
+                            <input type="range" id="slider-auto" min="1" max="5" value="2" oninput="updateAudit()">
+                            <p class="text-xs text-slate-500 mt-1">CRM, Tally, WhatsApp routing.</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-bold text-slate-800">Analytics & Data</label>
+                                <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-data">1/5</span>
+                            </div>
+                            <input type="range" id="slider-data" min="1" max="5" value="1" oninput="updateAudit()">
+                            <p class="text-xs text-slate-500 mt-1">GA4, Dashboards, single source of truth.</p>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-bold text-slate-800">Strategy & Literacy</label>
+                                <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-strat">2/5</span>
+                            </div>
+                            <input type="range" id="slider-strat" min="1" max="5" value="2" oninput="updateAudit()">
+                            <p class="text-xs text-slate-500 mt-1">Team tech skills, governance, roadmap.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Results Panel -->
+                    <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-white rounded-2xl p-6 shadow-lg flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute -right-10 -top-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
+                        
+                        <div>
+                            <p class="text-xs font-bold text-slate-300 mb-1 uppercase tracking-wider">Estimated Score</p>
+                            <div class="flex items-baseline gap-2 mb-6">
+                                <h3 class="text-5xl font-extrabold text-white" id="res-score">35%</h3>
+                                <span class="text-xs px-2.5 py-1 rounded-full font-bold" id="res-tier-badge" style="background: rgba(217, 119, 6, 0.25); color: #fcd34d;">Reactive</span>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <p class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Highest Risk Area</p>
+                                <div class="bg-white/10 border border-white/10 rounded-xl p-3">
+                                    <div class="text-sm font-bold text-emerald-400" id="res-risk-title">Analytics & Data</div>
+                                    <div class="text-xs text-slate-200 mt-1" id="res-risk-desc">Blind decision making due to data gaps.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Recommended Path</p>
+                            <div class="bg-gradient-to-r from-blue-900/40 to-emerald-900/40 border border-slate-700 rounded-xl p-4">
+                                <div class="text-base font-bold text-white mb-1" id="res-service">Mid-Market Modernization</div>
+                                <div class="text-xs font-semibold text-emerald-400" id="res-price">Est: ₹1.25L - ₹3L / mo</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-slate-900 text-white border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-700 via-slate-800 to-emerald-600 flex items-center justify-center font-bold text-white text-xs">AG</div>
+                        <span class="font-extrabold text-lg text-white">Antigravity Digital</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-sm mb-6">Bridging the gap between executive vision and flawless digital execution. Elevating Indian businesses through technology and literacy.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-emerald-400 transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-emerald-400 transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-emerald-400 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Headquarters</h4>
+                    <address class="not-italic text-sm text-slate-400 space-y-2">
+                        <p>Tech Park Sector 22</p>
+                        <p>Chandigarh, India 160022</p>
+                        <p class="pt-2"><a href="mailto:hello@antigravity.in" class="hover:text-blue-400">hello@antigravity.in</a></p>
+                    </address>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Legal</h4>
+                    <ul class="text-sm text-slate-400 space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">MSA & GST Info</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-500 text-xs">© 2026 Antigravity Digital. All rights reserved.</p>
+                <p class="text-slate-500 text-xs mt-2 md:mt-0">Designed for scale.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic & Animations -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- Digital Maturity Calculator Logic ---
+        const pillars = [
+            { id: 'infra', name: 'Infrastructure', risk: 'Siloed legacy systems preventing scale.' },
+            { id: 'auto', name: 'Automation', risk: 'High manual overhead and operational drag.' },
+            { id: 'data', name: 'Analytics & Data', risk: 'Blind decision making due to data gaps.' },
+            { id: 'strat', name: 'Strategy', risk: 'Lack of roadmap leading to misaligned spend.' }
+        ];
+
+        function updateAudit() {
+            let total = 0;
+            let lowestVal = 5;
+            let lowestPillar = pillars[0];
+
+            pillars.forEach(p => {
+                const val = parseInt(document.getElementById(`slider-${p.id}`).value);
+                document.getElementById(`val-${p.id}`).innerText = `${val}/5`;
+                total += val;
+                
+                if (val < lowestVal) {
+                    lowestVal = val;
+                    lowestPillar = p;
+                }
+            });
+
+            // Calculate percentage
+            const percentage = Math.round((total / 20) * 100);
+            document.getElementById('res-score').innerText = `${percentage}%`;
+
+            // Determine Tier & Industrial Palette Colors
+            const badge = document.getElementById('res-tier-badge');
+            let tierName = "Reactive";
+            let colorStr = "#fcd34d"; // warm bronze yellow
+            let bgStr = "rgba(217, 119, 6, 0.25)";
+
+            if (percentage > 75) {
+                tierName = "Optimized";
+                colorStr = "#34d399"; // growth green
+                bgStr = "rgba(16, 185, 129, 0.25)";
+            } else if (percentage >= 50) {
+                tierName = "Strategic";
+                colorStr = "#93c5fd"; // corporate blue
+                bgStr = "rgba(37, 99, 235, 0.25)";
+            } else if (percentage >= 30) {
+                tierName = "Emerging";
+                colorStr = "#cbd5e1"; // industrial steel
+                bgStr = "rgba(100, 116, 139, 0.25)";
+            }
+
+            badge.innerText = tierName;
+            badge.style.color = colorStr;
+            badge.style.background = bgStr;
+
+            // Update Risk Area
+            document.getElementById('res-risk-title').innerText = lowestPillar.name;
+            document.getElementById('res-risk-desc').innerText = lowestPillar.risk;
+
+            // Update Recommendation (Using Indian Pricing Context)
+            const recTitle = document.getElementById('res-service');
+            const recPrice = document.getElementById('res-price');
+
+            if (percentage > 75) {
+                recTitle.innerText = "Enterprise Pod";
+                recPrice.innerText = "Est: ₹5L+ / mo";
+            } else if (percentage >= 40) {
+                recTitle.innerText = "Mid-Market Scale";
+                recPrice.innerText = "Est: ₹1.25L - ₹3L / mo";
+            } else {
+                recTitle.innerText = "SMB Sprint";
+                recPrice.innerText = "Est: ₹35k - ₹75k / mo";
+            }
+        }
+
+        // Initialize calculator
+        updateAudit();
+    </script>
+</body>
+</html>
