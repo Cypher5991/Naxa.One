@@ -1,0 +1,25 @@
+# Antigravity Digital (Naxa.One)
+
+> Bridging the gap between executive vision and flawless digital execution. Partnering with Indian MSMEs, scale-ups, and D2C brands to translate technology into business growth and digital literacy.
+
+## Core Capabilities & Offerings
+
+- **Digital Maturity Audit (Gateway Offer)**: A 7-day intensive evaluation (₹35,000, 100% credited toward retainer) identifying speed bottlenecks, technical debt, and mapping CRM, Tally ERP, and WhatsApp API workflows.
+- **eCommerce Development & Conversion Engineering**: High-converting storefronts, custom checkout UX, upsell automation, Razorpay/Shiprocket API, and ERP inventory sync.
+- **Brand Strategy & Content Identity**: Visual systems, messaging frameworks, copywriting, and brand guidelines to establish trust.
+- **Search Engine Optimization (SEO)**: Technical SEO audits, local search dominance, keyword strategies, and organic authority building.
+- **Social Media Marketing (SMM)**: Targeted performance campaigns, short-form video production, and community engagement.
+
+## Pricing Tiers (INR Retainers)
+
+| Tier Name | Price Range | Target Client | Key Inclusions |
+|---|---|---|---|
+| **Tier 1: SMB Sprint** | ₹35,000 - ₹75,000 / mo | Local services & early startups | Web presence, basic CRM, Zapier/Make automation, GA4 lead tracking, monthly literacy training |
+| **Tier 2: Mid-Market Scale** | ₹1.25L - ₹3.0L / mo | High-growth scale-ups & D2C brands | Custom Next.js web apps, WhatsApp API (Interakt), Tally sync, Razorpay/Shiprocket, bi-weekly C-suite advisory |
+| **Tier 3: Enterprise Pod** | ₹5.0L+ / mo | Legacy corporates & high compliance orgs | Dedicated agile senior dev pod, AWS/GCP cloud ops, SOC2/GDPR compliance, weekly C-suite advisory |
+
+## Contact & Company Info
+- **Website**: https://naxa-one.vercel.app/
+- **Headquarters**: Tech Park Sector 22, Chandigarh, India 160022
+- **Email**: hello@antigravity.in
+- **Service Area**: Pan-India & Global Digital Consulting

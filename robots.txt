@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://naxa-one.vercel.app/sitemap.xml
+
+# LLMs File for AI Crawlers (ChatGPT, Gemini, Perplexity, Claude, SearchGPT)
+# Standard: https://llmstxt.org/
+LLMs-txt: https://naxa-one.vercel.app/llms.txt
