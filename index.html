@@ -36,13 +36,6 @@
           "alternateName": "Naxa.One Digital",
           "url": "https://naxa-one.vercel.app/",
           "logo": "https://naxa-one.vercel.app/logo.png",
-          "email": "hello@naxa.one",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Chandigarh",
-            "postalCode": "160022",
-            "addressCountry": "IN"
-          },
           "sameAs": [
             "https://github.com/Cypher5991/Naxa.One"
           ]
@@ -52,9 +45,10 @@
           "@id": "https://naxa-one.vercel.app/#service",
           "name": "Naxa.One",
           "url": "https://naxa-one.vercel.app/",
-          "priceRange": "₹35,000 - ₹500,000 INR",
-          "areaServed": "India",
-          "image": "https://naxa-one.vercel.app/logo.png"
+          "logo": "https://naxa-one.vercel.app/logo.png",
+          "image": "https://naxa-one.vercel.app/logo.png",
+          "description": "Custom web platforms, Tally ERP integrations, eCommerce growth, and digital literacy advisory.",
+          "priceRange": "₹35,000 - ₹5,000,000"
         },
         {
           "@type": "FAQPage",
@@ -181,8 +175,8 @@
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
-        .is-visible {
+        
+        .animate-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -296,39 +290,41 @@
             <div class="absolute inset-0 bg-gradient-to-r from-white/70 via-white/40 to-white/20 backdrop-blur-[1px]"></div>
         </div>
 
-        <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left z-10 py-16 hero-content-box">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-sm font-bold text-emerald-600 mb-8 shadow-sm">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                Grass-Root Digital Development
-            </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-950 mb-6 max-w-4xl leading-[1.08]">
-                Build Your Digital <span class="bg-gradient-to-r from-blue-700 via-blue-600 to-emerald-600 bg-clip-text text-transparent">Foundation</span> From the Ground Up
-            </h1>
-            <p class="mt-4 max-w-2xl text-lg md:text-xl text-slate-900 font-semibold leading-relaxed mb-10">
-                We handle all the complicated digital work so you can focus on running your business. From building custom web platforms to driving organic revenue, we help you own your space.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-start gap-4 mb-12">
-                <a href="#calculator" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg shadow-blue-700/25 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
-                    Test Your Digital Maturity <i class="fas fa-arrow-right text-sm"></i>
-                </a>
-                <a href="pricing.html" class="bg-white/90 hover:bg-white border border-slate-300 text-slate-900 font-bold px-8 py-4 rounded-full transition-all shadow-sm flex items-center justify-center">
-                    Explore Retainer Tiers
-                </a>
-            </div>
+        <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left z-10 py-12 hero-content-box">
+            <div class="glass-card bg-white/85 backdrop-blur-md p-8 md:p-12 rounded-3xl border border-white/60 shadow-2xl max-w-4xl">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-sm font-bold text-emerald-700 mb-6 shadow-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Grass-Root Digital Development
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 mb-6 leading-[1.08]">
+                    Build Your Digital <span class="bg-gradient-to-r from-blue-700 via-blue-600 to-emerald-600 bg-clip-text text-transparent">Foundation</span> From the Ground Up
+                </h1>
+                <p class="mt-4 text-base md:text-lg text-slate-800 font-semibold leading-relaxed mb-8">
+                    We handle all the complicated digital work so you can focus on running your business. From building custom web platforms to driving organic revenue, we help you own your space.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-start gap-4 mb-8">
+                    <a href="#calculator" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg shadow-blue-700/25 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                        Test Your Digital Maturity <i class="fas fa-arrow-right text-sm"></i>
+                    </a>
+                    <a href="pricing.html" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-900 font-bold px-8 py-4 rounded-full transition-all shadow-sm flex items-center justify-center">
+                        Explore Retainer Tiers
+                    </a>
+                </div>
 
-            <!-- Hero Stats Bar (Left Aligned) -->
-            <div class="grid grid-cols-3 max-w-lg gap-8 pt-6 border-t border-slate-300/60">
-                <div>
-                    <div class="text-3xl md:text-4xl font-extrabold text-slate-950">150<span class="text-blue-700">+</span></div>
-                    <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Platforms Launched</div>
-                </div>
-                <div>
-                    <div class="text-3xl md:text-4xl font-extrabold text-slate-950">3.8<span class="text-emerald-600">x</span></div>
-                    <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Avg. Revenue Growth</div>
-                </div>
-                <div>
-                    <div class="text-3xl md:text-4xl font-extrabold text-slate-950">98<span class="text-blue-700">%</span></div>
-                    <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Client Retention</div>
+                <!-- Hero Stats Bar (Left Aligned) -->
+                <div class="grid grid-cols-3 max-w-lg gap-8 pt-6 border-t border-slate-300/60">
+                    <div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-slate-950">150<span class="text-blue-700">+</span></div>
+                        <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Platforms Launched</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-slate-950">3.8<span class="text-emerald-600">x</span></div>
+                        <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Avg. Revenue Growth</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl md:text-4xl font-extrabold text-slate-950">98<span class="text-blue-700">%</span></div>
+                        <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Client Retention</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -421,7 +417,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- eCommerce -->
-                <a href="ecommerce.html" class="glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-blue-600 transition-all">
+                <a href="ecommerce.html" class="glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-blue-600 transition-all animate-on-scroll">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition-transform">
                             🛒
@@ -433,7 +429,7 @@
                 </a>
 
                 <!-- Content -->
-                <a href="content.html" class="glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-blue-600 transition-all">
+                <a href="content.html" class="glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-blue-600 transition-all animate-on-scroll">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition-transform">
                             ✨
@@ -445,7 +441,7 @@
                 </a>
 
                 <!-- SEO -->
-                <a href="seo.html" class="glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-blue-600 transition-all">
+                <a href="seo.html" class="glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-blue-600 transition-all animate-on-scroll">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition-transform">
                             📍
@@ -457,7 +453,7 @@
                 </a>
 
                 <!-- SMM -->
-                <a href="smm.html" class="glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-blue-600 transition-all">
+                <a href="smm.html" class="glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-blue-600 transition-all animate-on-scroll">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition-transform">
                             🤝
@@ -651,12 +647,11 @@
                 </div>
                 
                 <div>
-                    <h4 class="text-white font-bold mb-4">Headquarters</h4>
-                    <address class="not-italic text-sm text-slate-400 space-y-2">
-                        <p>Tech Park Sector 22</p>
-                        <p>Chandigarh, India 160022</p>
-                        <p class="pt-2"><a href="mailto:hello@naxa.one" class="hover:text-blue-400">hello@naxa.one</a></p>
-                    </address>
+                    <h4 class="text-white font-bold mb-4">Get in Touch</h4>
+                    <div class="text-sm text-slate-400 space-y-2">
+                        <p>Digital Advisory & Development</p>
+                        <p><a href="mailto:hello@naxa.one" class="text-emerald-400 hover:underline font-bold">hello@naxa.one</a></p>
+                    </div>
                 </div>
 
                 <div>
@@ -702,13 +697,8 @@
 
             // Hero Parallax Scroll Effect into Next Section
             const heroVideo = document.querySelector('.hero-video-bg');
-            const heroContent = document.querySelector('.hero-content-box');
             if (heroVideo && scrollY < 900) {
                 heroVideo.style.transform = `translateY(${scrollY * 0.3}px)`;
-            }
-            if (heroContent && scrollY < 900) {
-                heroContent.style.transform = `translateY(${scrollY * 0.12}px)`;
-                heroContent.style.opacity = `${1 - (scrollY / 650)}`;
             }
         }
 

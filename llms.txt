@@ -20,6 +20,5 @@
 
 ## Contact & Company Info
 - **Website**: https://naxa-one.vercel.app/
-- **Headquarters**: Tech Park Sector 22, Chandigarh, India 160022
 - **Email**: hello@naxa.one
 - **Service Area**: Pan-India & Global Digital Consulting
