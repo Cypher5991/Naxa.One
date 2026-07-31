@@ -679,14 +679,17 @@
         function handleScroll() {
             const scrollY = window.scrollY;
             
-            // Navbar Scroll Transformation
+            // Sticky menu bar remains 100% completely transparent while scrolling
+            navbar.classList.add('bg-transparent');
+            navbar.classList.remove('bg-white', 'bg-white/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-slate-200');
+
             if (scrollY > 50) {
-                navbar.classList.remove('bg-transparent', 'py-4');
-                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'py-2', 'border-b', 'border-slate-200');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
                 if (desktopNavLinks) desktopNavLinks.classList.add('md:hidden');
             } else {
-                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'py-2', 'border-b', 'border-slate-200');
-                navbar.classList.add('bg-transparent', 'py-4');
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
                 if (desktopNavLinks) desktopNavLinks.classList.remove('md:hidden');
             }
 
