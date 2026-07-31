@@ -753,14 +753,14 @@
         });
 
         // --- Digital Maturity Calculator Logic ---
-        const pillars = [
+        var pillars = [
             { id: 'infra', name: 'Infrastructure', risk: 'Siloed legacy systems preventing scale.' },
             { id: 'auto', name: 'Automation', risk: 'High manual overhead and operational drag.' },
             { id: 'data', name: 'Analytics & Data', risk: 'Blind decision making due to data gaps.' },
             { id: 'strat', name: 'Strategy', risk: 'Lack of roadmap leading to misaligned spend.' }
         ];
 
-        function updateAudit() {
+        window.updateAudit = function updateAudit() {
             let total = 0;
             let lowestVal = 5;
             let lowestPillar = pillars[0];
