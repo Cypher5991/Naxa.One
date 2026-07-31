@@ -115,23 +115,71 @@
             .footer .container { flex-direction: column; gap: 16px; text-align: center; }
         }
     </style>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="index.html" class="logo-wrapper">
-                <img src="logo.png" alt="Naxa.One Logo" class="logo-img">
-                <div class="logo-text">Naxa<span class="dot">.</span>One</div>
-            </a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="ecommerce.html">eCommerce</a>
-                <a href="content.html" class="active">Content</a>
-                <a href="seo.html">SEO</a>
-                <a href="smm.html">SMM</a>
-                <a href="index.html#contact" class="btn btn-primary">Get Started</a>
+    <!-- Transparent Navbar with Scroll Hamburger Collapse -->
+    <nav class="fixed w-full z-50 bg-transparent transition-all duration-500 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 transition-all duration-500" id="nav-container">
+                <!-- Left: Brand Logo -->
+                <a href="index.html" class="flex items-center gap-3 cursor-pointer group">
+                    <img src="logo.png" alt="Naxa.One Logo" class="w-9 h-9 object-contain rounded-lg">
+                    <span class="font-extrabold text-xl tracking-tight text-slate-950">Naxa<span class="text-emerald-500">.</span>One</span>
+                </a>
+
+                <!-- Center: Desktop Links (Visible ONLY at top, hidden on scroll) -->
+                <div class="hidden md:flex items-center space-x-6 transition-all duration-300" id="desktop-nav-links">
+                    <a href="index.html" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Home</a>
+                    <a href="index.html#philosophy" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Philosophy</a>
+                    <a href="pricing.html" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Pricing & Tiers</a>
+                    <a href="index.html#hubs" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Dedicated Hubs</a>
+                    <a href="index.html#calculator" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Mini-Audit</a>
+                </div>
+
+                <!-- Right: Action Area (Discovery Button + Hamburger Menu) -->
+                <div class="flex items-center gap-3">
+                    <a href="pricing.html#audit" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-blue-700/20" id="nav-discovery-btn">Book Discovery</a>
+                    <button id="nav-hamburger-btn" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold px-3.5 py-2 rounded-full shadow-md backdrop-blur-md transition-all">
+                        <i class="fas fa-bars text-base text-blue-700"></i>
+                        <span class="text-xs font-extrabold uppercase tracking-wider hidden sm:inline">Menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Navigation Drawer Modal -->
+        <div id="nav-drawer" class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-md transition-opacity">
+            <div class="fixed top-6 right-6 max-w-sm w-full bg-white rounded-3xl p-8 border border-slate-200 shadow-2xl space-y-6">
+                <div class="flex justify-between items-center pb-4 border-b border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <img src="logo.png" alt="Naxa.One Logo" class="w-8 h-8 object-contain">
+                        <span class="font-extrabold text-lg text-slate-900">Naxa<span class="text-emerald-500">.</span>One</span>
+                    </div>
+                    <button id="close-drawer-btn" class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:text-slate-900">
+                        <i class="fas fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4 font-bold text-slate-800">
+                    <a href="index.html" class="hover:text-blue-700 py-1 transition-colors drawer-link">Home</a>
+                    <a href="index.html#philosophy" class="hover:text-blue-700 py-1 transition-colors drawer-link">Philosophy</a>
+                    <a href="pricing.html" class="hover:text-blue-700 py-1 transition-colors drawer-link">Retainer Pricing & Packages</a>
+                    <a href="ecommerce.html" class="hover:text-blue-700 py-1 transition-colors drawer-link">Sell Online (eCommerce)</a>
+                    <a href="content.html" class="hover:text-blue-700 py-1 transition-colors drawer-link">Look Professional (Content)</a>
+                    <a href="seo.html" class="hover:text-blue-700 py-1 transition-colors drawer-link">Get Found (SEO)</a>
+                    <a href="smm.html" class="hover:text-blue-700 py-1 transition-colors drawer-link">Build Following (SMM)</a>
+                    <a href="index.html#calculator" class="hover:text-blue-700 py-1 transition-colors drawer-link">Digital Maturity Calculator</a>
+                    <a href="index.html#faq" class="hover:text-blue-700 py-1 transition-colors drawer-link">FAQ</a>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <a href="pricing.html#audit" class="drawer-link block w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-full text-sm shadow-md shadow-blue-700/20">Book Discovery Call</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -263,5 +311,48 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        const desktopNavLinks = document.getElementById('desktop-nav-links');
+        const navHamburgerBtn = document.getElementById('nav-hamburger-btn');
+        const navDrawer = document.getElementById('nav-drawer');
+        const closeDrawerBtn = document.getElementById('close-drawer-btn');
+
+        function handleScroll() {
+            if (!navbar) return;
+            const scrollY = window.scrollY;
+            navbar.classList.add('bg-transparent');
+            navbar.classList.remove('bg-white', 'shadow-md', 'border-b', 'border-slate-200');
+            
+            if (scrollY > 50) {
+                if (desktopNavLinks) desktopNavLinks.classList.add('opacity-0', 'pointer-events-none', '-translate-y-2');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+            } else {
+                if (desktopNavLinks) desktopNavLinks.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-2');
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+
+        if (navHamburgerBtn && navDrawer && closeDrawerBtn) {
+            navHamburgerBtn.addEventListener('click', () => {
+                navDrawer.classList.remove('hidden');
+            });
+            closeDrawerBtn.addEventListener('click', () => {
+                navDrawer.classList.add('hidden');
+            });
+            document.querySelectorAll('.drawer-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navDrawer.classList.add('hidden');
+                });
+            });
+        }
+    </script>
+
 </body>
 </html>
