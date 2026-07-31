@@ -233,25 +233,28 @@
     <nav class="fixed w-full z-50 bg-transparent transition-all duration-500 py-4" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 transition-all duration-500" id="nav-container">
+                <!-- Left: Brand Logo -->
                 <a href="index.html" class="flex items-center gap-3 cursor-pointer group">
                     <img src="logo.png" alt="Naxa.One Logo" class="w-9 h-9 object-contain rounded-lg">
                     <span class="font-extrabold text-xl tracking-tight text-slate-950">Naxa<span class="text-emerald-500">.</span>One</span>
                 </a>
-                <div class="hidden md:block transition-all duration-300" id="desktop-nav-wrapper">
-                    <div class="flex items-center space-x-6">
-                        <a href="#philosophy" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Philosophy</a>
-                        <a href="#services" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Retainers & Tiers</a>
-                        <a href="#hubs" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Dedicated Hubs</a>
-                        <a href="#audit" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">The 1-Wk Audit</a>
-                        <a href="#calculator" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Mini-Audit</a>
-                        <a href="#contact" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-5 py-2.5 rounded-full text-sm transition-all shadow-md shadow-blue-700/20">Book Discovery</a>
-                    </div>
+
+                <!-- Center: Desktop Links (Visible ONLY at top, hidden on scroll) -->
+                <div class="hidden md:flex items-center space-x-6 transition-all duration-300" id="desktop-nav-links">
+                    <a href="#philosophy" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Philosophy</a>
+                    <a href="pricing.html" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Pricing & Tiers</a>
+                    <a href="#hubs" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Dedicated Hubs</a>
+                    <a href="#calculator" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Mini-Audit</a>
                 </div>
-                <!-- Hamburger Button (Activates on scroll or mobile) -->
-                <button id="nav-hamburger-btn" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold px-4 py-2 rounded-full shadow-md backdrop-blur-md transition-all">
-                    <i class="fas fa-bars text-lg text-blue-700"></i>
-                    <span class="text-xs font-extrabold uppercase tracking-wider hidden sm:inline">Menu</span>
-                </button>
+
+                <!-- Right: Action Area (Discovery Button + Hamburger Menu) -->
+                <div class="flex items-center gap-3">
+                    <a href="pricing.html#audit" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-blue-700/20" id="nav-discovery-btn">Book Discovery</a>
+                    <button id="nav-hamburger-btn" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold px-3.5 py-2 rounded-full shadow-md backdrop-blur-md transition-all">
+                        <i class="fas fa-bars text-base text-blue-700"></i>
+                        <span class="text-xs font-extrabold uppercase tracking-wider hidden sm:inline">Menu</span>
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -270,14 +273,13 @@
                 <div class="flex flex-col space-y-4 font-bold text-slate-800">
                     <a href="index.html" class="hover:text-blue-700 py-1 transition-colors drawer-link">Home</a>
                     <a href="#philosophy" class="hover:text-blue-700 py-1 transition-colors drawer-link">Philosophy</a>
-                    <a href="#services" class="hover:text-blue-700 py-1 transition-colors drawer-link">Retainers & Pricing Tiers</a>
+                    <a href="pricing.html" class="hover:text-blue-700 py-1 transition-colors drawer-link">Retainer Pricing & Packages</a>
                     <a href="#hubs" class="hover:text-blue-700 py-1 transition-colors drawer-link">Dedicated Service Hubs</a>
-                    <a href="#audit" class="hover:text-blue-700 py-1 transition-colors drawer-link">The 1-Week Audit</a>
                     <a href="#calculator" class="hover:text-blue-700 py-1 transition-colors drawer-link">Digital Maturity Calculator</a>
                     <a href="#faq" class="hover:text-blue-700 py-1 transition-colors drawer-link">FAQ</a>
                 </div>
                 <div class="pt-4 border-t border-slate-100">
-                    <a href="#contact" class="drawer-link block w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-full text-sm shadow-md shadow-blue-700/20">Book Discovery Call</a>
+                    <a href="pricing.html#audit" class="drawer-link block w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-full text-sm shadow-md shadow-blue-700/20">Book Discovery Call</a>
                 </div>
             </div>
         </div>
@@ -285,8 +287,8 @@
 
     <!-- Hero Section -->
     <div class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-b from-slate-100/50 via-slate-50/40 to-blue-50/50">
-        <!-- Background Video Loop with Increased Transparency -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <!-- Background Video Loop with Parallax Class -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0 hero-video-bg">
             <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-65 filter brightness-105 contrast-105">
                 <source src="Naxa.webm" type="video/webm">
                 <source src="video.mp4" type="video/mp4">
@@ -294,11 +296,7 @@
             <div class="absolute inset-0 bg-gradient-to-r from-white/70 via-white/40 to-white/20 backdrop-blur-[1px]"></div>
         </div>
 
-        <!-- Background industrial blobs -->
-        <div class="absolute top-10 -left-10 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div class="absolute top-10 -right-10 w-96 h-96 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-
-        <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left z-10 py-16">
+        <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left z-10 py-16 hero-content-box">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-sm font-bold text-emerald-600 mb-8 shadow-sm">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                 Grass-Root Digital Development
@@ -313,7 +311,7 @@
                 <a href="#calculator" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg shadow-blue-700/25 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
                     Test Your Digital Maturity <i class="fas fa-arrow-right text-sm"></i>
                 </a>
-                <a href="#services" class="bg-white/90 hover:bg-white border border-slate-300 text-slate-900 font-bold px-8 py-4 rounded-full transition-all shadow-sm flex items-center justify-center">
+                <a href="pricing.html" class="bg-white/90 hover:bg-white border border-slate-300 text-slate-900 font-bold px-8 py-4 rounded-full transition-all shadow-sm flex items-center justify-center">
                     Explore Retainer Tiers
                 </a>
             </div>
@@ -336,21 +334,25 @@
         </div>
     </div>
 
-    <!-- Infinite Looping Marquee Ticker -->
+    <!-- Infinite Looping Marquee Ticker (100% Smooth Glitch-Free Dual Track) -->
     <div class="py-5 bg-slate-900 border-y border-slate-800 overflow-hidden relative z-20 shadow-inner">
-        <div class="flex whitespace-nowrap gap-12 animate-marquee items-center text-xs font-extrabold tracking-widest text-slate-300 uppercase">
-            <span>ECOMMERCE DEVELOPMENT <span class="text-blue-500 mx-4">•</span></span>
-            <span>DIGITAL LITERACY & TRAINING <span class="text-emerald-500 mx-4">•</span></span>
-            <span>SEO & ORGANIC DOMINANCE <span class="text-blue-500 mx-4">•</span></span>
-            <span>SOCIAL MEDIA GROWTH <span class="text-emerald-500 mx-4">•</span></span>
-            <span>TALLY ERP & WHATSAPP INTEGRATION <span class="text-blue-500 mx-4">•</span></span>
-            <span>CUSTOM WEB APPS (NEXT.JS) <span class="text-emerald-500 mx-4">•</span></span>
-            <span>ECOMMERCE DEVELOPMENT <span class="text-blue-500 mx-4">•</span></span>
-            <span>DIGITAL LITERACY & TRAINING <span class="text-emerald-500 mx-4">•</span></span>
-            <span>SEO & ORGANIC DOMINANCE <span class="text-blue-500 mx-4">•</span></span>
-            <span>SOCIAL MEDIA GROWTH <span class="text-emerald-500 mx-4">•</span></span>
-            <span>TALLY ERP & WHATSAPP INTEGRATION <span class="text-blue-500 mx-4">•</span></span>
-            <span>CUSTOM WEB APPS (NEXT.JS) <span class="text-emerald-500 mx-4">•</span></span>
+        <div class="marquee-track flex whitespace-nowrap gap-12 animate-marquee items-center text-xs font-extrabold tracking-widest text-slate-300 uppercase">
+            <div class="flex gap-12 items-center">
+                <span>ECOMMERCE DEVELOPMENT <span class="text-blue-500 mx-4">•</span></span>
+                <span>DIGITAL LITERACY & TRAINING <span class="text-emerald-500 mx-4">•</span></span>
+                <span>SEO & ORGANIC DOMINANCE <span class="text-blue-500 mx-4">•</span></span>
+                <span>SOCIAL MEDIA GROWTH <span class="text-emerald-500 mx-4">•</span></span>
+                <span>TALLY ERP & WHATSAPP INTEGRATION <span class="text-blue-500 mx-4">•</span></span>
+                <span>CUSTOM WEB APPS (NEXT.JS) <span class="text-emerald-500 mx-4">•</span></span>
+            </div>
+            <div class="flex gap-12 items-center">
+                <span>ECOMMERCE DEVELOPMENT <span class="text-blue-500 mx-4">•</span></span>
+                <span>DIGITAL LITERACY & TRAINING <span class="text-emerald-500 mx-4">•</span></span>
+                <span>SEO & ORGANIC DOMINANCE <span class="text-blue-500 mx-4">•</span></span>
+                <span>SOCIAL MEDIA GROWTH <span class="text-emerald-500 mx-4">•</span></span>
+                <span>TALLY ERP & WHATSAPP INTEGRATION <span class="text-blue-500 mx-4">•</span></span>
+                <span>CUSTOM WEB APPS (NEXT.JS) <span class="text-emerald-500 mx-4">•</span></span>
+            </div>
         </div>
     </div>
 
@@ -391,110 +393,19 @@
         </div>
     </section>
 
-    <!-- Services & Tiers -->
+    <!-- Dedicated Retainer Pricing Teaser Section -->
     <section id="services" class="py-24 relative z-10 bg-slate-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 animate-on-scroll">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Scalable Solutions for <span class="text-gradient">Every Stage</span></h2>
-                <p class="text-slate-600 max-w-2xl mx-auto font-medium">From lean SMB sprints to dedicated Enterprise agile pods, our retainer models are built around tangible business impact and operational cost reduction.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Tier 1 -->
-                <div class="glass-card rounded-3xl p-8 flex flex-col animate-on-scroll border border-slate-300">
-                    <div class="mb-4">
-                        <span class="text-slate-800 font-bold text-xs tracking-wider uppercase bg-slate-100 px-3 py-1 rounded-full">Tier 1</span>
-                        <h3 class="text-2xl font-extrabold text-slate-900 mt-3">SMB Sprint</h3>
-                        <p class="text-sm text-slate-500 mt-1">For local services & early-stage startups.</p>
-                    </div>
-                    <div class="text-3xl font-extrabold text-slate-900 mb-6">₹35k - ₹75k<span class="text-base font-normal text-slate-500">/mo</span></div>
-                    <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-slate-700 mt-1"></i> <span>High-converting web presence & maintenance</span></li>
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-slate-700 mt-1"></i> <span>Basic CRM & Zapier/Make automations</span></li>
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-slate-700 mt-1"></i> <span>GA4 & Lead intake tracking</span></li>
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-slate-700 mt-1"></i> <span>Monthly Tech Literacy training</span></li>
-                    </ul>
-                    <a href="#audit" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition-all text-sm">Get Started</a>
+            <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-3xl p-10 md:p-14 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 animate-on-scroll">
+                <div class="max-w-2xl">
+                    <span class="text-emerald-400 font-extrabold text-xs tracking-wider uppercase bg-emerald-500/20 px-3.5 py-1 rounded-full border border-emerald-500/30 mb-4 inline-block">Transparent Retainer Pricing</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold mt-3 mb-4">Scalable Retainer Models & Digital Audits</h2>
+                    <p class="text-slate-300 text-sm md:text-base leading-relaxed">From lean SMB Sprints (₹35k/mo) to dedicated Enterprise agile dev pods (₹5L+/mo), explore our transparent packages built around tangible business impact.</p>
                 </div>
-
-                <!-- Tier 2 -->
-                <div class="glass-card rounded-3xl p-8 flex flex-col relative transform lg:-translate-y-4 border-2 border-blue-700 shadow-xl shadow-blue-900/10 animate-on-scroll" style="transition-delay: 100ms;">
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-700 to-emerald-700 text-white text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wide shadow-md">
-                        Most Popular
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <span class="text-blue-700 font-bold text-xs tracking-wider uppercase bg-blue-50 px-3 py-1 rounded-full">Tier 2</span>
-                        <h3 class="text-2xl font-extrabold text-slate-900 mt-3">Mid-Market Scale</h3>
-                        <p class="text-sm text-slate-500 mt-1">For high-growth scale-ups & D2C brands.</p>
-                    </div>
-                    <div class="text-3xl font-extrabold text-slate-900 mb-6">₹1.25L - ₹3L<span class="text-base font-normal text-slate-500">/mo</span></div>
-                    <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-700 mt-1"></i> <span>Custom Web Apps & Middleware (Next.js)</span></li>
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-700 mt-1"></i> <span>WhatsApp API (Interakt) & Tally Sync</span></li>
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-700 mt-1"></i> <span>Razorpay / Shiprocket API automation</span></li>
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-blue-700 mt-1"></i> <span>Bi-weekly Executive Strategy Sessions</span></li>
-                    </ul>
-                    <a href="#audit" class="w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-xl transition-all text-sm shadow-md shadow-blue-700/20">Select Mid-Market</a>
-                </div>
-
-                <!-- Tier 3 -->
-                <div class="glass-card rounded-3xl p-8 flex flex-col animate-on-scroll border border-slate-300" style="transition-delay: 200ms;">
-                    <div class="mb-4">
-                        <span class="text-emerald-700 font-bold text-xs tracking-wider uppercase bg-emerald-50 px-3 py-1 rounded-full">Tier 3</span>
-                        <h3 class="text-2xl font-extrabold text-slate-900 mt-3">Enterprise Pod</h3>
-                        <p class="text-sm text-slate-500 mt-1">For legacy corporates & high-compliance orgs.</p>
-                    </div>
-                    <div class="text-3xl font-extrabold text-slate-900 mb-6">₹5L+<span class="text-base font-normal text-slate-500">/mo</span></div>
-                    <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-700 mt-1"></i> <span>Dedicated Agile Senior Dev Pod</span></li>
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-700 mt-1"></i> <span>Cloud Ops (AWS/GCP) & Custom APIs</span></li>
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-700 mt-1"></i> <span>SOC2/GDPR Compliance & Security</span></li>
-                        <li class="flex items-start gap-3 text-sm text-slate-700"><i class="fas fa-check-circle text-emerald-700 mt-1"></i> <span>Weekly C-Suite Tech Advisory</span></li>
-                    </ul>
-                    <a href="#audit" class="w-full text-center bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl transition-all text-sm shadow-md shadow-emerald-700/20">Contact Enterprise</a>
-                </div>
-            </div>
-
-            <!-- GEO-Optimized Retainer Comparison Matrix -->
-            <div class="mt-16 bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-md animate-on-scroll">
-                <h3 class="text-xl font-bold text-slate-900 mb-6 text-center">Retainer Tier Feature Matrix at a Glance</h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm border-collapse">
-                        <thead>
-                            <tr class="border-b border-slate-200 bg-slate-50 text-slate-900 font-extrabold">
-                                <th class="p-4">Feature / Capability</th>
-                                <th class="p-4 text-slate-700">Tier 1: SMB Sprint</th>
-                                <th class="p-4 text-blue-700">Tier 2: Mid-Market Scale</th>
-                                <th class="p-4 text-emerald-700">Tier 3: Enterprise Pod</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-100 text-slate-700">
-                            <tr>
-                                <td class="p-4 font-semibold text-slate-900">Monthly Investment</td>
-                                <td class="p-4">₹35,000 - ₹75,000 / mo</td>
-                                <td class="p-4 font-bold text-blue-700">₹1.25L - ₹3.0L / mo</td>
-                                <td class="p-4 font-bold text-emerald-700">₹5.0L+ / mo</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 font-semibold text-slate-900">Primary Focus</td>
-                                <td class="p-4">Web Presence & CRM Setup</td>
-                                <td class="p-4">Custom Next.js Apps & ERP Sync</td>
-                                <td class="p-4">Dedicated Agile Senior Pod</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 font-semibold text-slate-900">Tally ERP & WhatsApp Sync</td>
-                                <td class="p-4 text-slate-400">—</td>
-                                <td class="p-4 text-emerald-600 font-bold">✔ Included (Interakt)</td>
-                                <td class="p-4 text-emerald-600 font-bold">✔ Custom Enterprise Middleware</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 font-semibold text-slate-900">Digital Literacy Advisory</td>
-                                <td class="p-4">Monthly Sessions</td>
-                                <td class="p-4">Bi-Weekly C-Suite Sessions</td>
-                                <td class="p-4">Weekly Dedicated Advisory</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="flex-shrink-0">
+                    <a href="pricing.html" class="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold px-8 py-4 rounded-full transition-all shadow-lg shadow-emerald-500/20 text-sm transform hover:-translate-y-0.5">
+                        View Retainer Pricing & Packages <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -770,21 +681,34 @@
     <script>
         // Transparent Navbar at top -> Collapses Desktop Links into Hamburger Button on Scroll
         const navbar = document.getElementById('navbar');
-        const desktopNavWrapper = document.getElementById('desktop-nav-wrapper');
+        const desktopNavLinks = document.getElementById('desktop-nav-links');
         const navHamburgerBtn = document.getElementById('nav-hamburger-btn');
         const navDrawer = document.getElementById('nav-drawer');
         const closeDrawerBtn = document.getElementById('close-drawer-btn');
 
         function handleScroll() {
-            if (window.scrollY > 50) {
+            const scrollY = window.scrollY;
+            
+            // Navbar Scroll Transformation
+            if (scrollY > 50) {
                 navbar.classList.remove('bg-transparent', 'py-4');
-                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2', 'border-b', 'border-slate-200');
-                if (desktopNavWrapper) desktopNavWrapper.classList.add('hidden');
-                if (navHamburgerBtn) navHamburgerBtn.classList.remove('hidden');
+                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'py-2', 'border-b', 'border-slate-200');
+                if (desktopNavLinks) desktopNavLinks.classList.add('md:hidden');
             } else {
-                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2', 'border-b', 'border-slate-200');
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md', 'py-2', 'border-b', 'border-slate-200');
                 navbar.classList.add('bg-transparent', 'py-4');
-                if (desktopNavWrapper) desktopNavWrapper.classList.remove('hidden');
+                if (desktopNavLinks) desktopNavLinks.classList.remove('md:hidden');
+            }
+
+            // Hero Parallax Scroll Effect into Next Section
+            const heroVideo = document.querySelector('.hero-video-bg');
+            const heroContent = document.querySelector('.hero-content-box');
+            if (heroVideo && scrollY < 900) {
+                heroVideo.style.transform = `translateY(${scrollY * 0.3}px)`;
+            }
+            if (heroContent && scrollY < 900) {
+                heroContent.style.transform = `translateY(${scrollY * 0.12}px)`;
+                heroContent.style.opacity = `${1 - (scrollY / 650)}`;
             }
         }
 
