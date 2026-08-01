@@ -254,7 +254,7 @@
 
                 <!-- Right: Action Area (Discovery Button + Hamburger Menu) -->
                 <div class="flex items-center gap-3">
-                    <a href="/pricing#audit" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-blue-700/20" id="nav-discovery-btn">Book 15-Min Call</a>
+                    <a href="javascript:void(0)" onclick="openBookingModal()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-blue-700/20" id="nav-discovery-btn">Book 15-Min Call</a>
                     <button id="nav-hamburger-btn" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold px-3.5 py-2 rounded-full shadow-md backdrop-blur-md transition-all">
                         <i class="fas fa-bars text-base text-blue-700"></i>
                         <span class="text-xs font-extrabold uppercase tracking-wider hidden sm:inline">Menu</span>
@@ -287,7 +287,7 @@
                     <a href="#faq" class="hover:text-blue-700 py-1 transition-colors drawer-link">FAQ</a>
                 </div>
                 <div class="pt-4 border-t border-slate-100">
-                    <a href="/pricing#audit" class="drawer-link block w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-full text-sm shadow-md shadow-blue-700/20">Book 15-Min Call</a>
+                    <a href="javascript:void(0)" onclick="openBookingModal()" class="drawer-link block w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-full text-sm shadow-md shadow-blue-700/20">Book 15-Min Call</a>
                 </div>
             </div>
         </div>
@@ -308,7 +308,7 @@
             <div class="p-8 md:p-12 max-w-4xl">
                 <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-sm font-bold text-emerald-700 mb-6 shadow-sm">
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Grass-Root Digital Development
+                    MSME Growth & Enterprise Agentic Operations
                 </div>
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 mb-6 leading-[1.08]">
                     Build Your Digital <span class="bg-gradient-to-r from-blue-700 via-blue-600 to-emerald-600 bg-clip-text text-transparent">Foundation</span> From the Ground Up
@@ -676,6 +676,75 @@
 
     <!-- Section Break -->
 
+    
+    <!-- Dedicated Embedded Booking Section -->
+    <section id="booking-section" class="py-12 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white relative z-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                        Direct Advisory Access
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold leading-tight">
+                        Book a 15-Min Call to Map Your <span class="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">Digital Setup, Scale-Up or Agentic Workflows</span>
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Speak directly with an Executive Architect. No sales fluff. We analyze your tech stack, outline operational bottlenecks, and deliver an actionable 12-month blueprint.
+                    </p>
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs mt-0.5"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">For MSMEs: Setup & Growth Roadmap</h4>
+                                <p class="text-xs text-slate-400">High-converting web platforms, Tally ERP sync & lead intake systems.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs mt-0.5"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">For Enterprises: Agentic Operations</h4>
+                                <p class="text-xs text-slate-400">Custom Next.js web applications, workflow automation & custom API middleware.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="bg-white text-slate-900 rounded-3xl p-8 shadow-2xl border border-slate-200">
+                        <h3 class="text-2xl font-extrabold mb-2">Schedule Your Strategy Call</h3>
+                        <p class="text-xs text-slate-500 mb-6">Select your primary track and pick your preferred time.</p>
+                        <form onsubmit="handleDirectBookingSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Full Name *</label>
+                                <input type="text" name="fullName" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="e.g. Vikram Mehta">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Work Email / WhatsApp *</label>
+                                <input type="text" name="contactInfo" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="vikram@company.com or +91 98765...">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Company / Brand Name *</label>
+                                <input type="text" name="companyName" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Your Business Name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Primary Growth Track *</label>
+                                <select name="segment" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white">
+                                    <option value="MSME Platform & Growth">MSME: Digital Setup & Scale-Up</option>
+                                    <option value="Enterprise Agentic Ops">Enterprise: Custom Dev & Agentic Workflows</option>
+                                    <option value="General Audit">Digital Maturity Audit (1-Week)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 rounded-xl transition-all text-sm shadow-lg shadow-blue-700/25">
+                                Confirm 15-Min Call Request &rarr;
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <section id="faq" class="py-12 relative z-10 bg-white border-t border-slate-200">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-on-scroll">
@@ -947,6 +1016,24 @@
     </a>
 
     <script>
+        
+        function openBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+        function handleDirectBookingSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const payload = Object.fromEntries(formData.entries());
+            console.log('Booking requested:', payload);
+            closeBookingModal();
+            alert('Thank you ' + payload.fullName + '! Your 15-minute discovery call request for ' + payload.companyName + ' (' + payload.segment + ') has been received. Our architect will reach out via ' + payload.contactInfo + ' shortly.');
+        }
+
         function openLeadModal() {
             document.getElementById('lead-modal').classList.remove('hidden');
         }
