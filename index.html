@@ -86,43 +86,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        dark: '#0F172A', // Gunmetal Slate
-                        darker: '#020617', // Deep Industrial Black
-                        card: 'rgba(255, 255, 255, 0.95)',
-                        primary: '#1D4ED8', // Corporate Blue (Blue-700)
-                        secondary: '#059669', // Growth Green (Emerald-600)
-                        industrial: '#334155', // Steel Slate (Slate-700)
-                        steel: '#64748B', // Steel Gray (Slate-500)
-                        bronze: '#B45309', // Warm Industrial Bronze (Amber-700)
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    
     <style>
         body {
             background-color: #F8FAFC;
@@ -911,9 +875,11 @@
         // Mobile menu toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
 
         // Intersection Observer for scroll animations
         const observerOptions = {
@@ -1064,8 +1030,8 @@
     <script>
         
         function openBookingModal() {
-            const modal = document.getElementById('booking-modal');
-            if (modal) modal.classList.remove('hidden');
+            const section = document.getElementById('booking-section');
+            if (section) section.scrollIntoView({ behavior: 'smooth' });
         }
         function closeBookingModal() {
             const modal = document.getElementById('booking-modal');
