@@ -140,7 +140,7 @@
     
 </style>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -247,14 +247,14 @@
                                 <span>Monthly Video / Content Pieces</span>
                                 <span class="est-val" id="content-val">16 Reels / Shorts</span>
                             </div>
-                            <input type="range" id="content-slider" min="4" max="60" step="4" value="16">
+                            <input type="range" aria-label="Content Pieces per Month" id="content-slider" min="4" max="60" step="4" value="16">
                         </div>
                         <div class="est-control-group">
                             <div class="est-label">
                                 <span>Monthly Paid Ad Budget</span>
                                 <span class="est-val" id="ad-val">$2,500</span>
                             </div>
-                            <input type="range" id="ad-slider" min="500" max="25000" step="500" value="2500">
+                            <input type="range" aria-label="Monthly Ad Spend" id="ad-slider" min="500" max="25000" step="500" value="2500">
                         </div>
                     </div>
                     <div class="est-results">

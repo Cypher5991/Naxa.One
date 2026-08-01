@@ -6,4 +6,4 @@ Sitemap: https://www.naxa.one/sitemap.xml
 
 # LLMs File for AI Crawlers (ChatGPT, Gemini, Perplexity, Claude, SearchGPT)
 # Standard: https://llmstxt.org/
-LLMs-txt: https://www.naxa.one/llms.txt
+

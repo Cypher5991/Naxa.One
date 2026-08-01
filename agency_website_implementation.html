@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Agency | Growth & Literacy</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -397,7 +397,7 @@
                                 <label class="text-sm font-bold text-slate-800">Infrastructure & Speed</label>
                                 <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-infra">2/5</span>
                             </div>
-                            <input type="range" id="slider-infra" min="1" max="5" value="2" oninput="updateAudit()">
+                            <input type="range" aria-label="Infrastructure Level" id="slider-infra" min="1" max="5" value="2" oninput="updateAudit()">
                             <p class="text-xs text-slate-500 mt-1">Hosting, security, load times.</p>
                         </div>
 
@@ -406,7 +406,7 @@
                                 <label class="text-sm font-bold text-slate-800">Workflow agentic solutions</label>
                                 <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-auto">2/5</span>
                             </div>
-                            <input type="range" id="slider-auto" min="1" max="5" value="2" oninput="updateAudit()">
+                            <input type="range" aria-label="Automation Level" id="slider-auto" min="1" max="5" value="2" oninput="updateAudit()">
                             <p class="text-xs text-slate-500 mt-1">CRM, Tally, WhatsApp routing.</p>
                         </div>
 
@@ -415,7 +415,7 @@
                                 <label class="text-sm font-bold text-slate-800">Analytics & Data</label>
                                 <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-data">1/5</span>
                             </div>
-                            <input type="range" id="slider-data" min="1" max="5" value="1" oninput="updateAudit()">
+                            <input type="range" aria-label="Data Maturity Level" id="slider-data" min="1" max="5" value="1" oninput="updateAudit()">
                             <p class="text-xs text-slate-500 mt-1">GA4, Dashboards, single source of truth.</p>
                         </div>
 
@@ -424,7 +424,7 @@
                                 <label class="text-sm font-bold text-slate-800">Strategy & Literacy</label>
                                 <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-strat">2/5</span>
                             </div>
-                            <input type="range" id="slider-strat" min="1" max="5" value="2" oninput="updateAudit()">
+                            <input type="range" aria-label="Strategy Level" id="slider-strat" min="1" max="5" value="2" oninput="updateAudit()">
                             <p class="text-xs text-slate-500 mt-1">Team tech skills, governance, roadmap.</p>
                         </div>
 
@@ -482,7 +482,7 @@
                 </div>
                 
                 <div>
-                    <h4 class="text-white font-bold mb-4">Get in Touch</h4>
+                    <h3 class="text-white font-bold mb-4">Get in Touch</h3>
                     <div class="text-sm text-slate-400 space-y-2">
                         <p>Digital Advisory & Development</p>
                         <p><a href="mailto:hello@naxa.one" class="text-emerald-400 hover:underline font-bold">hello@naxa.one</a></p>
@@ -490,7 +490,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-white font-bold mb-4">Legal</h4>
+                    <h3 class="text-white font-bold mb-4">Legal</h3>
                     <ul class="text-sm text-slate-400 space-y-2">
                         <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>

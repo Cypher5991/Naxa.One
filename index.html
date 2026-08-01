@@ -83,7 +83,7 @@
       ]
     }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -283,7 +283,7 @@
 
                 <!-- Right: Action Area (Discovery Button + Hamburger Menu) -->
                 <div class="flex items-center gap-3">
-                    <a href="javascript:void(0)" onclick="openBookingModal()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-blue-700/20" id="nav-discovery-btn">Book 15-Min Call</a>
+                    <button onclick="openBookingModal()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-blue-700/20" id="nav-discovery-btn">Book 15-Min Call</button>
                     <button id="nav-hamburger-btn" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold px-3.5 py-2 rounded-full shadow-md backdrop-blur-md transition-all">
                         <i class="fas fa-bars text-base text-blue-700"></i>
                         <span class="text-xs font-extrabold uppercase tracking-wider hidden sm:inline">Menu</span>
@@ -316,7 +316,7 @@
                     <a href="#faq" class="hover:text-blue-700 py-1 transition-colors drawer-link">FAQ</a>
                 </div>
                 <div class="pt-4 border-t border-slate-100">
-                    <a href="javascript:void(0)" onclick="openBookingModal()" class="drawer-link block w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-full text-sm shadow-md shadow-blue-700/20">Book 15-Min Call</a>
+                    <button onclick="openBookingModal()" class="drawer-link block w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-full text-sm shadow-md shadow-blue-700/20">Book 15-Min Call</button>
                 </div>
             </div>
         </div>
@@ -327,7 +327,7 @@
         <!-- Background Video Loop with Parallax Class -->
         <!-- Background Video Loop with True Parallax (Fixed) -->
         <div class="fixed top-0 left-0 w-full h-screen overflow-hidden pointer-events-none -z-10 hero-video-bg">
-            <video class="w-[300%] md:w-full h-[300%] md:h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover" autoplay loop muted playsinline>
+            <video class="w-[300%] md:w-full h-[300%] md:h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover" autoplay loop muted playsinline aria-hidden="true">
                 <source src="compressed_bg.mp4" type="video/mp4">
             </video>
             <!-- Extremely subtle gradient to ensure text readability without washing out the video -->
@@ -379,7 +379,7 @@
     <!-- Client Logo Trust Bar -->
     <section class="py-8 bg-slate-100 border-b border-slate-200 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest text-center mb-5">Trusted by Growing Enterprises Across India</p>
+            <p class="text-xs font-bold text-slate-600 uppercase tracking-widest text-center mb-5">Trusted by Growing Enterprises Across India</p>
             <div class="flex flex-wrap justify-center gap-4 items-center opacity-60 hover:opacity-100 transition-all duration-500 grayscale hover:grayscale-0">
                 <div class="bg-white border border-slate-300 rounded-lg px-5 py-2.5 font-extrabold text-slate-700 text-sm tracking-wide shadow-sm">BHARTI CORP</div>
                 <div class="bg-white border border-slate-300 rounded-lg px-5 py-2.5 font-extrabold text-slate-700 text-sm tracking-wide shadow-sm">VEGA RETAIL</div>
@@ -458,7 +458,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                 <div class="col-span-1 md:col-span-3 mb-8">
-                    <img src="formal_discussion.jpg" alt="Team discussing a project" class="w-full h-80 object-cover rounded-3xl shadow-xl">
+                    <img src="formal_discussion.webp" alt="Team discussing a project" class="w-full h-80 object-cover rounded-3xl shadow-xl">
                 </div>
 
                 <!-- Card 1 -->
@@ -557,7 +557,7 @@
                                 <label class="text-sm font-bold text-slate-800">Infrastructure & Speed</label>
                                 <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-infra">2/5</span>
                             </div>
-                            <input type="range" id="slider-infra" min="1" max="5" value="2" oninput="updateAudit()">
+                            <input type="range" aria-label="Infrastructure Level" id="slider-infra" min="1" max="5" value="2" oninput="updateAudit()">
                             <p class="text-xs text-slate-500 mt-1">Hosting, security, load times.</p>
                         </div>
 
@@ -566,7 +566,7 @@
                                 <label class="text-sm font-bold text-slate-800">Agentic Workflows</label>
                                 <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-auto">2/5</span>
                             </div>
-                            <input type="range" id="slider-auto" min="1" max="5" value="2" oninput="updateAudit()">
+                            <input type="range" aria-label="Automation Level" id="slider-auto" min="1" max="5" value="2" oninput="updateAudit()">
                             <p class="text-xs text-slate-500 mt-1">CRM, Tally, WhatsApp routing solutions.</p>
                         </div>
 
@@ -575,7 +575,7 @@
                                 <label class="text-sm font-bold text-slate-800">Analytics & Data</label>
                                 <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-data">1/5</span>
                             </div>
-                            <input type="range" id="slider-data" min="1" max="5" value="1" oninput="updateAudit()">
+                            <input type="range" aria-label="Data Maturity Level" id="slider-data" min="1" max="5" value="1" oninput="updateAudit()">
                             <p class="text-xs text-slate-500 mt-1">GA4, Dashboards, single source of truth.</p>
                         </div>
 
@@ -584,7 +584,7 @@
                                 <label class="text-sm font-bold text-slate-800">Strategy & Literacy</label>
                                 <span class="text-xs text-blue-800 font-bold bg-blue-100 px-2.5 py-1 rounded-full" id="val-strat">2/5</span>
                             </div>
-                            <input type="range" id="slider-strat" min="1" max="5" value="2" oninput="updateAudit()">
+                            <input type="range" aria-label="Strategy Level" id="slider-strat" min="1" max="5" value="2" oninput="updateAudit()">
                             <p class="text-xs text-slate-500 mt-1">Team tech skills, governance, roadmap.</p>
                         </div>
 
@@ -652,7 +652,7 @@
                 <p class="text-slate-600 max-w-2xl mx-auto font-medium">Deep-dive into individual development pillars to see how each drives measurable ROI for your business.</p>
             </div>
 
-            <img src="ecommerce.jpg" class="w-full h-80 object-cover rounded-3xl shadow-xl mb-12" alt="Naxa.One Hubs">
+            <img src="ecommerce.webp" class="w-full h-80 object-cover rounded-3xl shadow-xl mb-12" alt="Naxa.One Hubs">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- eCommerce -->
                 <a href="/ecommerce" class="glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-blue-600 transition-all animate-on-scroll">
@@ -726,14 +726,14 @@
                         <div class="flex items-start gap-3">
                             <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs mt-0.5"><i class="fas fa-check"></i></div>
                             <div>
-                                <h4 class="font-bold text-white text-sm">For MSMEs: Setup & Growth Roadmap</h4>
+                                <h3 class="font-bold text-white text-sm">For MSMEs: Setup & Growth Roadmap</h3>
                                 <p class="text-xs text-slate-400">High-converting web platforms, Tally ERP sync & lead intake systems.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
                             <div class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs mt-0.5"><i class="fas fa-check"></i></div>
                             <div>
-                                <h4 class="font-bold text-white text-sm">For Enterprises: Agentic Operations</h4>
+                                <h3 class="font-bold text-white text-sm">For Enterprises: Agentic Operations</h3>
                                 <p class="text-xs text-slate-400">Custom Next.js web applications, workflow automation & custom API middleware.</p>
                             </div>
                         </div>
@@ -759,7 +759,7 @@
                             </div>
                             <div>
                                 <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Primary Growth Track *</label>
-                                <select name="segment" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white">
+                                <select aria-label="Business Segment" name="segment" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white">
                                     <option value="MSME Platform & Growth">MSME: Digital Setup & Scale-Up</option>
                                     <option value="Enterprise Agentic Ops">Enterprise: Custom Dev & Agentic Workflows</option>
                                     <option value="General Audit">Digital Maturity Audit (1-Week)</option>
@@ -822,7 +822,7 @@
                 </div>
                 
                 <div>
-                    <h4 class="text-white font-bold mb-4">Get in Touch</h4>
+                    <h3 class="text-white font-bold mb-4">Get in Touch</h3>
                     <div class="text-sm text-slate-400 space-y-2">
                         <p>Digital Advisory & Development</p>
                         <p><a href="mailto:hello@naxa.one" class="text-emerald-400 hover:underline font-bold">hello@naxa.one</a></p>
@@ -830,7 +830,7 @@
                 </div>
 
                 <div>
-                    <h4 class="text-white font-bold mb-4">Service Hubs</h4>
+                    <h3 class="text-white font-bold mb-4">Service Hubs</h3>
                     <ul class="text-sm text-slate-400 space-y-2">
                         <li><a href="/ecommerce" class="hover:text-white transition-colors">Sell Online (eCommerce)</a></li>
                         <li><a href="/content" class="hover:text-white transition-colors">Look Professional (Content)</a></li>
