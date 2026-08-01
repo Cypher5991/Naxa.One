@@ -316,14 +316,7 @@
     <div class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-b from-slate-100/50 via-slate-50/40 to-blue-50/50">
         <!-- Background Video Loop with Parallax Class -->
         <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0 hero-video-bg">
-            <iframe 
-                class="w-[300%] h-[300%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full opacity-65 filter brightness-105 contrast-105 pointer-events-none"
-                src="https://www.youtube.com/embed/G0WSU5x1-EE?autoplay=1&mute=1&loop=1&playlist=G0WSU5x1-EE&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&playsinline=1" 
-                title="Background Video" 
-                frameborder="0" 
-                allow="autoplay; encrypted-media" 
-                allowfullscreen>
-            </iframe>
+            <div id="youtube-player" class="w-[300%] h-[300%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full opacity-65 filter brightness-105 contrast-105 pointer-events-none"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-white/40 via-white/20 to-transparent backdrop-blur-[2px]"></div>
         </div>
         </div>
@@ -1105,6 +1098,55 @@
                 }, 300);
             });
         })();
+    </script>
+
+
+    <!-- YouTube API for seamless looping -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('youtube-player', {
+                videoId: 'G0WSU5x1-EE',
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0,
+                    'showinfo': 0,
+                    'rel': 0,
+                    'loop': 1,
+                    'modestbranding': 1,
+                    'mute': 1,
+                    'playsinline': 1,
+                    'iv_load_policy': 3,
+                    'disablekb': 1,
+                    'fs': 0,
+                    'playlist': 'G0WSU5x1-EE'
+                },
+                events: {
+                    'onReady': function(event) {
+                        event.target.playVideo();
+                        event.target.mute();
+                    },
+                    'onStateChange': function(event) {
+                        if (event.data === YT.PlayerState.ENDED) {
+                            player.seekTo(0);
+                            player.playVideo();
+                        }
+                    }
+                }
+            });
+            // Seamless loop: check time and seek to start right before it ends to avoid the loading spinner
+            setInterval(function() {
+                if(player && player.getCurrentTime) {
+                    var duration = player.getDuration();
+                    var currentTime = player.getCurrentTime();
+                    // If within 0.8 seconds of the end, jump back to start
+                    if (duration > 0 && currentTime > duration - 0.8) {
+                        player.seekTo(0);
+                    }
+                }
+            }, 250);
+        }
     </script>
 
 </body>
