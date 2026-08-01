@@ -119,7 +119,26 @@
             .pillars-grid { grid-template-columns: 1fr; }
             .footer .container { flex-direction: column; gap: 16px; text-align: center; }
         }
-    </style>
+    
+        /* Mobile-First Touch & UX Optimizations */
+        @media (max-width: 640px) {
+            body { font-size: 15px; }
+            button, a.btn, input, select, textarea { min-height: 48px; }
+            .hero-content-box { padding-top: 1rem; padding-bottom: 2rem; }
+            ::-webkit-scrollbar { width: 4px; }
+        }
+        
+        /* Touch feedback active state */
+        button:active, a:active { transform: scale(0.97); transition: transform 0.1s ease; }
+
+        /* Custom Touch Slider Thumb */
+        input[type=range]::-webkit-slider-thumb {
+            height: 28px !important;
+            width: 28px !important;
+            margin-top: -11px !important;
+        }
+    
+</style>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">

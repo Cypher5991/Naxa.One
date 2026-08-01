@@ -18,7 +18,26 @@
         .glass-card { background: #FFFFFF; border: 1px solid #CBD5E1; box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.06); transition: all 0.3s ease; }
         .glass-card:hover { transform: translateY(-5px); border-color: #2563EB; box-shadow: 0 20px 35px -5px rgba(29, 78, 216, 0.15); }
         .text-gradient { background: linear-gradient(135deg, #1D4ED8, #059669, #334155); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    </style>
+    
+        /* Mobile-First Touch & UX Optimizations */
+        @media (max-width: 640px) {
+            body { font-size: 15px; }
+            button, a.btn, input, select, textarea { min-height: 48px; }
+            .hero-content-box { padding-top: 1rem; padding-bottom: 2rem; }
+            ::-webkit-scrollbar { width: 4px; }
+        }
+        
+        /* Touch feedback active state */
+        button:active, a:active { transform: scale(0.97); transition: transform 0.1s ease; }
+
+        /* Custom Touch Slider Thumb */
+        input[type=range]::-webkit-slider-thumb {
+            height: 28px !important;
+            width: 28px !important;
+            margin-top: -11px !important;
+        }
+    
+</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="antialiased selection:bg-blue-700 selection:text-white">
