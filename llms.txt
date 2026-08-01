@@ -19,6 +19,6 @@
 | **Tier 3: Enterprise Pod** | ₹5.0L+ / mo | Legacy corporates & high compliance orgs | Dedicated agile senior dev pod, AWS/GCP cloud ops, SOC2/GDPR compliance, weekly C-suite advisory |
 
 ## Contact & Company Info
-- **Website**: https://naxa-one.vercel.app/
+- **Website**: https://www.naxa.one/
 - **Email**: hello@naxa.one
 - **Service Area**: Pan-India & Global Digital Consulting
