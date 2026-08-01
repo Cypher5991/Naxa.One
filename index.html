@@ -1084,18 +1084,23 @@
                 }
             }, 100);
 
-            window.addEventListener('load', function() {
-                clearInterval(interval);
+            window.hidePreloader = function() {
+                if (window.preloaderHidden) return;
+                window.preloaderHidden = true;
                 if (bar) bar.style.width = '100%';
                 setTimeout(() => {
                     const preloader = document.getElementById('preloader');
                     if (preloader) {
                         preloader.classList.add('opacity-0', 'pointer-events-none');
-                        setTimeout(() => {
-                            preloader.remove();
-                        }, 700);
+                        setTimeout(() => preloader.remove(), 700);
                     }
                 }, 300);
+            };
+
+            window.addEventListener('load', function() {
+                clearInterval(interval);
+                // Fallback: If YouTube fails to load or is blocked, hide preloader anyway after 3.5s
+                setTimeout(window.hidePreloader, 3500);
             });
         })();
     </script>
@@ -1128,6 +1133,9 @@
                         event.target.mute();
                     },
                     'onStateChange': function(event) {
+                        if (event.data === YT.PlayerState.PLAYING) {
+                            if (typeof window.hidePreloader === 'function') window.hidePreloader();
+                        }
                         if (event.data === YT.PlayerState.ENDED) {
                             player.seekTo(0);
                             player.playVideo();
