@@ -1,90 +1,38 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naxa.One — Growth & Digital Development Agency</title>
-    <meta name="description" content="Naxa.One empowers Indian MSMEs & scale-ups with custom web apps, eCommerce conversion engineering, Tally ERP/WhatsApp solutions using agents and programs, and digital literacy retainers.">
-    <meta name="keywords" content="Naxa.One, Digital Agency India, eCommerce Development, Digital Maturity Audit, Tally ERP Sync, WhatsApp API Integration, Next.js Web Apps">
-    <link rel="canonical" href="https://www.naxa.one/">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <script defer src="/_vercel/speed-insights/script.js"></script>
+/**
+ * redesign_below_hero.js
+ * Complete rebuild of all sections below the Hero Slider.
+ * + Minimal Light/Dark mode toggle in the navbar.
+ * Preserves: Menu Bar structure, Hero Slider, all JS logic, lead forms.
+ */
+const fs = require('fs');
+let html = fs.readFileSync('index.html', 'utf8').replace(/\r\n/g, '\n');
+let changes = 0;
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.naxa.one/">
-    <meta property="og:title" content="Naxa.One — Growth & Digital Development Agency">
-    <meta property="og:description" content="Stop surviving. Start scaling. Bridging the gap between executive vision and digital execution for Indian MSMEs & scale-ups.">
-    <meta property="og:image" content="https://www.naxa.one/logo.png">
-    <meta property="og:site_name" content="Naxa.One">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://www.naxa.one/">
-    <meta name="twitter:title" content="Naxa.One — Growth & Digital Development Agency">
-    <meta name="twitter:description" content="Stop surviving. Start scaling. Bridging the gap between executive vision and digital execution.">
-    <meta name="twitter:image" content="https://www.naxa.one/logo.png">
-
-    <!-- Schema.org JSON-LD Structured Data for AEO & GEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://www.naxa.one/#organization",
-          "name": "Naxa.One",
-          "alternateName": "Naxa.One Digital",
-          "url": "https://www.naxa.one/",
-          "logo": "https://www.naxa.one/logo.png",
-          "sameAs": [
-            "https://github.com/Cypher5991/Naxa.One"
-          ]
-        },
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://www.naxa.one/#service",
-          "name": "Naxa.One",
-          "url": "https://www.naxa.one/",
-          "logo": "https://www.naxa.one/logo.png",
-          "image": "https://www.naxa.one/logo.png",
-          "description": "Custom web platforms, Tally ERP integrations, eCommerce growth, and digital literacy advisory.",
-          "priceRange": "₹35,000 - ₹5,000,000"
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://www.naxa.one/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is the 1-Week Digital Maturity Audit?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The 1-Week Digital Maturity Audit is an intensive 7-day technical evaluation for ₹35,000 (100% credited toward your retainer) that pinpoints technical debt, speed bottlenecks, and maps CRM, Tally ERP, and WhatsApp API workflows."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What are Naxa.One's retainer pricing tiers?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Naxa.One offers 3 monthly retainer tiers: Tier 1 (SMB Sprint) at ₹35,000–₹75,000/mo, Tier 2 (Mid-Market Scale) at ₹1.25L–₹3.0L/mo, and Tier 3 (Enterprise Pod) at ₹5.0L+/mo."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How does Naxa.One integrate Tally ERP and WhatsApp APIs?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We build custom middleware and web app bridges connecting your website or CRM directly to Tally ERP and Interakt/WhatsApp APIs, eliminating manual data entry and speeding up order processing."
-              }
-            }
-          ]
-        }
-      ]
+function rep(target, replacement, label) {
+    if (html.includes(target)) {
+        html = html.replace(target, replacement);
+        changes++;
+        console.log(`✓ ${label}`);
+    } else {
+        console.warn(`✗ SKIPPED: ${label}`);
     }
-    </script>
-    <link rel="stylesheet" href="styles.css">
+}
+
+// ─────────────────────────────────────────────────────────────
+// 1. DARK MODE: Add `dark` class support to <html> tag
+// ─────────────────────────────────────────────────────────────
+rep(
+    `<html lang="en" class="scroll-smooth">`,
+    `<html lang="en" class="scroll-smooth">`,
+    'HTML tag (unchanged, dark class applied via JS)'
+);
+
+// ─────────────────────────────────────────────────────────────
+// 2. DARK MODE: Anti-FOUC script in <head>
+// ─────────────────────────────────────────────────────────────
+rep(
+    `<link rel="stylesheet" href="styles.css">`,
+    `<link rel="stylesheet" href="styles.css">
     <script>
         // Anti-FOUC dark mode initialization
         (function() {
@@ -94,13 +42,21 @@
                 document.documentElement.classList.add('dark');
             }
         })();
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        body {
+    </script>`,
+    'Anti-FOUC dark mode script in head'
+);
+
+// ─────────────────────────────────────────────────────────────
+// 3. DARK MODE: Global CSS variables for theme transitions
+// ─────────────────────────────────────────────────────────────
+rep(
+    `body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+            overflow-x: hidden;
+        }`,
+    `body {
             font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
             background-color: #F8FAFC;
             color: #0F172A;
@@ -116,274 +72,52 @@
             transition-property: background-color, border-color, color;
             transition-duration: 0.25s;
             transition-timing-function: ease;
-        }
-        
-        /* Custom Scrollbar - Industrial Steel */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #F1F5F9; }
-        ::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        }`,
+    'Dark mode body + transition CSS'
+);
 
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.90);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-        }
-
-        .glass-card {
-            background: #FFFFFF;
-            border: 1px solid #CBD5E1;
-            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: #2563EB;
-            box-shadow: 0 20px 35px -5px rgba(29, 78, 216, 0.25), 0 10px 10px -5px rgba(5, 150, 105, 0.15);
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #1D4ED8, #059669, #334155);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .text-gradient-blue {
-            background: linear-gradient(135deg, #1E3A8A, #0284C7, #059669);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .animate-on-scroll {
-            opacity: 1;
-            transform: none;
-            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-        }
-
-        /* Slider styling - Corporate Blue & Steel */
-        input[type=range] {
-            -webkit-appearance: none;
-            width: 100%;
-            background: transparent;
-        }
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 22px;
-            width: 22px;
-            border-radius: 50%;
-            background: #1D4ED8;
-            cursor: pointer;
-            margin-top: -9px;
-            box-shadow: 0 0 12px rgba(29, 78, 216, 0.5);
-        }
-        input[type=range]::-webkit-slider-runnable-track {
-            width: 100%;
-            height: 6px;
-            cursor: pointer;
-            background: #CBD5E1;
-            border-radius: 3px;
-        }
-
-        /* Infinite Looping Marquee */
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            display: flex;
-            width: max-content;
-            animation: marquee 25s linear infinite;
-        }
-        .animate-marquee:hover {
-            animation-play-state: paused;
-        }
-    
-        /* Mobile-First Touch & UX Optimizations */
-        @media (max-width: 640px) {
-            body { font-size: 15px; }
-            button, a.btn, input, select, textarea { min-height: 48px; }
-            .hero-content-box { padding-top: 1rem; padding-bottom: 2rem; }
-            ::-webkit-scrollbar { width: 4px; }
-        }
-        
-        /* Touch feedback active state */
-        button:active, a:active { transform: scale(0.97); transition: transform 0.1s ease; }
-
-        /* Custom Touch Slider Thumb */
-        input[type=range]::-webkit-slider-thumb {
-            height: 28px !important;
-            width: 28px !important;
-            margin-top: -11px !important;
-        }
-    
-
-        /* Typewriter blinking cursor */
-        .typewriter-cursor {
-            display: inline-block;
-            animation: blink 0.75s step-end infinite;
-            font-weight: 300;
-            margin-left: 2px;
-            filter: drop-shadow(0 0 6px rgba(29, 78, 216, 0.7));
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJRZ23Q5TZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-SJRZ23Q5TZ');
-    </script>
-</head>
-
-    <!-- Fullscreen Preloader Overlay -->
-    <div id="preloader" class="fixed inset-0 z-[9999] bg-slate-950 flex flex-col items-center justify-center transition-opacity duration-700">
-        <div class="flex items-center gap-3 mb-6 animate-pulse">
-            <img src="logo.png" alt="Naxa.One Logo" class="w-12 h-12 object-contain rounded-xl">
-            <span class="font-extrabold text-3xl tracking-tight text-white">Naxa<span class="text-emerald-500">.</span>One</span>
-        </div>
-        <div class="w-48 h-1.5 bg-slate-800 rounded-full overflow-hidden relative">
-            <div id="loader-bar" class="h-full bg-gradient-to-r from-blue-600 via-emerald-500 to-blue-400 rounded-full transition-all duration-300 w-0"></div>
-        </div>
-        <p class="text-xs text-slate-400 font-bold uppercase tracking-widest mt-4">Loading Assets...</p>
-    </div>
-
-<body class="antialiased selection:bg-blue-700 selection:text-white relative">
-    <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
-
-    <!-- Transparent Navbar with Scroll Hamburger Collapse -->
-    <!-- Transparent Navbar with Scroll Hamburger Collapse -->
-    <nav class="fixed w-full z-50 bg-transparent transition-all duration-500 py-4" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 transition-all duration-500" id="nav-container">
-                <!-- Left: Brand Logo -->
-                <a href="/" class="flex items-center gap-3 cursor-pointer group">
-                    <img src="logo.png" alt="Naxa.One Logo" class="w-9 h-9 object-contain rounded-lg">
-                    <span class="font-extrabold text-xl tracking-tight text-slate-950">Naxa<span class="text-emerald-500">.</span>One</span>
-                </a>
-
-                <!-- Center: Desktop Links (Visible ONLY at top, hidden on scroll) -->
-                <div class="hidden md:flex items-center space-x-6 transition-all duration-300" id="desktop-nav-links">
-                    <a href="/" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Home</a>
-                    <a href="#philosophy" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Philosophy</a>
-                    <a href="/pricing" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Pricing & Tiers</a>
-                    <a href="#hubs" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Dedicated Hubs</a>
-                    <a href="#calculator" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Mini-Audit</a>
-                </div>
-
-                <!-- Right: Action Area (Discovery Button + Hamburger Menu) -->
-                <div class="flex items-center gap-3">
+// ─────────────────────────────────────────────────────────────
+// 4. NAVBAR: Insert theme toggle button between "Book Call" and "Menu"
+// ─────────────────────────────────────────────────────────────
+rep(
+    `<div class="flex items-center gap-3">
+                    <button onclick="openBookingModal()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-blue-700/20" id="nav-discovery-btn">Book 15-Min Call</button>
+                    <button id="nav-hamburger-btn" aria-label="Toggle Navigation Menu" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold p-3 min-h-[48px] min-w-[48px] rounded-full shadow-md backdrop-blur-md transition-all">`,
+    `<div class="flex items-center gap-3">
                     <button onclick="openBookingModal()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-blue-700/20" id="nav-discovery-btn">Book 15-Min Call</button>
                     <!-- Minimal Theme Toggle -->
                     <button id="theme-toggle" aria-label="Toggle Light and Dark Mode" onclick="toggleTheme()" class="w-9 h-9 flex items-center justify-center rounded-full border border-slate-300 bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:border-slate-700 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 shadow-sm backdrop-blur-md transition-all" title="Toggle Light / Dark Mode">
                         <svg id="icon-sun" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 5a7 7 0 100 14A7 7 0 0012 5z"/></svg>
                         <svg id="icon-moon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
                     </button>
-                    <button id="nav-hamburger-btn" aria-label="Toggle Navigation Menu" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold p-3 min-h-[48px] min-w-[48px] rounded-full shadow-md backdrop-blur-md transition-all">
-                        <i class="fas fa-bars text-base text-blue-700"></i>
-                        <span class="text-xs font-extrabold uppercase tracking-wider hidden sm:inline">Menu</span>
-                    </button>
-                </div>
+                    <button id="nav-hamburger-btn" aria-label="Toggle Navigation Menu" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold p-3 min-h-[48px] min-w-[48px] rounded-full shadow-md backdrop-blur-md transition-all">`,
+    'Theme toggle button in navbar'
+);
+
+// ─────────────────────────────────────────────────────────────
+// 5. REPLACE: All sections from Trust Bar to Footer (before scripts)
+// ─────────────────────────────────────────────────────────────
+const oldSections = `    <!-- Client Logo Trust Bar -->
+    <section class="py-8 bg-slate-100 border-b border-slate-200 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-xs font-bold text-slate-600 uppercase tracking-widest text-center mb-5">Trusted by Growing Enterprises Across India</p>
+            <div class="flex flex-wrap justify-center gap-x-10 gap-y-3 items-center opacity-50 hover:opacity-90 transition-all duration-500">
+                <span class="font-extrabold text-slate-600 text-xs tracking-[0.2em] uppercase">Bharti Corp</span>
+                <span class="text-slate-300">·</span>
+                <span class="font-extrabold text-slate-600 text-xs tracking-[0.2em] uppercase">Vega Retail</span>
+                <span class="text-slate-300">·</span>
+                <span class="font-extrabold text-slate-600 text-xs tracking-[0.2em] uppercase">Krishna ERP</span>
+                <span class="text-slate-300">·</span>
+                <span class="font-extrabold text-slate-600 text-xs tracking-[0.2em] uppercase">Meridian Co.</span>
+                <span class="text-slate-300">·</span>
+                <span class="font-extrabold text-slate-600 text-xs tracking-[0.2em] uppercase">Nexo Trade</span>
+                <span class="text-slate-300">·</span>
+                <span class="font-extrabold text-slate-600 text-xs tracking-[0.2em] uppercase">Sigma Labs</span>
             </div>
         </div>
+    </section>`;
 
-        <!-- Full Navigation Drawer Modal -->
-        <div id="nav-drawer" class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-md transition-opacity">
-            <div class="fixed top-6 right-6 max-w-sm w-full bg-white rounded-3xl p-8 border border-slate-200 shadow-2xl space-y-6">
-                <div class="flex justify-between items-center pb-4 border-b border-slate-100">
-                    <div class="flex items-center gap-3">
-                        <img src="logo.png" alt="Naxa.One Logo" class="w-8 h-8 object-contain">
-                        <span class="font-extrabold text-lg text-slate-900">Naxa<span class="text-emerald-500">.</span>One</span>
-                    </div>
-                    <button id="close-drawer-btn" class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:text-slate-900">
-                        <i class="fas fa-xmark text-lg"></i>
-                    </button>
-                </div>
-                <div class="flex flex-col space-y-4 font-bold text-slate-800">
-                    <a href="/" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Home</a>
-                    <a href="#philosophy" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Philosophy</a>
-                    <a href="/pricing" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Retainer Pricing & Packages</a>
-                    <a href="/ecommerce" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Sell Online (eCommerce)</a>
-                    <a href="/content" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Look Professional (Content)</a>
-                    <a href="/seo" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Get Found (SEO)</a>
-                    <a href="/smm" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Build Following (SMM)</a>
-                    <a href="#calculator" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Digital Maturity Calculator</a>
-                    <a href="#faq" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">FAQ</a>
-                </div>
-                <div class="pt-4 border-t border-slate-100">
-                    <button onclick="openBookingModal()" class="drawer-link block w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-full text-sm shadow-md shadow-blue-700/20">Book 15-Min Call</button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-b from-slate-100/50 via-slate-50/40 to-blue-50/50">
-        <!-- Background Video Loop with Parallax Class -->
-        <!-- Background Video Loop with True Parallax -->
-        <div class="absolute -inset-[20%] w-[140%] h-[140%] overflow-hidden pointer-events-none z-0 hero-video-bg">
-            <video class="w-[300%] md:w-full h-[300%] md:h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover" autoplay loop muted playsinline aria-hidden="true">
-                <source src="slider_bg.mp4" type="video/mp4">
-            </video>
-            <!-- Extremely subtle gradient to ensure text readability without washing out the video -->
-            <div class="absolute inset-0 bg-gradient-to-r from-white/40 via-white/10 to-transparent z-[4]"></div>
-            <div class="absolute inset-0 bg-transparent z-[5] pointer-events-auto"></div>
-        </div>
-
-        <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left z-10 py-12 hero-content-box">
-            <div class="p-8 md:p-12 max-w-4xl">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-sm font-bold text-emerald-700 mb-6 shadow-sm">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    MSME Growth & Enterprise Agentic Operations
-                </div>
-                <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 mb-6 leading-[1.08]">
-                    From Digital Setup to Agentic Scale —<br>
-                    <span class="bg-gradient-to-r from-blue-700 via-blue-600 to-emerald-600 bg-clip-text text-transparent" id="typewriter-target"></span><span class="typewriter-cursor text-blue-700">|</span>
-                </h1>
-                <p class="mt-4 text-base md:text-lg text-slate-700 font-medium leading-relaxed mb-8 max-w-xl">
-                    From foundational web presence to enterprise-grade agentic workflows — we architect measurable digital growth.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-start gap-4 mb-8">
-                    <button onclick="openBookingModal()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg shadow-blue-700/25 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
-                        Book a 15-Min Call <i class="fas fa-arrow-right text-sm"></i>
-                    </button>
-                    <a href="#calculator" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-900 font-bold px-8 py-4 rounded-full transition-all shadow-sm flex items-center justify-center">
-                        Test Digital Maturity
-                    </a>
-                </div>
-
-                <!-- Hero Stats Bar (Left Aligned) -->
-                <div class="grid grid-cols-3 max-w-lg gap-8 pt-6 border-t border-slate-300/60">
-                    <div>
-                        <div class="text-2xl sm:text-4xl font-extrabold text-slate-950">150<span class="text-blue-700">+</span></div>
-                        <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Platforms Launched</div>
-                    </div>
-                    <div>
-                        <div class="text-2xl sm:text-4xl font-extrabold text-slate-950">3.8<span class="text-emerald-600">x</span></div>
-                        <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Avg. Revenue Growth</div>
-                    </div>
-                    <div>
-                        <div class="text-2xl sm:text-4xl font-extrabold text-slate-950">98<span class="text-blue-700">%</span></div>
-                        <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Client Retention</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-
+const newSections = `
     <!-- ─── TRUST TICKER ─── -->
     <section class="py-5 bg-slate-900 dark:bg-black border-y border-slate-800 overflow-hidden relative z-20 shadow-inner">
         <div class="marquee-track flex whitespace-nowrap gap-12 animate-marquee items-center text-xs font-extrabold tracking-widest text-slate-400 uppercase">
@@ -1048,414 +782,42 @@
                 <p class="text-slate-500 text-xs mt-2 md:mt-0">Designed for scale.</p>
             </div>
         </div>
-    </footer>
+    </footer>`;
 
-    <!-- Interactive Logic & Animations -->
-    <script>
-        // Transparent Navbar at top -> Collapses Desktop Links into Hamburger Button on Scroll
-        const navbar = document.getElementById('navbar');
-        const desktopNavLinks = document.getElementById('desktop-nav-links');
-        const navHamburgerBtn = document.getElementById('nav-hamburger-btn');
-        const navDrawer = document.getElementById('nav-drawer');
-        const closeDrawerBtn = document.getElementById('close-drawer-btn');
+// Find the old trust bar section and replace it AND everything up to the footer closing tag
+// We replace from trust bar all the way through old footer close
+const oldFooterEnd = `    <!-- Interactive Logic & Animations -->`;
 
-        function handleScroll() {
-            const scrollY = window.scrollY;
-            
-            // Sticky menu bar remains 100% completely transparent while scrolling
-            navbar.classList.add('bg-transparent');
-            navbar.classList.remove('bg-white', 'bg-white/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-slate-200');
+if (html.includes(oldSections)) {
+    const restStart = html.indexOf(oldSections);
+    const restEnd = html.indexOf(oldFooterEnd);
+    const before = html.slice(0, restStart);
+    const after = html.slice(restEnd);
+    html = before + newSections + '\n\n    ' + after.slice(4); // keep the scripts
+    changes++;
+    console.log('✓ Replaced all below-hero sections with new editorial/glassmorphic design');
+} else {
+    console.warn('✗ Could not find exact trust bar anchor — trying marquee fallback...');
+    // Fallback: find the marquee ticker (old duplicate) and delete, replace from results section
+    const altStart = `    <!-- Infinite Looping Marquee Ticker`;
+    const altEnd = oldFooterEnd;
+    if (html.includes(altStart) && html.includes(altEnd)) {
+        const s = html.indexOf(altStart);
+        const e = html.indexOf(altEnd);
+        const before = html.slice(0, s);
+        const after = html.slice(e);
+        html = before + newSections + '\n\n    ' + after.slice(4);
+        changes++;
+        console.log('✓ [Fallback] Replaced all below-hero sections');
+    } else {
+        console.warn('✗ Could not replace below-hero sections — manual edit required');
+    }
+}
 
-            if (scrollY > 50) {
-                navbar.classList.remove('py-4');
-                navbar.classList.add('py-2');
-                if (desktopNavLinks) desktopNavLinks.classList.add('md:hidden');
-            } else {
-                navbar.classList.remove('py-2');
-                navbar.classList.add('py-4');
-                if (desktopNavLinks) desktopNavLinks.classList.remove('md:hidden');
-            }
-
-            // Parallax Scroll Effect for Hero and Calculator Videos
-            const heroVideo = document.querySelector('.hero-video-bg');
-            if (heroVideo && scrollY < 900) {
-                heroVideo.style.transform = `translateY(${scrollY * 0.4}px)`;
-            }
-            const calcVideo = document.querySelector('.calc-video-bg');
-            const calcSection = document.getElementById('calculator');
-            if (calcVideo && calcSection) {
-                const rect = calcSection.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    const offset = (window.innerHeight - rect.top) * 0.2;
-                    calcVideo.style.transform = `translateY(${offset}px)`;
-                }
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();
-
-        if (navHamburgerBtn) {
-            navHamburgerBtn.addEventListener('click', () => navDrawer.classList.remove('hidden'));
-        }
-        if (closeDrawerBtn) {
-            closeDrawerBtn.addEventListener('click', () => navDrawer.classList.add('hidden'));
-        }
-        document.querySelectorAll('.drawer-link').forEach(link => {
-            link.addEventListener('click', () => navDrawer.classList.add('hidden'));
-        });
-
-        // Mobile menu toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        if (btn && menu) {
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-            });
-        }
-
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // --- Digital Maturity Calculator Logic ---
-        var pillars = [
-            { id: 'infra', name: 'Infrastructure', risk: 'Security vulnerabilities and slow load times.' },
-            { id: 'auto', name: 'Agentic Solutions', risk: 'High manual overhead and operational drag.' },
-            { id: 'data', name: 'Analytics', risk: 'Blind decision making due to data gaps.' },
-            { id: 'strat', name: 'Strategy', risk: 'Lack of roadmap leading to misaligned spend.' }
-        ];
-
-        window.updateAudit = function updateAudit() {
-            let total = 0;
-            let lowestVal = 5;
-            let lowestPillar = pillars[0];
-
-            pillars.forEach(p => {
-                const val = parseInt(document.getElementById(`slider-${p.id}`).value);
-                document.getElementById(`val-${p.id}`).innerText = `${val}/5`;
-                total += val;
-                
-                if (val < lowestVal) {
-                    lowestVal = val;
-                    lowestPillar = p;
-                }
-            });
-
-            // Calculate percentage
-            const percentage = Math.round((total / 20) * 100);
-            document.getElementById('res-score').innerText = `${percentage}%`;
-
-            // Determine Tier & Industrial Palette Colors
-            const badge = document.getElementById('res-tier-badge');
-            let tierName = "Reactive";
-            let colorStr = "#fcd34d"; // warm bronze yellow
-            let bgStr = "rgba(217, 119, 6, 0.25)";
-
-            if (percentage > 75) {
-                tierName = "Optimized";
-                colorStr = "#34d399"; // growth green
-                bgStr = "rgba(16, 185, 129, 0.25)";
-            } else if (percentage >= 50) {
-                tierName = "Strategic";
-                colorStr = "#93c5fd"; // corporate blue
-                bgStr = "rgba(37, 99, 235, 0.25)";
-            } else if (percentage >= 30) {
-                tierName = "Emerging";
-                colorStr = "#cbd5e1"; // industrial steel
-                bgStr = "rgba(100, 116, 139, 0.25)";
-            }
-
-            badge.innerText = tierName;
-            badge.style.color = colorStr;
-            badge.style.background = bgStr;
-
-            // Update Risk Area
-            document.getElementById('res-risk-title').innerText = lowestPillar.name;
-            document.getElementById('res-risk-desc').innerText = lowestPillar.risk;
-
-            // Update Recommendation (Using Indian Pricing Context)
-            const recTitle = document.getElementById('res-service');
-            const recPrice = document.getElementById('res-price');
-
-            if (percentage > 75) {
-                recTitle.innerText = "Enterprise Pod";
-                recPrice.innerText = "Est: ₹5L+ / mo";
-            } else if (percentage >= 40) {
-                recTitle.innerText = "Mid-Market Scale";
-                recPrice.innerText = "Est: ₹1.25L - ₹3L / mo";
-            } else {
-                recTitle.innerText = "SMB Sprint";
-                recPrice.innerText = "Est: ₹35k - ₹75k / mo";
-            }
-        }
-
-        // Initialize calculator
-        updateAudit();
-
-        // Canvas particle background loop
-        (function() {
-            const canvas = document.getElementById('particle-canvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            let mouse = { x: null, y: null };
-
-            function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-            resize();
-            window.addEventListener('resize', resize);
-            document.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2 + 0.5;
-                    this.speedX = (Math.random() - 0.5) * 0.4;
-                    this.speedY = (Math.random() - 0.5) * 0.4;
-                    this.opacity = Math.random() * 0.35 + 0.1;
-                }
-                update() {
-                    this.x += this.speedX; this.y += this.speedY;
-                    if (this.x > canvas.width) this.x = 0; if (this.x < 0) this.x = canvas.width;
-                    if (this.y > canvas.height) this.y = 0; if (this.y < 0) this.y = canvas.height;
-                    if (mouse.x !== null) {
-                        const dx = mouse.x - this.x, dy = mouse.y - this.y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 120) { this.x -= dx * 0.01; this.y -= dy * 0.01; }
-                    }
-                }
-                draw() {
-                    ctx.fillStyle = `rgba(29, 78, 216, ${this.opacity})`;
-                    ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
-                }
-            }
-            for (let i = 0; i < 65; i++) particles.push(new Particle());
-            function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
-            animate();
-        })();
-    </script>
-
-    <!-- Floating WhatsApp CTA -->
-    <a href="https://wa.me/917018979508?text=Hi%20Naxa.One%2C%20I%27d%20like%20to%20book%20a%2015-Min%20Discovery%20Call." target="_blank" rel="noopener noreferrer"
-       class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-3 rounded-full shadow-xl flex items-center gap-2.5 transition-all hover:scale-105"
-       aria-label="Chat on WhatsApp">
-        <svg class="w-5 h-5 fill-current flex-shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        <span class="font-semibold text-sm hidden md:inline">Talk to our Expert</span>
-    </a>
-
-    <!-- Lead Capture Modal -->
-    <div id="lead-modal" class="hidden fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative border border-slate-200">
-            <button onclick="closeLeadModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 text-xl leading-none transition-colors">&times;</button>
-            <span class="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-xs font-bold text-emerald-700 mb-4 uppercase tracking-wider">Free Audit Report</span>
-            <h3 class="text-2xl font-bold text-slate-900 mb-2">Unlock Your Digital Maturity Score</h3>
-            <p class="text-sm text-slate-500 mb-6 leading-relaxed">Enter your details to reveal your score instantly and receive a customized 12-month operational roadmap.</p>
-            <form id="audit-lead-form" onsubmit="handleAuditLeadSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Full Name *</label>
-                    <input type="text" name="fullName" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-slate-50" placeholder="e.g. Vikram Mehta">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Work Email / WhatsApp *</label>
-                    <input type="text" name="contactInfo" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-slate-50" placeholder="vikram@company.com or +91 98765...">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Company / Brand *</label>
-                    <input type="text" name="companyName" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-slate-50" placeholder="Your Business Name">
-                </div>
-                <button type="submit" class="w-full mt-4 bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-blue-700/25">Unlock My Results &rarr;</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // Set your Google Apps Script Web App URL here after creating your Google Sheet receiver script
-        const GOOGLE_SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxrg5pjAy98DA87-tWJJ-a_ybhuVbZTSGz1AlJtYmuA4FLbv1-ZwKxDQ5RmpZi5HUSngg/exec';
-
-        function openLeadModal() { 
-            const modal = document.getElementById("lead-modal");
-            if (modal) modal.classList.remove("hidden"); 
-        }
-        
-        function closeLeadModal() { 
-            const modal = document.getElementById("lead-modal");
-            if (modal) modal.classList.add("hidden"); 
-        }
-
-        function openBookingModal() {
-            const section = document.getElementById('booking-section');
-            if (section) section.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function closeBookingModal() {
-            const modal = document.getElementById('booking-modal');
-            if (modal) modal.classList.add('hidden');
-        }
-
-        async function handleAuditLeadSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn ? submitBtn.innerText : '';
-            
-            if (submitBtn) {
-                submitBtn.innerText = 'Unlocking...';
-                submitBtn.disabled = true;
-            }
-
-            const formData = new FormData(form);
-            const payload = Object.fromEntries(formData.entries());
-            payload.timestamp = new Date().toLocaleString();
-            payload.source = 'Digital Maturity Calculator';
-            
-            const scoreEl = document.getElementById('res-score');
-            const riskEl = document.getElementById('res-risk-title');
-            if (scoreEl) payload.score = scoreEl.innerText;
-            if (riskEl) payload.highestRisk = riskEl.innerText;
-
-            console.log('Submitting lead payload:', payload);
-
-            if (GOOGLE_SHEET_WEBAPP_URL && GOOGLE_SHEET_WEBAPP_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-                try {
-                    await fetch(GOOGLE_SHEET_WEBAPP_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                } catch (err) {
-                    console.error('Error submitting lead to Google Sheet:', err);
-                }
-            }
-
-            closeLeadModal();
-
-            // Un-blur score & recommendations
-            document.querySelectorAll('.calc-blur').forEach(el => {
-                el.classList.remove('blur-md', 'blur-sm', 'opacity-40', 'select-none');
-            });
-
-            // Hide the unlock CTA container
-            const unlockContainer = document.getElementById('unlock-container');
-            if (unlockContainer) unlockContainer.style.display = 'none';
-
-            if (submitBtn) {
-                submitBtn.innerText = originalBtnText;
-                submitBtn.disabled = false;
-            }
-
-            alert('Thank you, ' + (payload.fullName || 'there') + '! Your digital maturity roadmap has been unlocked.');
-        }
-
-        async function handleDirectBookingSubmit(e) {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-            const payload = Object.fromEntries(formData.entries());
-            payload.timestamp = new Date().toLocaleString();
-            payload.source = 'Direct Advisory Call Booking';
-
-            if (GOOGLE_SHEET_WEBAPP_URL && GOOGLE_SHEET_WEBAPP_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-                try {
-                    await fetch(GOOGLE_SHEET_WEBAPP_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                } catch (err) {
-                    console.error('Error sending booking to Google Sheet:', err);
-                }
-            }
-
-            closeBookingModal();
-            alert('Thank you ' + payload.fullName + '! Your 15-minute discovery call request for ' + payload.companyName + ' has been received. Our architect will reach out via ' + payload.contactInfo + ' shortly.');
-        }
-    </script>
-
-    <script>
-        // Preloader Logic: Wait until all images, fonts, videos and assets are fully loaded
-        (function() {
-            const bar = document.getElementById('loader-bar');
-            let progress = 10;
-            
-            const interval = setInterval(() => {
-                if (progress < 85) {
-                    progress += Math.floor(Math.random() * 10) + 5;
-                    if (bar) bar.style.width = progress + '%';
-                }
-            }, 100);
-
-            window.addEventListener('load', function() {
-                clearInterval(interval);
-                if (bar) bar.style.width = '100%';
-                setTimeout(() => {
-                    const preloader = document.getElementById('preloader');
-                    if (preloader) {
-                        preloader.classList.add('opacity-0', 'pointer-events-none');
-                        setTimeout(() => preloader.remove(), 700);
-                    }
-                }, 300);
-            });
-        })();
-    </script>
-
-    <!-- Typewriter Effect -->
-    <script>
-        (function() {
-            const el = document.getElementById('typewriter-target');
-            if (!el) return;
-            const phrases = [
-                'Accelerate Your Growth Engine',
-                'Deploy Agentic Workflows',
-                'Automate Tally ERP Sync',
-                'Scale eCommerce Revenue',
-                'Dominate Google Search'
-            ];
-            let phraseIdx = 0, charIdx = 0, deleting = false;
-            const TYPE_SPEED = 55, DELETE_SPEED = 28, PAUSE = 2000;
-
-            function typewriter() {
-                const currentPhrase = phrases[phraseIdx];
-                if (!deleting) {
-                    el.textContent = currentPhrase.slice(0, ++charIdx);
-                    if (charIdx === currentPhrase.length) {
-                        deleting = true;
-                        setTimeout(typewriter, PAUSE);
-                        return;
-                    }
-                } else {
-                    el.textContent = currentPhrase.slice(0, --charIdx);
-                    if (charIdx === 0) {
-                        deleting = false;
-                        phraseIdx = (phraseIdx + 1) % phrases.length;
-                    }
-                }
-                setTimeout(typewriter, deleting ? DELETE_SPEED : TYPE_SPEED);
-            }
-
-            typewriter();
-        })();
-    </script>
-
-
+// ─────────────────────────────────────────────────────────────
+// 6. DARK MODE: Add toggleTheme() JS function before </body>
+// ─────────────────────────────────────────────────────────────
+const themeScript = `
     <!-- Theme Toggle Logic -->
     <script>
         function toggleTheme() {
@@ -1464,6 +826,17 @@
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         }
     </script>
+`;
 
-</body>
-</html>
+if (!html.includes('function toggleTheme')) {
+    html = html.replace('</body>', themeScript + '\n</body>');
+    changes++;
+    console.log('✓ toggleTheme() script injected');
+}
+
+// ─────────────────────────────────────────────────────────────
+// 7. Add Tailwind darkMode config hint via cdn (already loaded via styles.css — ensure body gets it)
+// ─────────────────────────────────────────────────────────────
+
+fs.writeFileSync('index.html', html);
+console.log(`\n✅ Done. ${changes} changes applied.`);

@@ -1,0 +1,31 @@
+{
+  "viewports": {
+    "mobile": {
+      "hasHorizontalOverflow": false,
+      "scrollWidth": 375,
+      "viewportWidth": 375,
+      "smallTapTargets": 9
+    },
+    "tablet": {
+      "hasHorizontalOverflow": false,
+      "scrollWidth": 768,
+      "viewportWidth": 768,
+      "smallTapTargets": 0
+    },
+    "desktop": {
+      "hasHorizontalOverflow": false,
+      "scrollWidth": 1440,
+      "viewportWidth": 1440,
+      "smallTapTargets": 0
+    }
+  },
+  "accessibility": {
+    "imagesWithoutAltCount": 0,
+    "imagesWithoutAlt": [],
+    "buttonsWithoutLabelCount": 1,
+    "h1Count": 1,
+    "totalButtons": 9,
+    "totalLinks": 32
+  },
+  "elements": {}
+}
