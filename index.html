@@ -7,7 +7,7 @@
     <meta name="description" content="Digital setup, scale-up, and agentic workflows for Indian enterprises.">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2.0.1">
     
     <script>
         (function() {
@@ -30,19 +30,19 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-navy-900/90 backdrop-blur-md border-b border-navy-800">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-transparent border-b border-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
                 <a href="/" class="flex items-center gap-3">
                     <img src="logo.png" alt="Naxa.One Logo" class="w-10 h-10 object-contain rounded">
-                    <span class="font-extrabold text-xl tracking-tight text-white">Naxa<span class="text-gold-500">.</span>One</span>
+                    <span id="nav-brand-text" class="font-extrabold text-xl tracking-tight text-white transition-colors duration-300">Naxa<span class="text-gold-500">.</span>One</span>
                 </a>
 
-                <div class="hidden md:flex items-center space-x-8" id="desktop-nav-links">
-                    <a href="#hubs" class="text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Capabilities</a>
-                    <a href="#work" class="text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Work</a>
-                    <a href="#philosophy" class="text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Philosophy</a>
-                    <a href="#calculator" class="text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Audit</a>
+                <div class="hidden md:flex items-center space-x-8 transition-all duration-300" id="desktop-nav-links">
+                    <a href="#hubs" class="nav-link text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Capabilities</a>
+                    <a href="#work" class="nav-link text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Work</a>
+                    <a href="#philosophy" class="nav-link text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Philosophy</a>
+                    <a href="#calculator" class="nav-link text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Audit</a>
                 </div>
 
                 <div class="flex items-center gap-4">
@@ -642,19 +642,35 @@
 
         function handleScroll() {
             const scrollY = window.scrollY;
+            const brandText = document.getElementById('nav-brand-text');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const themeToggle = document.getElementById('theme-toggle');
+            const hamburgerBtn = document.getElementById('nav-hamburger-btn');
             
-            // Sticky menu bar remains 100% completely transparent while scrolling
-            navbar.classList.add('bg-transparent');
-            navbar.classList.remove('bg-white', 'bg-white/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-slate-200');
-
             if (scrollY > 50) {
-                navbar.classList.remove('py-4');
-                navbar.classList.add('py-2');
-                if (desktopNavLinks) desktopNavLinks.classList.add('md:hidden');
+                // Scrolled down state (solid background, borders)
+                navbar.className = "fixed w-full z-50 transition-all duration-300 py-2 bg-white/95 border-b border-slate-200/80 dark:bg-navy-900/95 dark:border-navy-800/80 backdrop-blur-md shadow-sm";
+                if (brandText) brandText.className = "font-extrabold text-xl tracking-tight text-navy-900 dark:text-white transition-colors duration-300";
+                navLinks.forEach(link => {
+                    link.className = "nav-link text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-gold-500 transition-colors duration-300";
+                });
+                if (themeToggle) themeToggle.className = "w-10 h-10 flex items-center justify-center rounded-sm border border-slate-200 bg-slate-100 dark:border-navy-700 dark:bg-navy-800 text-slate-600 dark:text-slate-300 hover:text-gold-500 transition-all";
+                if (hamburgerBtn) hamburgerBtn.className = "md:hidden w-10 h-10 flex items-center justify-center rounded-sm border border-slate-200 bg-slate-100 dark:border-navy-700 dark:bg-navy-800 text-slate-600 dark:text-slate-300 transition-all";
+                
+                // Transitional fade-out for links
+                if (desktopNavLinks) desktopNavLinks.className = "hidden md:flex items-center space-x-8 transition-all duration-300 opacity-0 pointer-events-none -translate-y-2";
             } else {
-                navbar.classList.remove('py-2');
-                navbar.classList.add('py-4');
-                if (desktopNavLinks) desktopNavLinks.classList.remove('md:hidden');
+                // Top header state (transparent)
+                navbar.className = "fixed w-full z-50 transition-all duration-300 py-4 bg-transparent border-b border-transparent";
+                if (brandText) brandText.className = "font-extrabold text-xl tracking-tight text-white transition-colors duration-300";
+                navLinks.forEach(link => {
+                    link.className = "nav-link text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors duration-300";
+                });
+                if (themeToggle) themeToggle.className = "w-10 h-10 flex items-center justify-center rounded-sm border border-navy-700 bg-navy-800 hover:bg-navy-700 text-slate-300 hover:text-gold-400 transition-all";
+                if (hamburgerBtn) hamburgerBtn.className = "md:hidden w-10 h-10 flex items-center justify-center rounded-sm border border-navy-700 bg-navy-800 text-white transition-all";
+                
+                // Visible at top
+                if (desktopNavLinks) desktopNavLinks.className = "hidden md:flex items-center space-x-8 transition-all duration-300 opacity-100 translate-y-0";
             }
 
             // Parallax Scroll Effect for Hero and Calculator Videos
