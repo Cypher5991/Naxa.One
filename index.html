@@ -86,10 +86,12 @@
     </script>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
             background-color: #F8FAFC;
             color: #0F172A;
             overflow-x: hidden;
@@ -118,7 +120,7 @@
         .glass-card:hover {
             transform: translateY(-5px);
             border-color: #2563EB;
-            box-shadow: 0 20px 35px -5px rgba(29, 78, 216, 0.15), 0 10px 10px -5px rgba(5, 150, 105, 0.10);
+            box-shadow: 0 20px 35px -5px rgba(29, 78, 216, 0.25), 0 10px 10px -5px rgba(5, 150, 105, 0.15);
         }
 
         .text-gradient {
@@ -203,7 +205,8 @@
             display: inline-block;
             animation: blink 0.75s step-end infinite;
             font-weight: 300;
-            margin-left: 1px;
+            margin-left: 2px;
+            filter: drop-shadow(0 0 6px rgba(29, 78, 216, 0.7));
         }
         @keyframes blink {
             0%, 100% { opacity: 1; }
@@ -261,7 +264,7 @@
                 <!-- Right: Action Area (Discovery Button + Hamburger Menu) -->
                 <div class="flex items-center gap-3">
                     <button onclick="openBookingModal()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-blue-700/20" id="nav-discovery-btn">Book 15-Min Call</button>
-                    <button id="nav-hamburger-btn" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold px-3.5 py-2 rounded-full shadow-md backdrop-blur-md transition-all">
+                    <button id="nav-hamburger-btn" aria-label="Toggle Navigation Menu" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold p-3 min-h-[48px] min-w-[48px] rounded-full shadow-md backdrop-blur-md transition-all">
                         <i class="fas fa-bars text-base text-blue-700"></i>
                         <span class="text-xs font-extrabold uppercase tracking-wider hidden sm:inline">Menu</span>
                     </button>
@@ -282,15 +285,15 @@
                     </button>
                 </div>
                 <div class="flex flex-col space-y-4 font-bold text-slate-800">
-                    <a href="/" class="hover:text-blue-700 py-1 transition-colors drawer-link">Home</a>
-                    <a href="#philosophy" class="hover:text-blue-700 py-1 transition-colors drawer-link">Philosophy</a>
-                    <a href="/pricing" class="hover:text-blue-700 py-1 transition-colors drawer-link">Retainer Pricing & Packages</a>
-                    <a href="/ecommerce" class="hover:text-blue-700 py-1 transition-colors drawer-link">Sell Online (eCommerce)</a>
-                    <a href="/content" class="hover:text-blue-700 py-1 transition-colors drawer-link">Look Professional (Content)</a>
-                    <a href="/seo" class="hover:text-blue-700 py-1 transition-colors drawer-link">Get Found (SEO)</a>
-                    <a href="/smm" class="hover:text-blue-700 py-1 transition-colors drawer-link">Build Following (SMM)</a>
-                    <a href="#calculator" class="hover:text-blue-700 py-1 transition-colors drawer-link">Digital Maturity Calculator</a>
-                    <a href="#faq" class="hover:text-blue-700 py-1 transition-colors drawer-link">FAQ</a>
+                    <a href="/" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Home</a>
+                    <a href="#philosophy" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Philosophy</a>
+                    <a href="/pricing" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Retainer Pricing & Packages</a>
+                    <a href="/ecommerce" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Sell Online (eCommerce)</a>
+                    <a href="/content" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Look Professional (Content)</a>
+                    <a href="/seo" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Get Found (SEO)</a>
+                    <a href="/smm" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Build Following (SMM)</a>
+                    <a href="#calculator" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Digital Maturity Calculator</a>
+                    <a href="#faq" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">FAQ</a>
                 </div>
                 <div class="pt-4 border-t border-slate-100">
                     <button onclick="openBookingModal()" class="drawer-link block w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-full text-sm shadow-md shadow-blue-700/20">Book 15-Min Call</button>
@@ -378,8 +381,8 @@
     <section class="py-16 bg-white border-b border-slate-200 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-end justify-between mb-10 border-b border-slate-100 pb-6">
-                <h2 class="text-3xl font-extrabold text-slate-900">What We've <span class="bg-gradient-to-r from-blue-700 to-emerald-600 bg-clip-text text-transparent">Built</span></h2>
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Selected Work</span>
+                <h2 class="text-3xl font-bold text-slate-900">What We've <span class="bg-gradient-to-r from-blue-700 to-emerald-600 bg-clip-text text-transparent">Built</span></h2>
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Selected Work</span>
             </div>
             <div class="divide-y divide-slate-100">
                 <!-- Row 1 -->
@@ -387,7 +390,7 @@
                     <div class="flex items-center gap-6 md:gap-10">
                         <span class="text-xs font-bold text-slate-300 tabular-nums w-6">01</span>
                         <div>
-                            <div class="font-extrabold text-slate-900 text-base md:text-lg group-hover:text-blue-700 transition-colors">Regional Garment Retailer</div>
+                            <div class="font-bold text-slate-900 text-base md:text-lg group-hover:text-blue-700 transition-colors">Regional Garment Retailer</div>
                             <div class="text-xs text-slate-500 mt-0.5">Tally ERP Middleware + WhatsApp API + Next.js</div>
                         </div>
                     </div>
@@ -401,7 +404,7 @@
                     <div class="flex items-center gap-6 md:gap-10">
                         <span class="text-xs font-bold text-slate-300 tabular-nums w-6">02</span>
                         <div>
-                            <div class="font-extrabold text-slate-900 text-base md:text-lg group-hover:text-emerald-700 transition-colors">B2B Industrial Supplier</div>
+                            <div class="font-bold text-slate-900 text-base md:text-lg group-hover:text-emerald-700 transition-colors">B2B Industrial Supplier</div>
                             <div class="text-xs text-slate-500 mt-0.5">Technical SEO + GA4 Dashboard + CRM Integration</div>
                         </div>
                     </div>
@@ -415,7 +418,7 @@
                     <div class="flex items-center gap-6 md:gap-10">
                         <span class="text-xs font-bold text-slate-300 tabular-nums w-6">03</span>
                         <div>
-                            <div class="font-extrabold text-slate-900 text-base md:text-lg group-hover:text-amber-700 transition-colors">MSME Food Brand</div>
+                            <div class="font-bold text-slate-900 text-base md:text-lg group-hover:text-amber-700 transition-colors">MSME Food Brand</div>
                             <div class="text-xs text-slate-500 mt-0.5">Brand Identity + eCommerce + Social + WhatsApp</div>
                         </div>
                     </div>
@@ -452,12 +455,12 @@
     </div>
 
     <!-- The Problem & Philosophy — Editorial -->
-    <section id="philosophy" class="py-20 relative z-10 bg-white border-b border-slate-200">
+    <section id="philosophy" class="py-24 relative z-10 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <!-- Left: Full-bleed image -->
                 <div class="relative">
-                    <img src="formal_discussion.webp" alt="Naxa.One team in a strategy session" class="w-full h-[480px] object-cover rounded-2xl shadow-lg">
+                    <img src="formal_discussion.webp" alt="Naxa.One team in a strategy session" class="w-full h-[480px] object-cover rounded-2xl shadow-lg" loading="lazy">
                     <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 border border-slate-100 shadow-sm">
                         <p class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Our Approach</p>
                         <p class="text-sm font-bold text-slate-900">Build → Automate → Train. You own the outcome.</p>
@@ -466,7 +469,7 @@
                 <!-- Right: Editorial text -->
                 <div class="space-y-10">
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-4">Why most digital<br>projects <span class="text-blue-700">fail.</span></h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 leading-tight mb-4">Why most digital<br>projects <span class="text-blue-700">fail.</span></h2>
                         <p class="text-slate-500 text-base leading-relaxed">Most agencies create dependency. We build your capability instead.</p>
                     </div>
                     <div class="space-y-8">
@@ -475,7 +478,7 @@
                                 <i class="fas fa-link-slash text-slate-800 text-xs"></i>
                             </div>
                             <div>
-                                <h3 class="font-extrabold text-slate-900 mb-1">Siloed Systems</h3>
+                                <h3 class="font-bold text-slate-900 mb-1">Siloed Systems</h3>
                                 <p class="text-slate-500 text-sm leading-relaxed">Your CRM, Tally, and web platform don't communicate. Manual data entry drains hours every day.</p>
                             </div>
                         </div>
@@ -484,7 +487,7 @@
                                 <i class="fas fa-chart-pie text-blue-700 text-xs"></i>
                             </div>
                             <div>
-                                <h3 class="font-extrabold text-slate-900 mb-1">Blind Analytics</h3>
+                                <h3 class="font-bold text-slate-900 mb-1">Blind Analytics</h3>
                                 <p class="text-slate-500 text-sm leading-relaxed">You have GA4 installed but no one reads it. Decisions run on gut, not data.</p>
                             </div>
                         </div>
@@ -493,7 +496,7 @@
                                 <i class="fas fa-handshake-angle text-emerald-600 text-xs"></i>
                             </div>
                             <div>
-                                <h3 class="font-extrabold text-slate-900 mb-1">The Naxa.One Fix</h3>
+                                <h3 class="font-bold text-slate-900 mb-1">The Naxa.One Fix</h3>
                                 <p class="text-slate-500 text-sm leading-relaxed">We bridge the gaps, automate the grind, and train your team. No hostage code. You own it.</p>
                             </div>
                         </div>
@@ -505,7 +508,7 @@
 
     <!-- Section Break -->
 
-    <section id="audit" class="py-12 relative z-10 bg-white">
+    <section id="audit" class="py-24 relative z-10 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-3xl overflow-hidden shadow-2xl text-white animate-on-scroll">
                 <div class="grid grid-cols-1 md:grid-cols-2">
@@ -553,7 +556,7 @@
 
     <!-- Section Break -->
 
-    <section id="calculator" class="py-12 relative z-10 overflow-hidden bg-slate-900">
+    <section id="calculator" class="py-24 relative z-10 overflow-hidden bg-slate-900">
         <!-- Video Background for Slider Section -->
         <div class="absolute -inset-[20%] w-[140%] h-[140%] overflow-hidden pointer-events-none z-0 calc-video-bg">
             <video class="w-[300%] md:w-full h-[300%] md:h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-50" autoplay loop muted playsinline aria-hidden="true">
@@ -657,7 +660,7 @@
     <!-- Section Break -->
 
     <!-- Pricing Callout — Minimal -->
-    <section id="services" class="py-16 relative z-10 bg-slate-950 border-b border-slate-800">
+    <section id="services" class="py-24 relative z-10 bg-slate-950 border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
                 <p class="text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">Transparent Pricing</p>
@@ -671,7 +674,7 @@
     </section>
 
     <!-- Operations Automation Section -->
-    <section id="operations" class="py-16 relative z-10 bg-white border-b border-slate-200">
+    <section id="operations" class="py-24 relative z-10 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="order-2 lg:order-1">
@@ -687,7 +690,7 @@
                         <div class="flex items-center justify-between pt-2">
                             <div class="flex items-center gap-3">
                                 <i class="fas fa-bolt text-emerald-500 text-xl"></i>
-                                <span class="font-extrabold text-slate-900 text-lg">With Tally + API Sync</span>
+                                <span class="font-bold text-slate-900 text-lg">With Tally + API Sync</span>
                             </div>
                             <span class="text-sm font-extrabold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded shadow-sm">0 Minutes</span>
                         </div>
@@ -695,7 +698,7 @@
                 </div>
                 <div class="order-1 lg:order-2 space-y-6">
                     <div class="inline-block px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wider">Enterprise Operations</div>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 leading-tight">
                         Banish 6-Hour Daily <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-emerald-600">Manual Entries</span>
                     </h2>
                     <h3 class="text-lg font-bold text-slate-700">Tally ERP Sync + Custom WhatsApp Middlewares</h3>
@@ -711,7 +714,7 @@
     </section>
 
     <!-- Digital Literacy Trust Section -->
-    <section class="py-16 relative z-10 bg-slate-900 border-b border-slate-800 text-white">
+    <section class="py-24 relative z-10 bg-slate-900 border-b border-slate-800 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="max-w-3xl mx-auto">
                 <i class="fas fa-graduation-cap text-4xl text-emerald-400 mb-6"></i>
@@ -731,11 +734,11 @@
     <!-- Section Break -->
 
     <!-- Service Index — Editorial -->
-    <section id="hubs" class="py-20 relative z-10 bg-white border-b border-slate-200">
+    <section id="hubs" class="py-24 relative z-10 bg-white border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-end justify-between mb-12 border-b border-slate-100 pb-6">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">Our <span class="text-blue-700">Services</span></h2>
-                <img src="customers_collage.webp" class="h-16 w-40 object-cover rounded-lg opacity-80" alt="Naxa.One clients">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Our <span class="text-blue-700">Services</span></h2>
+                <img src="customers_collage.webp" class="h-16 w-40 object-cover rounded-lg opacity-80" alt="Naxa.One clients" loading="lazy">
             </div>
             <!-- Index List -->
             <div class="divide-y divide-slate-100">
@@ -744,8 +747,8 @@
                     <div class="flex items-center gap-6 md:gap-12">
                         <span class="text-xs font-bold text-slate-300 tabular-nums w-6 group-hover:text-blue-700 transition-colors">01</span>
                         <div>
-                            <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 group-hover:text-blue-700 transition-colors">Sell Online</h3>
-                            <p class="text-sm text-slate-400 mt-0.5">eCommerce · Tally ERP Sync · Checkout Optimisation</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">Sell Online</h3>
+                            <p class="text-sm text-slate-500 font-medium mt-0.5">eCommerce · Tally ERP Sync · Checkout Optimisation</p>
                         </div>
                     </div>
                     <span class="flex-shrink-0 flex items-center gap-2 text-sm font-bold text-slate-300 group-hover:text-blue-700 group-hover:gap-4 transition-all">
@@ -757,8 +760,8 @@
                     <div class="flex items-center gap-6 md:gap-12">
                         <span class="text-xs font-bold text-slate-300 tabular-nums w-6 group-hover:text-purple-700 transition-colors">02</span>
                         <div>
-                            <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 group-hover:text-purple-700 transition-colors">Look Professional</h3>
-                            <p class="text-sm text-slate-400 mt-0.5">Brand Identity · Copywriting · Visual Assets</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-purple-700 transition-colors">Look Professional</h3>
+                            <p class="text-sm text-slate-500 font-medium mt-0.5">Brand Identity · Copywriting · Visual Assets</p>
                         </div>
                     </div>
                     <span class="flex-shrink-0 flex items-center gap-2 text-sm font-bold text-slate-300 group-hover:text-purple-700 group-hover:gap-4 transition-all">
@@ -770,8 +773,8 @@
                     <div class="flex items-center gap-6 md:gap-12">
                         <span class="text-xs font-bold text-slate-300 tabular-nums w-6 group-hover:text-emerald-700 transition-colors">03</span>
                         <div>
-                            <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 group-hover:text-emerald-700 transition-colors">Get Found on Google</h3>
-                            <p class="text-sm text-slate-400 mt-0.5">Technical SEO · Keyword Dominance · Organic Traffic</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">Get Found on Google</h3>
+                            <p class="text-sm text-slate-500 font-medium mt-0.5">Technical SEO · Keyword Dominance · Organic Traffic</p>
                         </div>
                     </div>
                     <span class="flex-shrink-0 flex items-center gap-2 text-sm font-bold text-slate-300 group-hover:text-emerald-700 group-hover:gap-4 transition-all">
@@ -783,8 +786,8 @@
                     <div class="flex items-center gap-6 md:gap-12">
                         <span class="text-xs font-bold text-slate-300 tabular-nums w-6 group-hover:text-amber-700 transition-colors">04</span>
                         <div>
-                            <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 group-hover:text-amber-700 transition-colors">Build a Following</h3>
-                            <p class="text-sm text-slate-400 mt-0.5">Social Media · Video Assets · Community Growth</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-amber-700 transition-colors">Build a Following</h3>
+                            <p class="text-sm text-slate-500 font-medium mt-0.5">Social Media · Video Assets · Community Growth</p>
                         </div>
                     </div>
                     <span class="flex-shrink-0 flex items-center gap-2 text-sm font-bold text-slate-300 group-hover:text-amber-700 group-hover:gap-4 transition-all">
@@ -796,8 +799,8 @@
                     <div class="flex items-center gap-6 md:gap-12">
                         <span class="text-xs font-bold text-slate-300 tabular-nums w-6 group-hover:text-slate-900 transition-colors">05</span>
                         <div>
-                            <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 group-hover:text-slate-900 transition-colors">View Retainer Pricing</h3>
-                            <p class="text-sm text-slate-400 mt-0.5">SMB Sprints · Mid-Market · Enterprise Dev Pods</p>
+                            <h3 class="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-slate-900 transition-colors">View Retainer Pricing</h3>
+                            <p class="text-sm text-slate-500 font-medium mt-0.5">SMB Sprints · Mid-Market · Enterprise Dev Pods</p>
                         </div>
                     </div>
                     <span class="flex-shrink-0 flex items-center gap-2 text-sm font-bold text-slate-300 group-hover:text-slate-900 group-hover:gap-4 transition-all">
@@ -830,14 +833,14 @@
                             <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs mt-0.5"><i class="fas fa-check"></i></div>
                             <div>
                                 <h3 class="font-bold text-white text-sm">For MSMEs: Setup & Growth Roadmap</h3>
-                                <p class="text-xs text-slate-400">High-converting web platforms, Tally ERP sync & lead intake systems.</p>
+                                <p class="text-xs text-slate-500">High-converting web platforms, Tally ERP sync & lead intake systems.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
                             <div class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs mt-0.5"><i class="fas fa-check"></i></div>
                             <div>
                                 <h3 class="font-bold text-white text-sm">For Enterprises: Agentic Operations</h3>
-                                <p class="text-xs text-slate-400">Custom Next.js web applications, workflow automation & custom API middleware.</p>
+                                <p class="text-xs text-slate-500">Custom Next.js web applications, workflow automation & custom API middleware.</p>
                             </div>
                         </div>
                     </div>
@@ -883,7 +886,7 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 animate-on-scroll">
                 <div class="inline-block px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wider mb-3">Frequently Asked Questions</div>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Everything You Need to <span class="text-gradient-blue">Know</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Everything You Need to <span class="text-gradient-blue">Know</span></h2>
                 <p class="text-slate-600 max-w-xl mx-auto text-sm font-medium">Direct answers to common questions about our Digital Maturity Audit, pricing, and technology integrations.</p>
             </div>
 
@@ -1180,7 +1183,7 @@
         <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative border border-slate-200">
             <button onclick="closeLeadModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 text-xl leading-none transition-colors">&times;</button>
             <span class="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-xs font-bold text-emerald-700 mb-4 uppercase tracking-wider">Free Audit Report</span>
-            <h3 class="text-2xl font-extrabold text-slate-900 mb-2">Unlock Your Digital Maturity Score</h3>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Unlock Your Digital Maturity Score</h3>
             <p class="text-sm text-slate-500 mb-6 leading-relaxed">Enter your details to reveal your score instantly and receive a customized 12-month operational roadmap.</p>
             <form id="audit-lead-form" onsubmit="handleAuditLeadSubmit(event)" class="space-y-4">
                 <div>
