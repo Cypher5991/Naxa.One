@@ -1136,55 +1136,107 @@
     </div>
 
     <script>
-        function openLeadModal() { document.getElementById("lead-modal").classList.remove("hidden"); }
-        function closeLeadModal() { document.getElementById("lead-modal").classList.add("hidden"); }
+        // Set your Google Apps Script Web App URL here after creating your Google Sheet receiver script
+        const GOOGLE_SHEET_WEBAPP_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
-        function handleAuditLeadSubmit(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            console.log('Lead Captured:', Object.fromEntries(formData));
-            closeLeadModal();
-            
-            document.querySelectorAll('.calc-blur').forEach(el => {
-                el.classList.remove('blur-md', 'blur-sm', 'opacity-40', 'select-none');
-            });
-            const unlockContainer = document.getElementById('unlock-container');
-            if (unlockContainer) unlockContainer.style.display = 'none';
+        function openLeadModal() { 
+            const modal = document.getElementById("lead-modal");
+            if (modal) modal.classList.remove("hidden"); 
+        }
+        
+        function closeLeadModal() { 
+            const modal = document.getElementById("lead-modal");
+            if (modal) modal.classList.add("hidden"); 
         }
 
         function openBookingModal() {
             const section = document.getElementById('booking-section');
             if (section) section.scrollIntoView({ behavior: 'smooth' });
         }
+
         function closeBookingModal() {
             const modal = document.getElementById('booking-modal');
             if (modal) modal.classList.add('hidden');
         }
-        function handleDirectBookingSubmit(e) {
-            e.preventDefault();
-            const formData = new FormData(e.target);
+
+        async function handleAuditLeadSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn ? submitBtn.innerText : '';
+            
+            if (submitBtn) {
+                submitBtn.innerText = 'Unlocking...';
+                submitBtn.disabled = true;
+            }
+
+            const formData = new FormData(form);
             const payload = Object.fromEntries(formData.entries());
-            console.log('Booking requested:', payload);
-            closeBookingModal();
-            alert('Thank you ' + payload.fullName + '! Your 15-minute discovery call request for ' + payload.companyName + ' (' + payload.segment + ') has been received. Our architect will reach out via ' + payload.contactInfo + ' shortly.');
+            payload.timestamp = new Date().toLocaleString();
+            payload.source = 'Digital Maturity Calculator';
+            
+            const scoreEl = document.getElementById('res-score');
+            const riskEl = document.getElementById('res-risk-title');
+            if (scoreEl) payload.score = scoreEl.innerText;
+            if (riskEl) payload.highestRisk = riskEl.innerText;
+
+            console.log('Submitting lead payload:', payload);
+
+            if (GOOGLE_SHEET_WEBAPP_URL && GOOGLE_SHEET_WEBAPP_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                try {
+                    await fetch(GOOGLE_SHEET_WEBAPP_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                } catch (err) {
+                    console.error('Error submitting lead to Google Sheet:', err);
+                }
+            }
+
+            closeLeadModal();
+
+            // Un-blur score & recommendations
+            document.querySelectorAll('.calc-blur').forEach(el => {
+                el.classList.remove('blur-md', 'blur-sm', 'opacity-40', 'select-none');
+            });
+
+            // Hide the unlock CTA container
+            const unlockContainer = document.getElementById('unlock-container');
+            if (unlockContainer) unlockContainer.style.display = 'none';
+
+            if (submitBtn) {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
+
+            alert('Thank you, ' + (payload.fullName || 'there') + '! Your digital maturity roadmap has been unlocked.');
         }
 
-        function openLeadModal() {
-            document.getElementById('lead-modal').classList.remove('hidden');
-        }
-        function closeLeadModal() {
-            document.getElementById('lead-modal').classList.add('hidden');
-        }
-        function handleAuditLeadSubmit(e) {
+        async function handleDirectBookingSubmit(e) {
             e.preventDefault();
-            const formData = new FormData(e.target);
+            const form = e.target;
+            const formData = new FormData(form);
             const payload = Object.fromEntries(formData.entries());
-            console.log('Lead captured:', payload);
-            // TODO: Replace with your webhook URL (e.g. Make.com / Supabase)
-            // fetch('YOUR_WEBHOOK_URL_HERE', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload) });
-            document.getElementById('lead-modal').classList.add('hidden');
-            // Show a success message
-            alert('Thanks ' + payload.fullName + '! Your score is shown above. We will send your 12-month roadmap to ' + payload.contactInfo + ' shortly.');
+            payload.timestamp = new Date().toLocaleString();
+            payload.source = 'Direct Advisory Call Booking';
+
+            if (GOOGLE_SHEET_WEBAPP_URL && GOOGLE_SHEET_WEBAPP_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                try {
+                    await fetch(GOOGLE_SHEET_WEBAPP_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                } catch (err) {
+                    console.error('Error sending booking to Google Sheet:', err);
+                }
+            }
+
+            closeBookingModal();
+            alert('Thank you ' + payload.fullName + '! Your 15-minute discovery call request for ' + payload.companyName + ' has been received. Our architect will reach out via ' + payload.contactInfo + ' shortly.');
         }
     </script>
 
