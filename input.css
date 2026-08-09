@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-[#F7F8FA] text-[#0D1B2A] font-sans antialiased selection:bg-gold-500 selection:text-white transition-colors duration-300;
+    }
+    .dark body {
+        @apply bg-navy-900 text-slate-200;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-extrabold tracking-tight;
+    }
+}
+
+@layer utilities {
+    .text-gradient-gold {
+        @apply bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent;
+    }
+    .glow-gold {
+        @apply relative;
+    }
+    .glow-gold::after {
+        content: '';
+        @apply absolute inset-0 bg-gold-500/10 rounded-full blur-3xl -z-10;
+    }
+}

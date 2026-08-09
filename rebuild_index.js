@@ -1,4 +1,32 @@
-<!DOCTYPE html>
+const fs = require('fs');
+
+const originalHtml = fs.readFileSync('index.html', 'utf8');
+
+// Extract scripts
+const scriptRegex = /<script>([\s\S]*?)<\/script>/g;
+let scripts = [];
+let match;
+while ((match = scriptRegex.exec(originalHtml)) !== null) {
+    if (!match[1].includes('tailwind.config')) { // don't grab tailwind cdn config if present
+        scripts.push(match[0]);
+    }
+}
+
+// Ensure the theme script is in the head, and others at the end
+const themeScript = `
+    <script>
+        (function() {
+            const stored = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (stored === 'dark' || (!stored && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>`;
+
+const otherScripts = scripts.filter(s => !s.includes('localStorage.getItem(\'theme\')')).join('\n');
+
+const newHtml = `<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -8,16 +36,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    
-    <script>
-        (function() {
-            const stored = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (stored === 'dark' || (!stored && prefersDark)) {
-                document.documentElement.classList.add('dark');
-            }
-        })();
-    </script>
+    ${themeScript}
 </head>
 <body class="bg-slate-white text-text-primary dark:bg-navy-900 dark:text-slate-200 transition-colors duration-300">
 
@@ -625,386 +644,10 @@
         </div>
     </div>
 
-<script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-SJRZ23Q5TZ');
-    </script>
-<script>
-        // Transparent Navbar at top -> Collapses Desktop Links into Hamburger Button on Scroll
-        const navbar = document.getElementById('navbar');
-        const desktopNavLinks = document.getElementById('desktop-nav-links');
-        const navHamburgerBtn = document.getElementById('nav-hamburger-btn');
-        const navDrawer = document.getElementById('nav-drawer');
-        const closeDrawerBtn = document.getElementById('close-drawer-btn');
-
-        function handleScroll() {
-            const scrollY = window.scrollY;
-            
-            // Sticky menu bar remains 100% completely transparent while scrolling
-            navbar.classList.add('bg-transparent');
-            navbar.classList.remove('bg-white', 'bg-white/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-slate-200');
-
-            if (scrollY > 50) {
-                navbar.classList.remove('py-4');
-                navbar.classList.add('py-2');
-                if (desktopNavLinks) desktopNavLinks.classList.add('md:hidden');
-            } else {
-                navbar.classList.remove('py-2');
-                navbar.classList.add('py-4');
-                if (desktopNavLinks) desktopNavLinks.classList.remove('md:hidden');
-            }
-
-            // Parallax Scroll Effect for Hero and Calculator Videos
-            const heroVideo = document.querySelector('.hero-video-bg');
-            if (heroVideo && scrollY < 900) {
-                heroVideo.style.transform = `translateY(${scrollY * 0.4}px)`;
-            }
-            const calcVideo = document.querySelector('.calc-video-bg');
-            const calcSection = document.getElementById('calculator');
-            if (calcVideo && calcSection) {
-                const rect = calcSection.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    const offset = (window.innerHeight - rect.top) * 0.2;
-                    calcVideo.style.transform = `translateY(${offset}px)`;
-                }
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        handleScroll();
-
-        if (navHamburgerBtn) {
-            navHamburgerBtn.addEventListener('click', () => navDrawer.classList.remove('hidden'));
-        }
-        if (closeDrawerBtn) {
-            closeDrawerBtn.addEventListener('click', () => navDrawer.classList.add('hidden'));
-        }
-        document.querySelectorAll('.drawer-link').forEach(link => {
-            link.addEventListener('click', () => navDrawer.classList.add('hidden'));
-        });
-
-        // Mobile menu toggle
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        if (btn && menu) {
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-            });
-        }
-
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // --- Digital Maturity Calculator Logic ---
-        var pillars = [
-            { id: 'infra', name: 'Infrastructure', risk: 'Security vulnerabilities and slow load times.' },
-            { id: 'auto', name: 'Agentic Solutions', risk: 'High manual overhead and operational drag.' },
-            { id: 'data', name: 'Analytics', risk: 'Blind decision making due to data gaps.' },
-            { id: 'strat', name: 'Strategy', risk: 'Lack of roadmap leading to misaligned spend.' }
-        ];
-
-        window.updateAudit = function updateAudit() {
-            let total = 0;
-            let lowestVal = 5;
-            let lowestPillar = pillars[0];
-
-            pillars.forEach(p => {
-                const val = parseInt(document.getElementById(`slider-${p.id}`).value);
-                document.getElementById(`val-${p.id}`).innerText = `${val}/5`;
-                total += val;
-                
-                if (val < lowestVal) {
-                    lowestVal = val;
-                    lowestPillar = p;
-                }
-            });
-
-            // Calculate percentage
-            const percentage = Math.round((total / 20) * 100);
-            document.getElementById('res-score').innerText = `${percentage}%`;
-
-            // Determine Tier & Industrial Palette Colors
-            const badge = document.getElementById('res-tier-badge');
-            let tierName = "Reactive";
-            let colorStr = "#fcd34d"; // warm bronze yellow
-            let bgStr = "rgba(217, 119, 6, 0.25)";
-
-            if (percentage > 75) {
-                tierName = "Optimized";
-                colorStr = "#34d399"; // growth green
-                bgStr = "rgba(16, 185, 129, 0.25)";
-            } else if (percentage >= 50) {
-                tierName = "Strategic";
-                colorStr = "#93c5fd"; // corporate blue
-                bgStr = "rgba(37, 99, 235, 0.25)";
-            } else if (percentage >= 30) {
-                tierName = "Emerging";
-                colorStr = "#cbd5e1"; // industrial steel
-                bgStr = "rgba(100, 116, 139, 0.25)";
-            }
-
-            badge.innerText = tierName;
-            badge.style.color = colorStr;
-            badge.style.background = bgStr;
-
-            // Update Risk Area
-            document.getElementById('res-risk-title').innerText = lowestPillar.name;
-            document.getElementById('res-risk-desc').innerText = lowestPillar.risk;
-
-            // Update Recommendation (Using Indian Pricing Context)
-            const recTitle = document.getElementById('res-service');
-            const recPrice = document.getElementById('res-price');
-
-            if (percentage > 75) {
-                recTitle.innerText = "Enterprise Pod";
-                recPrice.innerText = "Est: ₹5L+ / mo";
-            } else if (percentage >= 40) {
-                recTitle.innerText = "Mid-Market Scale";
-                recPrice.innerText = "Est: ₹1.25L - ₹3L / mo";
-            } else {
-                recTitle.innerText = "SMB Sprint";
-                recPrice.innerText = "Est: ₹35k - ₹75k / mo";
-            }
-        }
-
-        // Initialize calculator
-        updateAudit();
-
-        // Canvas particle background loop
-        (function() {
-            const canvas = document.getElementById('particle-canvas');
-            if (!canvas) return;
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-            let mouse = { x: null, y: null };
-
-            function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-            resize();
-            window.addEventListener('resize', resize);
-            document.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2 + 0.5;
-                    this.speedX = (Math.random() - 0.5) * 0.4;
-                    this.speedY = (Math.random() - 0.5) * 0.4;
-                    this.opacity = Math.random() * 0.35 + 0.1;
-                }
-                update() {
-                    this.x += this.speedX; this.y += this.speedY;
-                    if (this.x > canvas.width) this.x = 0; if (this.x < 0) this.x = canvas.width;
-                    if (this.y > canvas.height) this.y = 0; if (this.y < 0) this.y = canvas.height;
-                    if (mouse.x !== null) {
-                        const dx = mouse.x - this.x, dy = mouse.y - this.y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < 120) { this.x -= dx * 0.01; this.y -= dy * 0.01; }
-                    }
-                }
-                draw() {
-                    ctx.fillStyle = `rgba(29, 78, 216, ${this.opacity})`;
-                    ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
-                }
-            }
-            for (let i = 0; i < 65; i++) particles.push(new Particle());
-            function animate() { ctx.clearRect(0, 0, canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(animate); }
-            animate();
-        })();
-    </script>
-<script>
-        // Set your Google Apps Script Web App URL here after creating your Google Sheet receiver script
-        const GOOGLE_SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxrg5pjAy98DA87-tWJJ-a_ybhuVbZTSGz1AlJtYmuA4FLbv1-ZwKxDQ5RmpZi5HUSngg/exec';
-
-        function openLeadModal() { 
-            const modal = document.getElementById("lead-modal");
-            if (modal) modal.classList.remove("hidden"); 
-        }
-        
-        function closeLeadModal() { 
-            const modal = document.getElementById("lead-modal");
-            if (modal) modal.classList.add("hidden"); 
-        }
-
-        function openBookingModal() {
-            const section = document.getElementById('booking-section');
-            if (section) section.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function closeBookingModal() {
-            const modal = document.getElementById('booking-modal');
-            if (modal) modal.classList.add('hidden');
-        }
-
-        async function handleAuditLeadSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn ? submitBtn.innerText : '';
-            
-            if (submitBtn) {
-                submitBtn.innerText = 'Unlocking...';
-                submitBtn.disabled = true;
-            }
-
-            const formData = new FormData(form);
-            const payload = Object.fromEntries(formData.entries());
-            payload.timestamp = new Date().toLocaleString();
-            payload.source = 'Digital Maturity Calculator';
-            
-            const scoreEl = document.getElementById('res-score');
-            const riskEl = document.getElementById('res-risk-title');
-            if (scoreEl) payload.score = scoreEl.innerText;
-            if (riskEl) payload.highestRisk = riskEl.innerText;
-
-            console.log('Submitting lead payload:', payload);
-
-            if (GOOGLE_SHEET_WEBAPP_URL && GOOGLE_SHEET_WEBAPP_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-                try {
-                    await fetch(GOOGLE_SHEET_WEBAPP_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                } catch (err) {
-                    console.error('Error submitting lead to Google Sheet:', err);
-                }
-            }
-
-            closeLeadModal();
-
-            // Un-blur score & recommendations
-            document.querySelectorAll('.calc-blur').forEach(el => {
-                el.classList.remove('blur-md', 'blur-sm', 'opacity-40', 'select-none');
-            });
-
-            // Hide the unlock CTA container
-            const unlockContainer = document.getElementById('unlock-container');
-            if (unlockContainer) unlockContainer.style.display = 'none';
-
-            if (submitBtn) {
-                submitBtn.innerText = originalBtnText;
-                submitBtn.disabled = false;
-            }
-
-            alert('Thank you, ' + (payload.fullName || 'there') + '! Your digital maturity roadmap has been unlocked.');
-        }
-
-        async function handleDirectBookingSubmit(e) {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-            const payload = Object.fromEntries(formData.entries());
-            payload.timestamp = new Date().toLocaleString();
-            payload.source = 'Direct Advisory Call Booking';
-
-            if (GOOGLE_SHEET_WEBAPP_URL && GOOGLE_SHEET_WEBAPP_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-                try {
-                    await fetch(GOOGLE_SHEET_WEBAPP_URL, {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                } catch (err) {
-                    console.error('Error sending booking to Google Sheet:', err);
-                }
-            }
-
-            closeBookingModal();
-            alert('Thank you ' + payload.fullName + '! Your 15-minute discovery call request for ' + payload.companyName + ' has been received. Our architect will reach out via ' + payload.contactInfo + ' shortly.');
-        }
-    </script>
-<script>
-        // Preloader Logic: Wait until all images, fonts, videos and assets are fully loaded
-        (function() {
-            const bar = document.getElementById('loader-bar');
-            let progress = 10;
-            
-            const interval = setInterval(() => {
-                if (progress < 85) {
-                    progress += Math.floor(Math.random() * 10) + 5;
-                    if (bar) bar.style.width = progress + '%';
-                }
-            }, 100);
-
-            window.addEventListener('load', function() {
-                clearInterval(interval);
-                if (bar) bar.style.width = '100%';
-                setTimeout(() => {
-                    const preloader = document.getElementById('preloader');
-                    if (preloader) {
-                        preloader.classList.add('opacity-0', 'pointer-events-none');
-                        setTimeout(() => preloader.remove(), 700);
-                    }
-                }, 300);
-            });
-        })();
-    </script>
-<script>
-        (function() {
-            const el = document.getElementById('typewriter-target');
-            if (!el) return;
-            const phrases = [
-                'Accelerate Your Growth Engine',
-                'Deploy Agentic Workflows',
-                'Automate Tally ERP Sync',
-                'Scale eCommerce Revenue',
-                'Dominate Google Search'
-            ];
-            let phraseIdx = 0, charIdx = 0, deleting = false;
-            const TYPE_SPEED = 55, DELETE_SPEED = 28, PAUSE = 2000;
-
-            function typewriter() {
-                const currentPhrase = phrases[phraseIdx];
-                if (!deleting) {
-                    el.textContent = currentPhrase.slice(0, ++charIdx);
-                    if (charIdx === currentPhrase.length) {
-                        deleting = true;
-                        setTimeout(typewriter, PAUSE);
-                        return;
-                    }
-                } else {
-                    el.textContent = currentPhrase.slice(0, --charIdx);
-                    if (charIdx === 0) {
-                        deleting = false;
-                        phraseIdx = (phraseIdx + 1) % phrases.length;
-                    }
-                }
-                setTimeout(typewriter, deleting ? DELETE_SPEED : TYPE_SPEED);
-            }
-
-            typewriter();
-        })();
-    </script>
-<script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const isDark = html.classList.toggle('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-    </script>
+${otherScripts}
 
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync('rebuilt_index.html', newHtml);
+console.log('Successfully extracted scripts and generated rebuilt_index.html');
