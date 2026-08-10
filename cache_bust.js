@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const version = '3.0.1'; // Incremented to 3.0.1 for typewriter layout shift fix
+const version = '3.0.2'; // Incremented to 3.0.2 for typewriter layout bottom clipping fix
 
 const files = [
     'index.html',
