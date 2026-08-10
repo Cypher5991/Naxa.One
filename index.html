@@ -3,13 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naxa.One | Enterprise Digital Solutions</title>
-    <meta name="description" content="Digital setup, scale-up, and agentic workflows for Indian enterprises.">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2.0.1">
-    
+    <title>Naxa.One — Growth & Digital Development Agency</title>
+    <meta name="description" content="Naxa.One empowers Indian MSMEs & scale-ups with custom web apps, eCommerce conversion engineering, Tally ERP/WhatsApp solutions using agents and programs, and digital literacy retainers.">
+    <meta name="keywords" content="Naxa.One, Digital Agency India, eCommerce Development, Digital Maturity Audit, Tally ERP Sync, WhatsApp API Integration, Next.js Web Apps">
+    <link rel="canonical" href="https://www.naxa.one/">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.naxa.one/">
+    <meta property="og:title" content="Naxa.One — Growth & Digital Development Agency">
+    <meta property="og:description" content="Stop surviving. Start scaling. Bridging the gap between executive vision and digital execution for Indian MSMEs & scale-ups.">
+    <meta property="og:image" content="https://www.naxa.one/logo.png">
+    <meta property="og:site_name" content="Naxa.One">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.naxa.one/">
+    <meta name="twitter:title" content="Naxa.One — Growth & Digital Development Agency">
+    <meta name="twitter:description" content="Stop surviving. Start scaling. Bridging the gap between executive vision and digital execution.">
+    <meta name="twitter:image" content="https://www.naxa.one/logo.png">
+
+    <!-- Schema.org JSON-LD Structured Data for AEO & GEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.naxa.one/#organization",
+          "name": "Naxa.One",
+          "alternateName": "Naxa.One Digital",
+          "url": "https://www.naxa.one/",
+          "logo": "https://www.naxa.one/logo.png",
+          "sameAs": [
+            "https://github.com/Cypher5991/Naxa.One"
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.naxa.one/#service",
+          "name": "Naxa.One",
+          "url": "https://www.naxa.one/",
+          "logo": "https://www.naxa.one/logo.png",
+          "image": "https://www.naxa.one/logo.png",
+          "description": "Custom web platforms, Tally ERP integrations, eCommerce growth, and digital literacy advisory.",
+          "priceRange": "₹35,000 - ₹5,000,000"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.naxa.one/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is the 1-Week Digital Maturity Audit?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The 1-Week Digital Maturity Audit is an intensive 7-day technical evaluation for ₹35,000 (100% credited toward your retainer) that pinpoints technical debt, speed bottlenecks, and maps CRM, Tally ERP, and WhatsApp API workflows."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are Naxa.One's retainer pricing tiers?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Naxa.One offers 3 monthly retainer tiers: Tier 1 (SMB Sprint) at ₹35,000–₹75,000/mo, Tier 2 (Mid-Market Scale) at ₹1.25L–₹3.0L/mo, and Tier 3 (Enterprise Pod) at ₹5.0L+/mo."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Naxa.One integrate Tally ERP and WhatsApp APIs?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We build custom middleware and web app bridges connecting your website or CRM directly to Tally ERP and Interakt/WhatsApp APIs, eliminating manual data entry and speeding up order processing."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="styles.css?v=3.0.0">
     <script>
+        // Anti-FOUC dark mode initialization
         (function() {
             const stored = localStorage.getItem('theme');
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -18,621 +95,963 @@
             }
         })();
     </script>
-</head>
-<body class="bg-slate-white text-text-primary dark:bg-navy-900 dark:text-slate-200 transition-colors duration-300">
-
-    <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 z-[100] bg-navy-900 flex flex-col items-center justify-center transition-opacity duration-700">
-        <div class="relative w-48 h-1.5 bg-navy-800 rounded-full overflow-hidden mb-4">
-            <div id="loader-bar" class="absolute top-0 left-0 h-full bg-gold-500 w-0 transition-all duration-300 rounded-full"></div>
-        </div>
-        <p class="text-xs text-slate-400 font-bold uppercase tracking-widest mt-4">Loading Assets...</p>
-    </div>
-
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-transparent border-b border-transparent">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center">
-                <a href="/" class="flex items-center gap-3">
-                    <img src="logo.png" alt="Naxa.One Logo" class="w-10 h-10 object-contain rounded">
-                    <span id="nav-brand-text" class="font-extrabold text-xl tracking-tight text-white transition-colors duration-300">Naxa<span class="text-gold-500">.</span>One</span>
-                </a>
-
-                <div class="hidden md:flex items-center space-x-8 transition-all duration-300" id="desktop-nav-links">
-                    <a href="#hubs" class="nav-link text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Capabilities</a>
-                    <a href="#work" class="nav-link text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Work</a>
-                    <a href="#philosophy" class="nav-link text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Philosophy</a>
-                    <a href="#calculator" class="nav-link text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors">Audit</a>
-                </div>
-
-                <div class="flex items-center gap-4">
-                    <button onclick="openBookingModal()" class="hidden sm:inline-flex bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold px-5 py-2.5 rounded-sm text-sm transition-all shadow-lg shadow-gold-500/20" id="nav-discovery-btn">Book 15-Min Call</button>
-                    
-                    <!-- Theme Toggle -->
-                    <button id="theme-toggle" aria-label="Toggle Light and Dark Mode" onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-sm border border-navy-700 bg-navy-800 hover:bg-navy-700 text-slate-300 hover:text-gold-400 transition-all">
-                        <i class="fas fa-sun hidden dark:block"></i>
-                        <i class="fas fa-moon block dark:hidden"></i>
-                    </button>
-
-                    <button id="nav-hamburger-btn" aria-label="Toggle Navigation Menu" class="md:hidden w-10 h-10 flex items-center justify-center rounded-sm border border-navy-700 bg-navy-800 text-white transition-all">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Drawer -->
-    <div id="nav-drawer" class="fixed inset-0 z-[60] bg-navy-900/95 backdrop-blur-lg hidden flex flex-col pt-24 px-8">
-        <div class="flex justify-end mb-8">
-            <button id="close-drawer-btn" class="text-white text-3xl">&times;</button>
-        </div>
-        <div class="flex flex-col gap-6">
-            <a href="#hubs" class="text-2xl font-bold text-white hover:text-gold-400 transition-colors drawer-link">Capabilities</a>
-            <a href="#work" class="text-2xl font-bold text-white hover:text-gold-400 transition-colors drawer-link">Work</a>
-            <a href="#philosophy" class="text-2xl font-bold text-white hover:text-gold-400 transition-colors drawer-link">Philosophy</a>
-            <a href="#calculator" class="text-2xl font-bold text-white hover:text-gold-400 transition-colors drawer-link">Mini-Audit</a>
-            <button onclick="openBookingModal(); document.getElementById('nav-drawer').classList.add('hidden');" class="mt-8 bg-gold-500 text-navy-900 font-bold py-4 rounded-sm text-center w-full">Book 15-Min Call</button>
-        </div>
-    </div>
-
-    <!-- 1. HERO SECTION -->
-    <section class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-        <video autoplay loop muted playsinline class="hero-video-bg absolute inset-0 w-full h-full object-cover z-0">
-            <source src="slider_bg.mp4" type="video/mp4">
-        </video>
-        <div class="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/90 to-navy-900/40 z-0"></div>
-        <div class="absolute inset-0 bg-navy-900/30 z-0"></div>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background-color: #F8FAFC;
+            color: #0F172A;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .dark body, html.dark body {
+            background-color: #0B0F19;
+            color: #E2E8F0;
+        }
+        /* Smooth theme transitions for all key elements */
+        *, *::before, *::after {
+            transition-property: background-color, border-color, color;
+            transition-duration: 0.25s;
+            transition-timing-function: ease;
+        }
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mt-10">
-            <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-2 px-3 py-1 bg-navy-800/80 border border-gold-500/30 rounded-sm mb-6">
-                    <span class="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
-                    <span class="text-xs font-bold text-gold-400 uppercase tracking-widest">Enterprise Digital Partner</span>
-                </div>
-                
-                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white leading-[1.1] mb-6">
-                    <span id="typewriter-target" class="text-gold-500">Accelerate Your Growth</span>
-                    <span class="typewriter-cursor text-gold-400">|</span>
-                </h1>
-                
-                <p class="text-lg sm:text-xl text-slate-300 mb-10 max-w-xl leading-relaxed">
-                    We bridge the gap between executive vision and flawless execution for India's leading MSMEs and enterprise pods.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 mb-16">
-                    <button onclick="openBookingModal()" class="bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold px-8 py-4 rounded-sm transition-all text-center flex items-center justify-center gap-2">
-                        Book Strategy Call <i class="fas fa-arrow-right"></i>
-                    </button>
-                    <a href="#work" class="bg-navy-800/80 hover:bg-navy-700 text-white border border-navy-700 font-bold px-8 py-4 rounded-sm transition-all text-center">
-                        View Selected Work
-                    </a>
-                </div>
-                
-                <!-- Stat Strip -->
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 pt-8 border-t border-navy-800/50">
-                    <div>
-                        <div class="text-2xl font-extrabold text-white">150+</div>
-                        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Platforms Built</div>
-                    </div>
-                    <div>
-                        <div class="text-2xl font-extrabold text-white">3.8x</div>
-                        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Avg. Growth</div>
-                    </div>
-                    <div class="hidden md:block">
-                        <div class="text-2xl font-extrabold text-white">98%</div>
-                        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Client Retention</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        /* Custom Scrollbar - Industrial Steel */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F1F5F9; }
+        ::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
 
-    <!-- 2. CLIENT TRUST BAR -->
-    <section class="py-6 bg-navy-900 border-y border-navy-800 overflow-hidden relative z-20 shadow-inner">
-        <div class="marquee-track flex whitespace-nowrap gap-12 animate-marquee items-center text-xs font-bold tracking-widest text-slate-400 uppercase">
-            <div class="flex gap-12 items-center opacity-70">
-                <span>Bharti Corp <span class="text-gold-500 mx-4">•</span></span>
-                <span>Vega Retail <span class="text-gold-500 mx-4">•</span></span>
-                <span>Krishna ERP <span class="text-gold-500 mx-4">•</span></span>
-                <span>Meridian Co. <span class="text-gold-500 mx-4">•</span></span>
-                <span>Nexo Trade <span class="text-gold-500 mx-4">•</span></span>
-                <span>Sigma Labs <span class="text-gold-500 mx-4">•</span></span>
-            </div>
-            <div class="flex gap-12 items-center opacity-70">
-                <span>Bharti Corp <span class="text-gold-500 mx-4">•</span></span>
-                <span>Vega Retail <span class="text-gold-500 mx-4">•</span></span>
-                <span>Krishna ERP <span class="text-gold-500 mx-4">•</span></span>
-                <span>Meridian Co. <span class="text-gold-500 mx-4">•</span></span>
-                <span>Nexo Trade <span class="text-gold-500 mx-4">•</span></span>
-                <span>Sigma Labs <span class="text-gold-500 mx-4">•</span></span>
-            </div>
-        </div>
-    </section>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+        }
 
-    <!-- 3. SELECTED WORK -->
-    <section id="work" class="py-28 bg-white dark:bg-navy-900 relative z-10 border-b border-slate-200 dark:border-navy-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-end justify-between mb-16 pb-6 border-b border-slate-200 dark:border-navy-800">
-                <div>
-                    <p class="text-xs font-bold uppercase tracking-widest text-gold-600 dark:text-gold-500 mb-3">Selected Work</p>
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-navy-900 dark:text-white leading-tight">What We've Built</h2>
-                </div>
-            </div>
-            
-            <div class="divide-y divide-slate-200 dark:divide-navy-800 border-t border-slate-200 dark:border-navy-800">
-                <!-- Work 1 -->
-                <div class="group relative flex flex-col md:flex-row justify-between py-12 md:py-16 transition-all hover:bg-slate-50 dark:hover:bg-navy-800/50 -mx-4 px-4">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-gold-500 scale-y-0 group-hover:scale-y-100 transition-transform origin-top"></div>
-                    <div class="flex items-start gap-8 md:gap-12 flex-1">
-                        <span class="text-sm font-extrabold text-slate-300 dark:text-navy-700 tabular-nums w-8 mt-1">01</span>
-                        <div>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-navy-600 dark:text-slate-400 border border-slate-300 dark:border-navy-700 px-2 py-1 rounded-sm">eCommerce + ERP</span>
-                            </div>
-                            <h3 class="text-2xl md:text-3xl font-extrabold text-navy-900 dark:text-white mb-2">Regional Garment Retailer</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Tally ERP Middleware · WhatsApp API · Next.js · GA4 Attribution</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col justify-center mt-6 md:mt-0 text-left md:text-right">
-                        <div class="text-4xl md:text-5xl font-extrabold text-gold-600 dark:text-gold-500">4.1×</div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-2 font-bold uppercase tracking-wider">Revenue Growth</div>
-                    </div>
-                </div>
-                <!-- Work 2 -->
-                <div class="group relative flex flex-col md:flex-row justify-between py-12 md:py-16 transition-all hover:bg-slate-50 dark:hover:bg-navy-800/50 -mx-4 px-4">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-gold-500 scale-y-0 group-hover:scale-y-100 transition-transform origin-top"></div>
-                    <div class="flex items-start gap-8 md:gap-12 flex-1">
-                        <span class="text-sm font-extrabold text-slate-300 dark:text-navy-700 tabular-nums w-8 mt-1">02</span>
-                        <div>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-navy-600 dark:text-slate-400 border border-slate-300 dark:border-navy-700 px-2 py-1 rounded-sm">SEO + Analytics</span>
-                            </div>
-                            <h3 class="text-2xl md:text-3xl font-extrabold text-navy-900 dark:text-white mb-2">B2B Industrial Supplier</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Technical SEO · GA4 Dashboard · CRM Integration</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col justify-center mt-6 md:mt-0 text-left md:text-right">
-                        <div class="text-4xl md:text-5xl font-extrabold text-gold-600 dark:text-gold-500">₹22L</div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-2 font-bold uppercase tracking-wider">New Pipeline / Qtr</div>
-                    </div>
-                </div>
-                <!-- Work 3 -->
-                <div class="group relative flex flex-col md:flex-row justify-between py-12 md:py-16 transition-all hover:bg-slate-50 dark:hover:bg-navy-800/50 -mx-4 px-4">
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-gold-500 scale-y-0 group-hover:scale-y-100 transition-transform origin-top"></div>
-                    <div class="flex items-start gap-8 md:gap-12 flex-1">
-                        <span class="text-sm font-extrabold text-slate-300 dark:text-navy-700 tabular-nums w-8 mt-1">03</span>
-                        <div>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-navy-600 dark:text-slate-400 border border-slate-300 dark:border-navy-700 px-2 py-1 rounded-sm">Full Retainer</span>
-                            </div>
-                            <h3 class="text-2xl md:text-3xl font-extrabold text-navy-900 dark:text-white mb-2">MSME Food Brand</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-400">Brand Identity · eCommerce · Social Media · WhatsApp</p>
-                        </div>
-                    </div>
-                    <div class="flex flex-col justify-center mt-6 md:mt-0 text-left md:text-right">
-                        <div class="text-4xl md:text-5xl font-extrabold text-gold-600 dark:text-gold-500">98%</div>
-                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-2 font-bold uppercase tracking-wider">Client Retention</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        .glass-card {
+            background: #FFFFFF;
+            border: 1px solid #CBD5E1;
+            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    <!-- 4. PHILOSOPHY -->
-    <section id="philosophy" class="py-28 bg-[#F7F8FA] dark:bg-[#0D1B2A] relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 shadow-2xl">
-                <!-- Left Dark -->
-                <div class="bg-navy-900 p-12 md:p-20 relative overflow-hidden flex flex-col justify-between min-h-[500px]">
-                    <div class="absolute -top-32 -left-32 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                    <img src="formal_discussion.webp" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay" alt="Team Discussion" loading="lazy">
-                    <div class="relative z-10">
-                        <p class="text-xs font-bold uppercase tracking-widest text-gold-500 mb-6">Our Philosophy</p>
-                        <h2 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">Why most<br>digital projects<br><span class="text-gold-500">fail.</span></h2>
-                    </div>
-                    <div class="relative z-10 mt-12 bg-navy-800/80 backdrop-blur border border-navy-700 p-6 rounded-sm">
-                        <p class="text-slate-300 font-medium">Most agencies create dependency. We build your capability instead — build, automate, train.</p>
-                    </div>
-                </div>
-                <!-- Right Light -->
-                <div class="bg-white dark:bg-navy-800 p-12 md:p-20 flex flex-col justify-center divide-y divide-slate-100 dark:divide-navy-700">
-                    <div class="py-8 flex gap-6">
-                        <div class="w-12 h-12 rounded-full border border-gold-500 flex items-center justify-center flex-shrink-0 bg-gold-50 dark:bg-gold-500/10">
-                            <i class="fas fa-link-slash text-gold-600 dark:text-gold-400"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-navy-900 dark:text-white text-xl mb-2">Siloed Systems</h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Your CRM, Tally, and web platform don't talk to each other. Manual entry eats hours every day.</p>
-                        </div>
-                    </div>
-                    <div class="py-8 flex gap-6">
-                        <div class="w-12 h-12 rounded-full border border-gold-500 flex items-center justify-center flex-shrink-0 bg-gold-50 dark:bg-gold-500/10">
-                            <i class="fas fa-chart-pie text-gold-600 dark:text-gold-400"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-navy-900 dark:text-white text-xl mb-2">Blind Analytics</h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">GA4 is installed but never read. Big decisions run on gut, not data attribution.</p>
-                        </div>
-                    </div>
-                    <div class="py-8 flex gap-6">
-                        <div class="w-12 h-12 rounded-full bg-gold-500 flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-check text-navy-900"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-extrabold text-navy-900 dark:text-white text-xl mb-2">The Naxa.One Fix</h3>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">We bridge the gaps, automate the grind, and train your team. No hostage code — you own the outcome.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: #2563EB;
+            box-shadow: 0 20px 35px -5px rgba(29, 78, 216, 0.25), 0 10px 10px -5px rgba(5, 150, 105, 0.15);
+        }
 
-    <!-- 5. 1-WEEK AUDIT GATEWAY -->
-    <section id="audit" class="py-28 bg-white dark:bg-navy-900 border-t border-slate-200 dark:border-navy-800 relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-navy-900 dark:text-white leading-tight mb-6">The 1-Week<br>Digital Maturity <span class="text-gold-600 dark:text-gold-500">Audit</span></h2>
-                    <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">Before we build, we diagnose. A 7-day intensive technical evaluation that pinpoints security vulnerabilities, manual bottlenecks, and analytics gaps.</p>
-                    <div class="flex items-center gap-6 p-6 bg-slate-50 dark:bg-navy-800 border border-slate-200 dark:border-navy-700 rounded-sm">
-                        <div class="text-3xl font-extrabold text-navy-900 dark:text-white">₹35,000</div>
-                        <div class="w-px h-12 bg-slate-300 dark:bg-navy-600"></div>
-                        <div class="text-sm font-bold text-gold-600 dark:text-gold-500">100% credited<br><span class="text-slate-500 dark:text-slate-400 font-medium">toward your first retainer</span></div>
-                    </div>
-                </div>
-                <div class="bg-slate-50 dark:bg-navy-800 p-8 md:p-12 rounded-sm border border-slate-200 dark:border-navy-700">
-                    <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-8 border-b border-slate-200 dark:border-navy-700 pb-4">7-Day Timeline</p>
-                    <div class="space-y-8 relative before:absolute before:inset-0 before:ml-[1.1rem] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-slate-200 dark:before:bg-navy-700">
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                            <div class="flex items-center justify-center w-9 h-9 rounded-full border-4 border-slate-50 dark:border-navy-800 bg-gold-500 text-navy-900 font-bold text-sm shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">1</div>
-                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white dark:bg-navy-900 p-4 rounded-sm border border-slate-200 dark:border-navy-700 shadow-sm">
-                                <h4 class="font-bold text-navy-900 dark:text-white">Kickoff & Access</h4>
-                                <p class="text-xs text-slate-500 mt-1">C-Suite interview, tech stack handover</p>
-                            </div>
-                        </div>
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-9 h-9 rounded-full border-4 border-slate-50 dark:border-navy-800 bg-navy-900 dark:bg-navy-700 text-white font-bold text-sm shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">3</div>
-                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white dark:bg-navy-900 p-4 rounded-sm border border-slate-200 dark:border-navy-700 shadow-sm">
-                                <h4 class="font-bold text-navy-900 dark:text-white">Tally · CRM Mapping</h4>
-                                <p class="text-xs text-slate-500 mt-1">Identify automation opportunities</p>
-                            </div>
-                        </div>
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-9 h-9 rounded-full border-4 border-slate-50 dark:border-navy-800 bg-navy-900 dark:bg-navy-700 text-white font-bold text-sm shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">7</div>
-                            <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white dark:bg-navy-900 p-4 rounded-sm border border-slate-200 dark:border-navy-700 shadow-sm">
-                                <h4 class="font-bold text-navy-900 dark:text-white">Strategy Briefing</h4>
-                                <p class="text-xs text-slate-500 mt-1">12-month modernization roadmap</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        .text-gradient {
+            background: linear-gradient(135deg, #1D4ED8, #059669, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-gradient-blue {
+            background: linear-gradient(135deg, #1E3A8A, #0284C7, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    <!-- 6. SERVICES -->
-    <section id="hubs" class="py-28 bg-navy-900 relative z-10 border-y border-navy-800 overflow-hidden glow-gold">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <p class="text-xs font-bold uppercase tracking-widest text-gold-500 mb-3">Capabilities</p>
-                <h2 class="text-4xl md:text-5xl font-extrabold text-white">Our Service Matrix</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Service 1 -->
-                <div class="bg-navy-800 border-t-4 border-navy-700 hover:border-gold-500 p-8 transition-colors duration-300">
-                    <i class="fas fa-store text-2xl text-gold-500 mb-6"></i>
-                    <h3 class="text-xl font-bold text-white mb-3">Sell Online</h3>
-                    <p class="text-sm text-slate-400 mb-6">High-converting eCommerce stores, checkout optimization, and ERP inventory sync.</p>
-                    <div class="flex gap-2">
-                        <span class="text-xs font-bold text-slate-300 bg-navy-900 border border-navy-700 px-2 py-1">Next.js</span>
-                        <span class="text-xs font-bold text-slate-300 bg-navy-900 border border-navy-700 px-2 py-1">Tally ERP</span>
-                    </div>
-                </div>
-                <!-- Service 2 -->
-                <div class="bg-navy-800 border-t-4 border-navy-700 hover:border-gold-500 p-8 transition-colors duration-300">
-                    <i class="fas fa-pen-nib text-2xl text-gold-500 mb-6"></i>
-                    <h3 class="text-xl font-bold text-white mb-3">Look Professional</h3>
-                    <p class="text-sm text-slate-400 mb-6">Brand identity, copywriting, and visual assets that build instant trust and recognition.</p>
-                    <div class="flex gap-2">
-                        <span class="text-xs font-bold text-slate-300 bg-navy-900 border border-navy-700 px-2 py-1">Identity</span>
-                        <span class="text-xs font-bold text-slate-300 bg-navy-900 border border-navy-700 px-2 py-1">Copywriting</span>
-                    </div>
-                </div>
-                <!-- Service 3 -->
-                <div class="bg-navy-800 border-t-4 border-navy-700 hover:border-gold-500 p-8 transition-colors duration-300">
-                    <i class="fas fa-magnifying-glass text-2xl text-gold-500 mb-6"></i>
-                    <h3 class="text-xl font-bold text-white mb-3">Get Found on Google</h3>
-                    <p class="text-sm text-slate-400 mb-6">Technical SEO, keyword dominance, and compounding organic traffic that doesn't stop.</p>
-                    <div class="flex gap-2">
-                        <span class="text-xs font-bold text-slate-300 bg-navy-900 border border-navy-700 px-2 py-1">Tech SEO</span>
-                        <span class="text-xs font-bold text-slate-300 bg-navy-900 border border-navy-700 px-2 py-1">GA4</span>
-                    </div>
-                </div>
-                <!-- Service 4 -->
-                <div class="bg-navy-800 border-t-4 border-navy-700 hover:border-gold-500 p-8 transition-colors duration-300">
-                    <i class="fas fa-users text-2xl text-gold-500 mb-6"></i>
-                    <h3 class="text-xl font-bold text-white mb-3">Build a Following</h3>
-                    <p class="text-sm text-slate-400 mb-6">Targeted social media campaigns, video assets, and community engagement at scale.</p>
-                    <div class="flex gap-2">
-                        <span class="text-xs font-bold text-slate-300 bg-navy-900 border border-navy-700 px-2 py-1">Instagram</span>
-                        <span class="text-xs font-bold text-slate-300 bg-navy-900 border border-navy-700 px-2 py-1">Reels</span>
-                    </div>
-                </div>
-                <!-- Service 5 -->
-                <div class="bg-navy-800 border-t-4 border-navy-700 hover:border-gold-500 p-8 transition-colors duration-300 lg:col-span-2">
-                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between">
-                        <div>
-                            <i class="fas fa-bolt text-2xl text-gold-500 mb-6"></i>
-                            <h3 class="text-xl font-bold text-white mb-3">Agentic Operations</h3>
-                            <p class="text-sm text-slate-400 mb-6 max-w-md">Transparent, scope-matched monthly retainers — from SMB Sprints to Enterprise Dev Pods.</p>
-                            <div class="flex gap-2">
-                                <span class="text-xs font-bold text-slate-300 bg-navy-900 border border-navy-700 px-2 py-1">From ₹35k/mo</span>
-                            </div>
-                        </div>
-                        <div class="mt-6 md:mt-0">
-                            <a href="/pricing" class="inline-flex items-center gap-2 bg-navy-900 border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-navy-900 font-bold px-6 py-3 transition-colors">
-                                View Packages <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        .animate-on-scroll {
+            opacity: 1;
+            transform: none;
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
 
-    <!-- 7. DIGITAL LITERACY -->
-    <section class="py-28 bg-white dark:bg-[#0D1B2A] relative z-10 border-b border-slate-200 dark:border-navy-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-5xl font-extrabold text-navy-900 dark:text-white mb-6">We Teach Your Team to Drive the Engine</h2>
-                <p class="text-slate-600 dark:text-slate-400 text-lg">Every retainer includes monthly <strong class="text-navy-900 dark:text-white">Digital Literacy sessions</strong>. We elevate capability, not dependence.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center p-8 bg-slate-50 dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
-                    <i class="fas fa-chart-line text-3xl text-gold-500 mb-6"></i>
-                    <h3 class="font-bold text-navy-900 dark:text-white text-lg mb-3">GA4 Data Hygiene</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Understand traffic sources and attribution so decisions are data-driven.</p>
-                </div>
-                <div class="text-center p-8 bg-slate-50 dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
-                    <i class="fas fa-database text-3xl text-gold-500 mb-6"></i>
-                    <h3 class="font-bold text-navy-900 dark:text-white text-lg mb-3">CRM Pipelines</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Manage your sales pipeline and customer lifecycle efficiently.</p>
-                </div>
-                <div class="text-center p-8 bg-slate-50 dark:bg-navy-800 border border-slate-200 dark:border-navy-700">
-                    <i class="fas fa-hand-pointer text-3xl text-gold-500 mb-6"></i>
-                    <h3 class="font-bold text-navy-900 dark:text-white text-lg mb-3">No-Code Handoffs</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400">Control WhatsApp builders and automation flows internally.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        /* Slider styling - Corporate Blue & Steel */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 22px;
+            width: 22px;
+            border-radius: 50%;
+            background: #1D4ED8;
+            cursor: pointer;
+            margin-top: -9px;
+            box-shadow: 0 0 12px rgba(29, 78, 216, 0.5);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #CBD5E1;
+            border-radius: 3px;
+        }
 
-    <!-- 8. CALCULATOR -->
-    <section id="calculator" class="py-28 bg-slate-50 dark:bg-[#162032] border-b border-slate-200 dark:border-navy-800 relative z-10">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-navy-900 dark:text-white mb-4">Maturity <span class="text-gold-600 dark:text-gold-500">Calculator</span></h2>
-                <p class="text-slate-600 dark:text-slate-400 text-lg">Rate your operations (1 = Poor, 5 = Optimized). See your score instantly.</p>
-            </div>
-            
-            <div class="flex flex-col md:flex-row bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 shadow-xl">
-                <!-- Sliders -->
-                <div class="flex-1 p-10 md:p-12 space-y-8 border-b md:border-b-0 md:border-r border-slate-200 dark:border-navy-800" id="calc-sliders">
-                    <style>
-                        input[type=range] { accent-color: #D4A017; }
-                    </style>
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <label class="text-sm font-bold text-navy-900 dark:text-white">Infrastructure & Speed</label>
-                            <span class="text-sm font-bold text-gold-600 dark:text-gold-500" id="val-infra">2/5</span>
-                        </div>
-                        <input type="range" id="slider-infra" min="1" max="5" value="2" oninput="updateAudit()" class="w-full h-2 bg-slate-200 dark:bg-navy-700 rounded-full appearance-none cursor-pointer">
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <label class="text-sm font-bold text-navy-900 dark:text-white">Agentic Workflows</label>
-                            <span class="text-sm font-bold text-gold-600 dark:text-gold-500" id="val-auto">2/5</span>
-                        </div>
-                        <input type="range" id="slider-auto" min="1" max="5" value="2" oninput="updateAudit()" class="w-full h-2 bg-slate-200 dark:bg-navy-700 rounded-full appearance-none cursor-pointer">
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <label class="text-sm font-bold text-navy-900 dark:text-white">Analytics & Data</label>
-                            <span class="text-sm font-bold text-gold-600 dark:text-gold-500" id="val-data">1/5</span>
-                        </div>
-                        <input type="range" id="slider-data" min="1" max="5" value="1" oninput="updateAudit()" class="w-full h-2 bg-slate-200 dark:bg-navy-700 rounded-full appearance-none cursor-pointer">
-                    </div>
-                    <div>
-                        <div class="flex justify-between mb-2">
-                            <label class="text-sm font-bold text-navy-900 dark:text-white">Strategy & Literacy</label>
-                            <span class="text-sm font-bold text-gold-600 dark:text-gold-500" id="val-strat">2/5</span>
-                        </div>
-                        <input type="range" id="slider-strat" min="1" max="5" value="2" oninput="updateAudit()" class="w-full h-2 bg-slate-200 dark:bg-navy-700 rounded-full appearance-none cursor-pointer">
-                    </div>
-                </div>
-                <!-- Results -->
-                <div class="flex-1 bg-navy-900 p-10 md:p-12 flex flex-col justify-center text-white text-center">
-                    <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Estimated Score</p>
-                    <div class="blur-md opacity-40 select-none transition-all duration-300 calc-blur mb-2">
-                        <div class="text-6xl font-extrabold text-white" id="res-score">35%</div>
-                    </div>
-                    <div class="blur-md opacity-40 select-none transition-all duration-300 calc-blur mb-8">
-                        <span class="text-sm font-bold px-3 py-1 bg-navy-800 text-gold-400 border border-gold-500/30" id="res-tier-badge">Reactive</span>
-                    </div>
-                    
-                    <div class="hidden">
-                        <span id="res-risk-title"></span><span id="res-risk-desc"></span><span id="res-service"></span><span id="res-price"></span>
-                    </div>
-                    
-                    <div id="unlock-container">
-                        <button onclick="openLeadModal()" class="w-full bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold py-4 rounded-sm transition-all text-sm">
-                            Unlock My Score
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        /* Infinite Looping Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    
+        /* Mobile-First Touch & UX Optimizations */
+        @media (max-width: 640px) {
+            body { font-size: 15px; }
+            button, a.btn, input, select, textarea { min-height: 48px; }
+            .hero-content-box { padding-top: 1rem; padding-bottom: 2rem; }
+            ::-webkit-scrollbar { width: 4px; }
+        }
+        
+        /* Touch feedback active state */
+        button:active, a:active { transform: scale(0.97); transition: transform 0.1s ease; }
 
-    <!-- 9. PRICING STRIP -->
-    <section class="py-16 bg-navy-900 border-b border-navy-800 relative z-10 text-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-6">From ₹35k/mo to Enterprise Dev Pods</h2>
-            <a href="/pricing" class="inline-block bg-transparent border border-white text-white hover:bg-white hover:text-navy-900 font-bold px-8 py-3 transition-colors">
-                View All Packages
-            </a>
-        </div>
-    </section>
+        /* Custom Touch Slider Thumb */
+        input[type=range]::-webkit-slider-thumb {
+            height: 28px !important;
+            width: 28px !important;
+            margin-top: -11px !important;
+        }
+    
 
-    <!-- 10. BOOKING FORM -->
-    <section id="booking-section" class="py-28 bg-white dark:bg-[#0D1B2A] relative z-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-extrabold text-navy-900 dark:text-white leading-tight mb-6">Book a 15-Min Strategy Call</h2>
-                    <p class="text-slate-600 dark:text-slate-400 text-lg mb-8">Speak directly with an Executive Architect. No sales fluff. We deliver an actionable 12-month blueprint.</p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-4">
-                            <i class="fas fa-check text-gold-600 dark:text-gold-500 text-xl"></i>
-                            <span class="text-navy-900 dark:text-white font-bold">MSME Growth Roadmap</span>
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <i class="fas fa-check text-gold-600 dark:text-gold-500 text-xl"></i>
-                            <span class="text-navy-900 dark:text-white font-bold">Enterprise Agentic Ops</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bg-slate-50 dark:bg-navy-900 p-8 md:p-12 border border-slate-200 dark:border-navy-700 shadow-xl">
-                    <form onsubmit="handleDirectBookingSubmit(event)" class="space-y-6">
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-navy-900 dark:text-slate-300 mb-2">Full Name *</label>
-                            <input type="text" name="fullName" required class="w-full bg-white dark:bg-navy-800 border border-slate-300 dark:border-navy-700 px-4 py-3 text-sm focus:outline-none focus:border-gold-500 text-navy-900 dark:text-white" placeholder="e.g. Vikram Mehta">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-navy-900 dark:text-slate-300 mb-2">Work Email / WhatsApp *</label>
-                            <input type="text" name="contactInfo" required class="w-full bg-white dark:bg-navy-800 border border-slate-300 dark:border-navy-700 px-4 py-3 text-sm focus:outline-none focus:border-gold-500 text-navy-900 dark:text-white" placeholder="vikram@company.com">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-navy-900 dark:text-slate-300 mb-2">Company / Brand Name *</label>
-                            <input type="text" name="companyName" required class="w-full bg-white dark:bg-navy-800 border border-slate-300 dark:border-navy-700 px-4 py-3 text-sm focus:outline-none focus:border-gold-500 text-navy-900 dark:text-white" placeholder="Your Business Name">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-navy-900 dark:text-slate-300 mb-2">Primary Track *</label>
-                            <select name="segment" required class="w-full bg-white dark:bg-navy-800 border border-slate-300 dark:border-navy-700 px-4 py-3 text-sm focus:outline-none focus:border-gold-500 text-navy-900 dark:text-white appearance-none">
-                                <option value="MSME Platform & Growth">MSME: Setup & Scale</option>
-                                <option value="Enterprise Agentic Ops">Enterprise: Custom Dev</option>
-                                <option value="General Audit">Digital Audit</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="w-full bg-navy-900 dark:bg-gold-500 text-white dark:text-navy-900 font-bold py-4 transition-colors hover:bg-navy-800 dark:hover:bg-gold-400">
-                            Confirm Request
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+        /* Typewriter blinking cursor */
+        .typewriter-cursor {
+            display: inline-block;
+            animation: blink 0.75s step-end infinite;
+            font-weight: 300;
+            margin-left: 2px;
+            filter: drop-shadow(0 0 6px rgba(29, 78, 216, 0.7));
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- 11. FAQ -->
-    <section class="py-28 bg-[#F7F8FA] dark:bg-[#162032] border-t border-slate-200 dark:border-navy-800 relative z-10">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-navy-900 dark:text-white text-center mb-16">Frequently Asked Questions</h2>
-            <div class="space-y-4">
-                <details class="group bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 p-6 cursor-pointer">
-                    <summary class="flex items-center justify-between font-bold text-navy-900 dark:text-white text-lg list-none">
-                        What is the 1-Week Digital Maturity Audit?
-                        <i class="fas fa-chevron-down text-gold-500 group-open:rotate-180 transition-transform"></i>
-                    </summary>
-                    <div class="pt-4 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        A 7-day technical evaluation for ₹35,000 (100% credited toward your retainer) that pinpoints technical debt and operational bottlenecks.
-                    </div>
-                </details>
-                <details class="group bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 p-6 cursor-pointer">
-                    <summary class="flex items-center justify-between font-bold text-navy-900 dark:text-white text-lg list-none">
-                        What are Naxa.One's retainer tiers?
-                        <i class="fas fa-chevron-down text-gold-500 group-open:rotate-180 transition-transform"></i>
-                    </summary>
-                    <div class="pt-4 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        Tier 1 (SMB Sprint) at ₹35k–₹75k/mo, Tier 2 (Mid-Market) at ₹1.25L–₹3L/mo, Tier 3 (Enterprise) at ₹5L+/mo.
-                    </div>
-                </details>
-                <details class="group bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-800 p-6 cursor-pointer">
-                    <summary class="flex items-center justify-between font-bold text-navy-900 dark:text-white text-lg list-none">
-                        How does Tally ERP & WhatsApp integration work?
-                        <i class="fas fa-chevron-down text-gold-500 group-open:rotate-180 transition-transform"></i>
-                    </summary>
-                    <div class="pt-4 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                        We build custom web middleware connecting web forms to Tally ERP and WhatsApp APIs, eliminating manual entry.
-                    </div>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- 12. FOOTER -->
-    <footer class="bg-navy-900 text-slate-300 py-16 border-t border-navy-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-                <div class="col-span-1 md:col-span-2">
-                    <div class="flex items-center gap-3 mb-6">
-                        <img src="logo.png" alt="Naxa.One Logo" class="w-8 h-8 object-contain rounded">
-                        <span class="font-extrabold text-lg text-white">Naxa<span class="text-gold-500">.</span>One</span>
-                    </div>
-                    <p class="text-sm max-w-sm mb-6 text-slate-400">Bridging the gap between executive vision and flawless digital execution.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-slate-400 hover:text-gold-500 transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
-                        <a href="#" class="text-slate-400 hover:text-gold-500 transition-colors"><i class="fab fa-twitter text-xl"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-white font-bold mb-4">Contact</h3>
-                    <a href="mailto:hello@naxa.one" class="text-gold-500 hover:text-gold-400 text-sm font-bold">hello@naxa.one</a>
-                </div>
-                <div>
-                    <h3 class="text-white font-bold mb-4">Capabilities</h3>
-                    <ul class="text-sm space-y-2 text-slate-400">
-                        <li><a href="/ecommerce" class="hover:text-white transition-colors">eCommerce</a></li>
-                        <li><a href="/seo" class="hover:text-white transition-colors">SEO</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-navy-800 pt-8 text-xs text-slate-500 text-center md:text-left">
-                © 2026 Naxa.One. All rights reserved. Designed for scale.
-            </div>
-        </div>
-    </footer>
-
-    <!-- Floating WhatsApp CTA -->
-    <a href="https://wa.me/917018979508?text=Hi" target="_blank" class="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#128C7E] text-white px-5 py-4 rounded-full shadow-xl flex items-center gap-3 transition-transform hover:-translate-y-1">
-        <i class="fab fa-whatsapp text-xl"></i>
-        <span class="font-bold text-sm hidden md:inline">Talk to Expert</span>
-    </a>
-
-    <!-- Lead Modal -->
-    <div id="lead-modal" class="hidden fixed inset-0 z-50 bg-navy-900/90 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-navy-900 border border-slate-200 dark:border-navy-700 rounded-sm p-8 max-w-md w-full relative shadow-2xl">
-            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-slate-400 hover:text-navy-900 dark:hover:text-white text-2xl">&times;</button>
-            <h3 class="text-2xl font-bold text-navy-900 dark:text-white mb-2">Unlock Your Score</h3>
-            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Enter details to reveal your score instantly.</p>
-            <form id="audit-lead-form" onsubmit="handleAuditLeadSubmit(event)" class="space-y-4">
-                <input type="text" name="fullName" required class="w-full bg-slate-50 dark:bg-navy-800 border border-slate-300 dark:border-navy-700 px-4 py-3 text-sm focus:border-gold-500 text-navy-900 dark:text-white" placeholder="Full Name">
-                <input type="text" name="contactInfo" required class="w-full bg-slate-50 dark:bg-navy-800 border border-slate-300 dark:border-navy-700 px-4 py-3 text-sm focus:border-gold-500 text-navy-900 dark:text-white" placeholder="Email / WhatsApp">
-                <input type="text" name="companyName" required class="w-full bg-slate-50 dark:bg-navy-800 border border-slate-300 dark:border-navy-700 px-4 py-3 text-sm focus:border-gold-500 text-navy-900 dark:text-white" placeholder="Company Name">
-                <button type="submit" class="w-full bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold py-4 mt-2">Unlock Results</button>
-            </form>
-        </div>
-    </div>
-
-<script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJRZ23Q5TZ"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
     
       gtag('config', 'G-SJRZ23Q5TZ');
     </script>
-<script>
+</head>
+
+    <!-- Fullscreen Preloader Overlay -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-slate-950 flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="flex items-center gap-3 mb-6 animate-pulse">
+            <img src="logo.png" alt="Naxa.One Logo" class="w-12 h-12 object-contain rounded-xl">
+            <span class="font-extrabold text-3xl tracking-tight text-white">Naxa<span class="text-emerald-500">.</span>One</span>
+        </div>
+        <div class="w-48 h-1.5 bg-slate-800 rounded-full overflow-hidden relative">
+            <div id="loader-bar" class="h-full bg-gradient-to-r from-blue-600 via-emerald-500 to-blue-400 rounded-full transition-all duration-300 w-0"></div>
+        </div>
+        <p class="text-xs text-slate-400 font-bold uppercase tracking-widest mt-4">Loading Assets...</p>
+    </div>
+
+<body class="antialiased selection:bg-blue-700 selection:text-white relative">
+    <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- Transparent Navbar with Scroll Hamburger Collapse -->
+    <!-- Transparent Navbar with Scroll Hamburger Collapse -->
+    <nav class="fixed w-full z-50 bg-transparent transition-all duration-500 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 transition-all duration-500" id="nav-container">
+                <!-- Left: Brand Logo -->
+                <a href="/" class="flex items-center gap-3 cursor-pointer group">
+                    <img src="logo.png" alt="Naxa.One Logo" class="w-9 h-9 object-contain rounded-lg">
+                    <span class="font-extrabold text-xl tracking-tight text-slate-950">Naxa<span class="text-emerald-500">.</span>One</span>
+                </a>
+
+                <!-- Center: Desktop Links (Visible ONLY at top, hidden on scroll) -->
+                <div class="hidden md:flex items-center space-x-6 transition-all duration-300" id="desktop-nav-links">
+                    <a href="/" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Home</a>
+                    <a href="#philosophy" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Philosophy</a>
+                    <a href="/pricing" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Pricing & Tiers</a>
+                    <a href="#hubs" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Dedicated Hubs</a>
+                    <a href="#calculator" class="text-slate-800 hover:text-blue-700 font-semibold transition-colors px-3 py-2 text-sm">Mini-Audit</a>
+                </div>
+
+                <!-- Right: Action Area (Discovery Button + Hamburger Menu) -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openBookingModal()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-full text-xs sm:text-sm transition-all shadow-md shadow-blue-700/20" id="nav-discovery-btn">Book 15-Min Call</button>
+                    <!-- Minimal Theme Toggle -->
+                    <button id="theme-toggle" aria-label="Toggle Light and Dark Mode" onclick="toggleTheme()" class="w-9 h-9 flex items-center justify-center rounded-full border border-slate-300 bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:border-slate-700 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 shadow-sm backdrop-blur-md transition-all" title="Toggle Light / Dark Mode">
+                        <svg id="icon-sun" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 5a7 7 0 100 14A7 7 0 0012 5z"/></svg>
+                        <svg id="icon-moon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    </button>
+                    <button id="nav-hamburger-btn" aria-label="Toggle Navigation Menu" class="flex items-center gap-2 bg-white/90 hover:bg-white text-slate-900 border border-slate-300 font-bold p-3 min-h-[48px] min-w-[48px] rounded-full shadow-md backdrop-blur-md transition-all">
+                        <i class="fas fa-bars text-base text-blue-700"></i>
+                        <span class="text-xs font-extrabold uppercase tracking-wider hidden sm:inline">Menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Navigation Drawer Modal -->
+        <div id="nav-drawer" class="hidden fixed inset-0 z-50 bg-slate-950/60 backdrop-blur-md transition-opacity">
+            <div class="fixed top-6 right-6 max-w-sm w-full bg-white rounded-3xl p-8 border border-slate-200 shadow-2xl space-y-6">
+                <div class="flex justify-between items-center pb-4 border-b border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <img src="logo.png" alt="Naxa.One Logo" class="w-8 h-8 object-contain">
+                        <span class="font-extrabold text-lg text-slate-900">Naxa<span class="text-emerald-500">.</span>One</span>
+                    </div>
+                    <button id="close-drawer-btn" class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:text-slate-900">
+                        <i class="fas fa-xmark text-lg"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4 font-bold text-slate-800">
+                    <a href="/" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Home</a>
+                    <a href="#philosophy" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Philosophy</a>
+                    <a href="/pricing" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Retainer Pricing & Packages</a>
+                    <a href="/ecommerce" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Sell Online (eCommerce)</a>
+                    <a href="/content" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Look Professional (Content)</a>
+                    <a href="/seo" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Get Found (SEO)</a>
+                    <a href="/smm" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Build Following (SMM)</a>
+                    <a href="#calculator" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">Digital Maturity Calculator</a>
+                    <a href="#faq" class="hover:text-blue-700 py-2.5 flex items-center min-h-[44px] transition-colors drawer-link">FAQ</a>
+                </div>
+                <div class="pt-4 border-t border-slate-100">
+                    <button onclick="openBookingModal()" class="drawer-link block w-full text-center bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-full text-sm shadow-md shadow-blue-700/20">Book 15-Min Call</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-gradient-to-b from-slate-100/50 via-slate-50/40 to-blue-50/50">
+        <!-- Background Video Loop with Parallax Class -->
+        <!-- Background Video Loop with True Parallax -->
+        <div class="absolute -inset-[20%] w-[140%] h-[140%] overflow-hidden pointer-events-none z-0 hero-video-bg">
+            <video class="w-[300%] md:w-full h-[300%] md:h-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover" autoplay loop muted playsinline aria-hidden="true">
+                <source src="slider_bg.mp4" type="video/mp4">
+            </video>
+            <!-- Extremely subtle gradient to ensure text readability without washing out the video -->
+            <div class="absolute inset-0 bg-gradient-to-r from-white/40 via-white/10 to-transparent z-[4]"></div>
+            <div class="absolute inset-0 bg-transparent z-[5] pointer-events-auto"></div>
+        </div>
+
+        <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left z-10 py-12 hero-content-box">
+            <div class="p-8 md:p-12 max-w-4xl">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-sm font-bold text-emerald-700 mb-6 shadow-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    MSME Growth & Enterprise Agentic Operations
+                </div>
+                <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-950 mb-6 leading-[1.08]">
+                    From Digital Setup to Agentic Scale —<br>
+                    <span class="bg-gradient-to-r from-blue-700 via-blue-600 to-emerald-600 bg-clip-text text-transparent" id="typewriter-target"></span><span class="typewriter-cursor text-blue-700">|</span>
+                </h1>
+                <p class="mt-4 text-base md:text-lg text-slate-700 font-medium leading-relaxed mb-8 max-w-xl">
+                    From foundational web presence to enterprise-grade agentic workflows — we architect measurable digital growth.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-start gap-4 mb-8">
+                    <button onclick="openBookingModal()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-8 py-4 rounded-full transition-all shadow-lg shadow-blue-700/25 flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                        Book a 15-Min Call <i class="fas fa-arrow-right text-sm"></i>
+                    </button>
+                    <a href="#calculator" class="bg-white hover:bg-slate-50 border border-slate-300 text-slate-900 font-bold px-8 py-4 rounded-full transition-all shadow-sm flex items-center justify-center">
+                        Test Digital Maturity
+                    </a>
+                </div>
+
+                <!-- Hero Stats Bar (Left Aligned) -->
+                <div class="grid grid-cols-3 max-w-lg gap-8 pt-6 border-t border-slate-300/60">
+                    <div>
+                        <div class="text-2xl sm:text-4xl font-extrabold text-slate-950">150<span class="text-blue-700">+</span></div>
+                        <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Platforms Launched</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-4xl font-extrabold text-slate-950">3.8<span class="text-emerald-600">x</span></div>
+                        <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Avg. Revenue Growth</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl sm:text-4xl font-extrabold text-slate-950">98<span class="text-blue-700">%</span></div>
+                        <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mt-1">Client Retention</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- ─── TRUST TICKER ─── -->
+    <section class="py-5 bg-slate-900 dark:bg-black border-y border-slate-800 overflow-hidden relative z-20 shadow-inner">
+        <div class="marquee-track flex whitespace-nowrap gap-12 animate-marquee items-center text-xs font-extrabold tracking-widest text-slate-400 uppercase">
+            <div class="flex gap-12 items-center">
+                <span>ECOMMERCE DEVELOPMENT <span class="text-blue-500 mx-4">•</span></span>
+                <span>DIGITAL LITERACY &amp; TRAINING <span class="text-emerald-500 mx-4">•</span></span>
+                <span>SEO &amp; ORGANIC DOMINANCE <span class="text-blue-500 mx-4">•</span></span>
+                <span>SOCIAL MEDIA GROWTH <span class="text-emerald-500 mx-4">•</span></span>
+                <span>TALLY ERP &amp; WHATSAPP INTEGRATION <span class="text-blue-500 mx-4">•</span></span>
+                <span>CUSTOM WEB APPS (NEXT.JS) <span class="text-emerald-500 mx-4">•</span></span>
+            </div>
+            <div class="flex gap-12 items-center">
+                <span>ECOMMERCE DEVELOPMENT <span class="text-blue-500 mx-4">•</span></span>
+                <span>DIGITAL LITERACY &amp; TRAINING <span class="text-emerald-500 mx-4">•</span></span>
+                <span>SEO &amp; ORGANIC DOMINANCE <span class="text-blue-500 mx-4">•</span></span>
+                <span>SOCIAL MEDIA GROWTH <span class="text-emerald-500 mx-4">•</span></span>
+                <span>TALLY ERP &amp; WHATSAPP INTEGRATION <span class="text-blue-500 mx-4">•</span></span>
+                <span>CUSTOM WEB APPS (NEXT.JS) <span class="text-emerald-500 mx-4">•</span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SELECTED WORK — Code & Theory editorial cards ─── -->
+    <section class="py-24 bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-end justify-between mb-14 pb-6 border-b border-slate-100 dark:border-slate-800">
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-2">Selected Work</p>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">What We've <span class="bg-gradient-to-r from-blue-600 to-emerald-500 bg-clip-text text-transparent">Built</span></h2>
+                </div>
+                <span class="text-xs text-slate-400 dark:text-slate-500 hidden md:block">3 of 12+ Engagements</span>
+            </div>
+            <div class="space-y-0 divide-y divide-slate-100 dark:divide-slate-800">
+                <!-- Work Row 1 -->
+                <div class="group flex flex-col md:flex-row items-start md:items-center justify-between py-10 gap-6 cursor-default hover:bg-slate-50 dark:hover:bg-slate-900/50 -mx-4 px-4 rounded-2xl transition-colors duration-300">
+                    <div class="flex items-start gap-8 md:gap-12 flex-1">
+                        <span class="text-sm font-extrabold text-slate-200 dark:text-slate-700 tabular-nums w-8 flex-shrink-0 mt-1">01</span>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center gap-3 mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-2.5 py-1 rounded-md border border-blue-100 dark:border-blue-800">eCommerce + ERP</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white mb-1 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors">Regional Garment Retailer</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Tally ERP Middleware · WhatsApp API · Next.js · GA4 Attribution</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-8 flex-shrink-0 ml-0 md:ml-8">
+                        <div class="text-right">
+                            <div class="text-3xl md:text-4xl font-extrabold text-blue-700 dark:text-blue-400 leading-none">4.1×</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">Revenue Growth</div>
+                        </div>
+                        <div class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-300 dark:text-slate-600 group-hover:border-blue-600 group-hover:text-blue-600 dark:group-hover:border-blue-400 dark:group-hover:text-blue-400 transition-all">
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Work Row 2 -->
+                <div class="group flex flex-col md:flex-row items-start md:items-center justify-between py-10 gap-6 cursor-default hover:bg-slate-50 dark:hover:bg-slate-900/50 -mx-4 px-4 rounded-2xl transition-colors duration-300">
+                    <div class="flex items-start gap-8 md:gap-12 flex-1">
+                        <span class="text-sm font-extrabold text-slate-200 dark:text-slate-700 tabular-nums w-8 flex-shrink-0 mt-1">02</span>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center gap-3 mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-2.5 py-1 rounded-md border border-emerald-100 dark:border-emerald-800">SEO + Analytics</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white mb-1 group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">B2B Industrial Supplier</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Technical SEO · GA4 Dashboard · CRM Integration</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-8 flex-shrink-0 ml-0 md:ml-8">
+                        <div class="text-right">
+                            <div class="text-3xl md:text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 leading-none">₹22L</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">New Pipeline / Qtr</div>
+                        </div>
+                        <div class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-300 dark:text-slate-600 group-hover:border-emerald-600 group-hover:text-emerald-600 dark:group-hover:border-emerald-400 dark:group-hover:text-emerald-400 transition-all">
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Work Row 3 -->
+                <div class="group flex flex-col md:flex-row items-start md:items-center justify-between py-10 gap-6 cursor-default hover:bg-slate-50 dark:hover:bg-slate-900/50 -mx-4 px-4 rounded-2xl transition-colors duration-300">
+                    <div class="flex items-start gap-8 md:gap-12 flex-1">
+                        <span class="text-sm font-extrabold text-slate-200 dark:text-slate-700 tabular-nums w-8 flex-shrink-0 mt-1">03</span>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center gap-3 mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 px-2.5 py-1 rounded-md border border-amber-100 dark:border-amber-800">Full Retainer</span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white mb-1 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">MSME Food Brand</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Brand Identity · eCommerce · Social Media · WhatsApp</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-8 flex-shrink-0 ml-0 md:ml-8">
+                        <div class="text-right">
+                            <div class="text-3xl md:text-4xl font-extrabold text-amber-600 dark:text-amber-400 leading-none">98%</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">Client Retention</div>
+                        </div>
+                        <div class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-300 dark:text-slate-600 group-hover:border-amber-600 group-hover:text-amber-600 dark:group-hover:border-amber-400 dark:group-hover:text-amber-400 transition-all">
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PHILOSOPHY — Clay.global asymmetric split ─── -->
+    <section id="philosophy" class="py-24 bg-white dark:bg-[#0B0F19] border-b border-slate-100 dark:border-slate-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-2xl">
+                <!-- Left dark panel -->
+                <div class="bg-slate-950 dark:bg-black p-10 md:p-16 flex flex-col justify-between min-h-[480px] relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+                    <div class="relative z-10">
+                        <p class="text-xs font-bold uppercase tracking-widest text-blue-400 mb-6">Our Philosophy</p>
+                        <h2 class="text-3xl md:text-5xl font-extrabold text-white leading-[1.1] mb-8">Why most<br>digital projects<br><span class="text-blue-400">fail.</span></h2>
+                        <p class="text-slate-400 text-base leading-relaxed max-w-sm">Most agencies create dependency. We build your capability instead — build, automate, train.</p>
+                    </div>
+                    <div class="relative z-10 mt-12">
+                        <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-3">
+                            <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                            <p class="text-sm font-bold text-white">Build → Automate → Train. You own it.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right: editorial list -->
+                <div class="bg-white dark:bg-slate-900 p-10 md:p-16 flex flex-col justify-center divide-y divide-slate-100 dark:divide-slate-800">
+                    <div class="py-8 flex gap-6 group">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-xl border-2 border-slate-900 dark:border-slate-400 flex items-center justify-center">
+                            <i class="fas fa-link-slash text-slate-900 dark:text-slate-300 text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900 dark:text-white text-lg mb-1">Siloed Systems</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Your CRM, Tally, and web platform don't talk to each other. Manual entry eats hours every day.</p>
+                        </div>
+                    </div>
+                    <div class="py-8 flex gap-6 group">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-xl border-2 border-blue-700 dark:border-blue-400 flex items-center justify-center">
+                            <i class="fas fa-chart-pie text-blue-700 dark:text-blue-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900 dark:text-white text-lg mb-1">Blind Analytics</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">GA4 is installed but never read. Big decisions run on gut, not data attribution.</p>
+                        </div>
+                    </div>
+                    <div class="py-8 flex gap-6 group">
+                        <div class="flex-shrink-0 w-10 h-10 rounded-xl border-2 border-emerald-600 dark:border-emerald-400 flex items-center justify-center">
+                            <i class="fas fa-handshake-angle text-emerald-600 dark:text-emerald-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900 dark:text-white text-lg mb-1">The Naxa.One Fix</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">We bridge the gaps, automate the grind, and train your team. No hostage code — you own the outcome.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── 1-WEEK AUDIT GATEWAY — UNDP / Skill India milestone style ─── -->
+    <section id="audit" class="py-24 bg-slate-50 dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Headline -->
+                <div>
+                    <span class="inline-block px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200 dark:border-emerald-700">Gateway Service</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight mb-6">The 1-Week<br>Digital Maturity<br><span class="text-blue-700 dark:text-blue-400">Audit</span></h2>
+                    <p class="text-slate-500 dark:text-slate-400 text-base leading-relaxed mb-8">Before we build, we diagnose. A 7-day intensive technical evaluation that pinpoints security vulnerabilities, manual bottlenecks, and analytics gaps.</p>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <div class="text-4xl font-extrabold text-emerald-600 dark:text-emerald-400">₹35,000</div>
+                        <div class="text-sm text-slate-500 dark:text-slate-400 leading-snug"><span class="text-emerald-600 dark:text-emerald-400 font-bold">100% credited</span><br>toward your first retainer</div>
+                    </div>
+                </div>
+                <!-- Right: 7-Day Timeline -->
+                <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-xl p-8 md:p-10">
+                    <p class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-8">7-Day Engagement Timeline</p>
+                    <div class="space-y-0">
+                        <div class="flex gap-5 pb-8 relative">
+                            <div class="flex flex-col items-center">
+                                <div class="w-9 h-9 rounded-full bg-blue-700 dark:bg-blue-600 text-white flex items-center justify-center font-extrabold text-sm flex-shrink-0 z-10">1</div>
+                                <div class="w-px flex-1 bg-slate-200 dark:bg-slate-700 mt-2 min-h-[32px]"></div>
+                            </div>
+                            <div class="pt-1.5 pb-2">
+                                <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">Kickoff & Access</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">C-Suite interview, GA4 & tech stack handover</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5 pb-8 relative">
+                            <div class="flex flex-col items-center">
+                                <div class="w-9 h-9 rounded-full bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center font-extrabold text-sm flex-shrink-0 z-10">3</div>
+                                <div class="w-px flex-1 bg-slate-200 dark:bg-slate-700 mt-2 min-h-[32px]"></div>
+                            </div>
+                            <div class="pt-1.5 pb-2">
+                                <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">Tally · WhatsApp · CRM Mapping</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Identify automation and middleware opportunities</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5 pb-8 relative">
+                            <div class="flex flex-col items-center">
+                                <div class="w-9 h-9 rounded-full bg-emerald-600 dark:bg-emerald-500 text-white flex items-center justify-center font-extrabold text-sm flex-shrink-0 z-10">5</div>
+                                <div class="w-px flex-1 bg-slate-200 dark:bg-slate-700 mt-2 min-h-[32px]"></div>
+                            </div>
+                            <div class="pt-1.5 pb-2">
+                                <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">Technical Debt & Speed Diagnostic</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Load times, funnel leakage, conversion gap analysis</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5">
+                            <div class="flex flex-col items-center">
+                                <div class="w-9 h-9 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 flex items-center justify-center font-extrabold text-sm flex-shrink-0 z-10">7</div>
+                            </div>
+                            <div class="pt-1.5">
+                                <h4 class="font-extrabold text-slate-900 dark:text-white text-sm">Executive Strategy Briefing</h4>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">12-month modernization roadmap PDF delivered</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="openBookingModal()" class="mt-8 w-full bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold py-4 rounded-xl text-sm transition-all shadow-lg shadow-blue-700/25">
+                        Book Your Audit → ₹35,000
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SERVICE INDEX — Vercel / Linear glass grid ─── -->
+    <section id="hubs" class="py-24 bg-[#0B0F19] dark:bg-black border-b border-slate-800 relative z-10 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(37,99,235,0.12)_0%,_transparent_60%)] pointer-events-none"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(5,150,105,0.08)_0%,_transparent_60%)] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex items-end justify-between mb-14 pb-6 border-b border-slate-800">
+                <div>
+                    <p class="text-xs font-bold uppercase tracking-widest text-blue-400 mb-2">Service Matrix</p>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-white leading-tight">Our <span class="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">Capabilities</span></h2>
+                </div>
+                <img src="customers_collage.webp" class="h-14 w-32 object-cover rounded-xl opacity-60" alt="Naxa.One clients" loading="lazy">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Card: eCommerce -->
+                <a href="/ecommerce" class="group relative rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm p-8 hover:border-blue-500/50 hover:bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/10">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl group-hover:bg-blue-500/15 transition-all duration-500"></div>
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors">
+                        <i class="fas fa-store text-blue-400 text-sm"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-white mb-2">Sell Online</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6">High-converting eCommerce stores, checkout optimization, and ERP inventory sync.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-md">Next.js</span>
+                        <span class="text-xs font-bold text-slate-400 bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">Tally ERP</span>
+                        <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-md">WhatsApp API</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-400 group-hover:text-blue-400 group-hover:gap-3 transition-all">
+                        Explore Hub <i class="fas fa-arrow-right text-xs"></i>
+                    </div>
+                </a>
+                <!-- Card: Content -->
+                <a href="/content" class="group relative rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm p-8 hover:border-purple-500/50 hover:bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-500/10">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl group-hover:bg-purple-500/15 transition-all duration-500"></div>
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 group-hover:bg-purple-500/20 transition-colors">
+                        <i class="fas fa-pen-nib text-purple-400 text-sm"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-white mb-2">Look Professional</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6">Brand identity, copywriting, and visual assets that build instant trust and recognition.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs font-bold text-purple-400 bg-purple-500/10 border border-purple-500/20 px-2.5 py-1 rounded-md">Brand Guidelines</span>
+                        <span class="text-xs font-bold text-slate-400 bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">Copywriting</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-400 group-hover:text-purple-400 group-hover:gap-3 transition-all">
+                        Explore Hub <i class="fas fa-arrow-right text-xs"></i>
+                    </div>
+                </a>
+                <!-- Card: SEO -->
+                <a href="/seo" class="group relative rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm p-8 hover:border-emerald-500/50 hover:bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/10">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/15 transition-all duration-500"></div>
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6 group-hover:bg-emerald-500/20 transition-colors">
+                        <i class="fas fa-magnifying-glass text-emerald-400 text-sm"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-white mb-2">Get Found on Google</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6">Technical SEO, keyword dominance, and compounding organic traffic that doesn't stop.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-md">Technical SEO</span>
+                        <span class="text-xs font-bold text-slate-400 bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">GA4</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-400 group-hover:text-emerald-400 group-hover:gap-3 transition-all">
+                        Explore Hub <i class="fas fa-arrow-right text-xs"></i>
+                    </div>
+                </a>
+                <!-- Card: SMM -->
+                <a href="/smm" class="group relative rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm p-8 hover:border-amber-500/50 hover:bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-500/10">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/15 transition-all duration-500"></div>
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
+                        <i class="fas fa-users text-amber-400 text-sm"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-white mb-2">Build a Following</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6">Targeted social media campaigns, video assets, and community engagement at scale.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">Instagram</span>
+                        <span class="text-xs font-bold text-slate-400 bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">Video Reels</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-400 group-hover:text-amber-400 group-hover:gap-3 transition-all">
+                        Explore Hub <i class="fas fa-arrow-right text-xs"></i>
+                    </div>
+                </a>
+                <!-- Card: Agentic Ops -->
+                <a href="/pricing" class="group relative rounded-2xl border border-slate-800 bg-slate-900/60 backdrop-blur-sm p-8 hover:border-slate-500/50 hover:bg-slate-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-500/10 md:col-span-2 lg:col-span-1">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-slate-500/5 rounded-full blur-2xl group-hover:bg-slate-500/15 transition-all duration-500"></div>
+                    <div class="w-10 h-10 rounded-xl bg-slate-500/10 border border-slate-500/20 flex items-center justify-center mb-6 group-hover:bg-slate-500/20 transition-colors">
+                        <i class="fas fa-bolt text-slate-300 text-sm"></i>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-white mb-2">View Retainer Pricing</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6">Transparent, scope-matched monthly retainers — from SMB Sprints to Enterprise Dev Pods.</p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-xs font-bold text-slate-300 bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">From ₹35k/mo</span>
+                        <span class="text-xs font-bold text-slate-300 bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">To ₹5L+/mo</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-400 group-hover:text-white group-hover:gap-3 transition-all">
+                        View All Packages <i class="fas fa-arrow-right text-xs"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── OPERATIONS — Vercel before/after visual ─── -->
+    <section id="operations" class="py-24 bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-1 space-y-6">
+                    <span class="inline-block px-3 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-xs font-bold uppercase tracking-wider border border-blue-100 dark:border-blue-800">Enterprise Operations</span>
+                    <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">
+                        Banish 6-Hour<br>Daily <span class="bg-gradient-to-r from-blue-700 to-emerald-600 dark:from-blue-400 dark:to-emerald-400 bg-clip-text text-transparent">Manual Entries</span>
+                    </h2>
+                    <h3 class="text-lg font-bold text-slate-600 dark:text-slate-300">Tally ERP Sync + Custom WhatsApp Middlewares</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-md">
+                        Web orders synced to Tally the moment they're placed. Inventory updated. WhatsApp receipts fired automatically. Zero manual entry.
+                    </p>
+                    <button onclick="openBookingModal()" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg shadow-blue-700/25 text-sm">
+                        Book a Workflow Audit <i class="fas fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+                <div class="order-2">
+                    <!-- Before/After Visual -->
+                    <div class="rounded-3xl border border-slate-100 dark:border-slate-800 overflow-hidden shadow-2xl bg-slate-50 dark:bg-slate-900">
+                        <!-- Before -->
+                        <div class="p-6 border-b border-slate-100 dark:border-slate-800">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                    <span class="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Without Naxa.One</span>
+                                </div>
+                                <span class="text-xs font-extrabold text-red-500 bg-red-50 dark:bg-red-900/30 dark:text-red-400 px-2.5 py-1 rounded-full border border-red-100 dark:border-red-800">6 Hours Daily</span>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-3 p-3 bg-slate-100 dark:bg-slate-800 rounded-xl opacity-60">
+                                    <i class="fas fa-desktop text-slate-400 text-sm w-4"></i>
+                                    <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Copy order from website... → Open Tally... → Type manually...</span>
+                                </div>
+                                <div class="flex items-center gap-3 p-3 bg-slate-100 dark:bg-slate-800 rounded-xl opacity-40">
+                                    <i class="fas fa-desktop text-slate-400 text-sm w-4"></i>
+                                    <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Update inventory... → Send WhatsApp manually...</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- After -->
+                        <div class="p-6 bg-white dark:bg-slate-950">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
+                                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">With Tally + API Sync</span>
+                                </div>
+                                <span class="text-xs font-extrabold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 px-2.5 py-1 rounded-full border border-emerald-100 dark:border-emerald-800">0 Minutes</span>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-3 p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl border border-emerald-100 dark:border-emerald-800">
+                                    <i class="fas fa-bolt text-emerald-500 text-sm w-4"></i>
+                                    <span class="text-xs text-slate-700 dark:text-slate-300 font-bold">Order placed → Tally synced → WhatsApp receipt sent <span class="text-emerald-500">✓</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── DIGITAL LITERACY — UNDP institutional style ─── -->
+    <section class="py-24 bg-slate-950 dark:bg-black border-b border-slate-800 relative z-10 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(16,185,129,0.06)_0%,_transparent_70%)] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <i class="fas fa-graduation-cap text-3xl text-emerald-400 mb-6"></i>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">We Teach Your Team<br>to Drive the Engine</h2>
+                <p class="text-slate-400 text-base leading-relaxed">Every retainer includes monthly <strong class="text-white">Digital Literacy sessions</strong> — GA4, CRM hygiene, WhatsApp builder training. We elevate capability, not dependence.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="group rounded-2xl border border-slate-800 bg-slate-900/60 p-8 hover:border-emerald-500/30 hover:bg-slate-900 transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5">
+                        <i class="fas fa-chart-line text-emerald-400 text-sm"></i>
+                    </div>
+                    <h3 class="font-extrabold text-white mb-2">GA4 Data Hygiene</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Understand your traffic sources, attribution, and conversion events — so decisions are always data-driven.</p>
+                </div>
+                <div class="group rounded-2xl border border-slate-800 bg-slate-900/60 p-8 hover:border-blue-500/30 hover:bg-slate-900 transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-5">
+                        <i class="fas fa-database text-blue-400 text-sm"></i>
+                    </div>
+                    <h3 class="font-extrabold text-white mb-2">CRM Pipeline Management</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Manage your sales pipeline, follow-up cadences, and customer lifecycle without losing a single lead.</p>
+                </div>
+                <div class="group rounded-2xl border border-slate-800 bg-slate-900/60 p-8 hover:border-purple-500/30 hover:bg-slate-900 transition-all">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-5">
+                        <i class="fas fa-hand-pointer text-purple-400 text-sm"></i>
+                    </div>
+                    <h3 class="font-extrabold text-white mb-2">No-Code Handoffs</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">WhatsApp template builders, form builders, and automation flows — controlled by your team, not ours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── MINI-AUDIT CALCULATOR — Linear precision style ─── -->
+    <section id="calculator" class="py-24 bg-slate-50 dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <p class="text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-3">Free Diagnostic Tool</p>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">Try the <span class="text-emerald-600 dark:text-emerald-400">Mini-Audit</span></h2>
+                <p class="text-slate-500 dark:text-slate-400 text-sm font-medium max-w-md mx-auto">Rate your business operations (1 = Non-Existent, 5 = Fully Optimized). See your score instantly.</p>
+            </div>
+            <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-2xl overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <!-- Sliders -->
+                    <div class="p-8 md:p-10 space-y-8 border-b md:border-b-0 md:border-r border-slate-100 dark:border-slate-800" id="calc-sliders">
+                        <div>
+                            <div class="flex justify-between mb-3">
+                                <label class="text-sm font-bold text-slate-800 dark:text-slate-200">Infrastructure &amp; Speed</label>
+                                <span class="text-xs text-blue-700 dark:text-blue-400 font-extrabold bg-blue-50 dark:bg-blue-900/30 px-2.5 py-1 rounded-full border border-blue-100 dark:border-blue-800" id="val-infra">2/5</span>
+                            </div>
+                            <input type="range" aria-label="Infrastructure Level" id="slider-infra" min="1" max="5" value="2" oninput="updateAudit()" class="w-full">
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5">Hosting, security, load times.</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3">
+                                <label class="text-sm font-bold text-slate-800 dark:text-slate-200">Agentic Workflows</label>
+                                <span class="text-xs text-blue-700 dark:text-blue-400 font-extrabold bg-blue-50 dark:bg-blue-900/30 px-2.5 py-1 rounded-full border border-blue-100 dark:border-blue-800" id="val-auto">2/5</span>
+                            </div>
+                            <input type="range" aria-label="Automation Level" id="slider-auto" min="1" max="5" value="2" oninput="updateAudit()" class="w-full">
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5">CRM, Tally, WhatsApp routing solutions.</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3">
+                                <label class="text-sm font-bold text-slate-800 dark:text-slate-200">Analytics &amp; Data</label>
+                                <span class="text-xs text-blue-700 dark:text-blue-400 font-extrabold bg-blue-50 dark:bg-blue-900/30 px-2.5 py-1 rounded-full border border-blue-100 dark:border-blue-800" id="val-data">1/5</span>
+                            </div>
+                            <input type="range" aria-label="Data Maturity Level" id="slider-data" min="1" max="5" value="1" oninput="updateAudit()" class="w-full">
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5">GA4, Dashboards, single source of truth.</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-3">
+                                <label class="text-sm font-bold text-slate-800 dark:text-slate-200">Strategy &amp; Literacy</label>
+                                <span class="text-xs text-blue-700 dark:text-blue-400 font-extrabold bg-blue-50 dark:bg-blue-900/30 px-2.5 py-1 rounded-full border border-blue-100 dark:border-blue-800" id="val-strat">2/5</span>
+                            </div>
+                            <input type="range" aria-label="Strategy Level" id="slider-strat" min="1" max="5" value="2" oninput="updateAudit()" class="w-full">
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1.5">Team tech skills, governance, roadmap.</p>
+                        </div>
+                    </div>
+                    <!-- Results -->
+                    <div class="bg-slate-950 dark:bg-black p-8 md:p-10 flex flex-col justify-between text-white relative overflow-hidden">
+                        <div class="absolute -right-10 -top-10 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl"></div>
+                        <div class="relative z-10">
+                            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Estimated Score</p>
+                            <div class="flex items-baseline gap-3 mb-8">
+                                <div class="blur-md opacity-40 select-none transition-all duration-300 calc-blur">
+                                    <h3 class="text-6xl font-extrabold text-white" id="res-score">35%</h3>
+                                </div>
+                                <span class="text-xs px-2.5 py-1 rounded-full font-bold blur-sm opacity-40 select-none calc-blur transition-all duration-300" id="res-tier-badge" style="background: rgba(217,119,6,0.25); color: #fcd34d;">Reactive</span>
+                            </div>
+                            <div class="mb-6 blur-md opacity-40 select-none calc-blur transition-all duration-300">
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Highest Risk Area</p>
+                                <div class="bg-white/5 border border-white/10 rounded-xl p-3">
+                                    <div class="text-sm font-extrabold text-emerald-400" id="res-risk-title">Analytics &amp; Data</div>
+                                    <div class="text-xs text-slate-300 mt-1" id="res-risk-desc">Blind decision making due to data gaps.</div>
+                                </div>
+                            </div>
+                            <div class="blur-md opacity-40 select-none calc-blur transition-all duration-300">
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Recommended Path</p>
+                                <div class="bg-white/5 border border-white/10 rounded-xl p-4">
+                                    <div class="text-base font-extrabold text-white mb-1" id="res-service">Mid-Market Modernization</div>
+                                    <div class="text-xs font-bold text-emerald-400" id="res-price">Est: ₹1.25L - ₹3L / mo</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative z-10 mt-6" id="unlock-container">
+                            <button onclick="openLeadModal()" class="w-full bg-gradient-to-r from-blue-700 to-emerald-600 hover:from-blue-600 hover:to-emerald-500 text-white font-bold py-4 rounded-xl transition-all text-sm shadow-xl hover:scale-[1.02]">
+                                Unlock My Score &amp; Roadmap <i class="fas fa-lock-open ml-1"></i>
+                            </button>
+                            <p class="text-xs text-slate-500 mt-2 text-center font-medium">Free &mdash; Takes 30 Seconds</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PRICING CALLOUT STRIP ─── -->
+    <section id="services" class="py-20 bg-[#0B0F19] dark:bg-black border-b border-slate-800 relative z-10 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_right,_rgba(37,99,235,0.08)_0%,_transparent_60%)] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+            <div>
+                <p class="text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">Transparent Pricing</p>
+                <h2 class="text-2xl md:text-4xl font-extrabold text-white leading-tight">From ₹35k/mo to<br class="hidden md:block"> Enterprise Dev Pods</h2>
+                <p class="text-slate-400 text-sm mt-3 max-w-md">Scope-matched retainers with no hidden costs. Every engagement starts with a Digital Maturity Audit.</p>
+            </div>
+            <a href="/pricing" class="flex-shrink-0 inline-flex items-center gap-3 bg-white hover:bg-slate-100 text-slate-950 font-extrabold px-8 py-4 rounded-full transition-all text-sm shadow-xl hover:-translate-y-0.5 transform whitespace-nowrap">
+                View All Packages <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ─── BOOKING SECTION ─── -->
+    <section id="booking-section" class="py-24 bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 dark:from-black dark:via-slate-950 dark:to-blue-950 text-white relative z-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                        Direct Advisory Access
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-extrabold leading-tight">
+                        Book a 15-Min Call to Map Your <span class="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">Digital Setup, Scale-Up or Agentic Workflows</span>
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">Speak directly with an Executive Architect. No sales fluff. We analyze your tech stack, outline operational bottlenecks, and deliver an actionable 12-month blueprint.</p>
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs mt-0.5"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm">For MSMEs: Setup &amp; Growth Roadmap</h3>
+                                <p class="text-xs text-slate-500">High-converting web platforms, Tally ERP sync &amp; lead intake systems.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xs mt-0.5"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm">For Enterprises: Agentic Operations</h3>
+                                <p class="text-xs text-slate-500">Custom Next.js web applications, workflow automation &amp; custom API middleware.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-3xl p-8 shadow-2xl border border-slate-200 dark:border-slate-700">
+                        <h3 class="text-2xl font-extrabold mb-2 dark:text-white">Schedule Your Strategy Call</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Select your primary track and pick your preferred time.</p>
+                        <form onsubmit="handleDirectBookingSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 dark:text-slate-300 mb-1">Full Name *</label>
+                                <input type="text" name="fullName" required class="w-full border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white dark:bg-slate-800 dark:text-white dark:placeholder-slate-500" placeholder="e.g. Vikram Mehta">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 dark:text-slate-300 mb-1">Work Email / WhatsApp *</label>
+                                <input type="text" name="contactInfo" required class="w-full border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white dark:bg-slate-800 dark:text-white dark:placeholder-slate-500" placeholder="vikram@company.com or +91 98765...">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 dark:text-slate-300 mb-1">Company / Brand Name *</label>
+                                <input type="text" name="companyName" required class="w-full border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white dark:bg-slate-800 dark:text-white dark:placeholder-slate-500" placeholder="Your Business Name">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 dark:text-slate-300 mb-1">Primary Growth Track *</label>
+                                <select aria-label="Business Segment" name="segment" required class="w-full border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-white dark:bg-slate-800 dark:text-white">
+                                    <option value="MSME Platform &amp; Growth">MSME: Digital Setup &amp; Scale-Up</option>
+                                    <option value="Enterprise Agentic Ops">Enterprise: Custom Dev &amp; Agentic Workflows</option>
+                                    <option value="General Audit">Digital Maturity Audit (1-Week)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 rounded-xl transition-all text-sm shadow-lg shadow-blue-700/25">
+                                Confirm 15-Min Call Request &rarr;
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FAQ ─── -->
+    <section id="faq" class="py-24 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 relative z-10">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-3">FAQ</p>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">Everything You Need to <span class="text-gradient-blue">Know</span></h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-xl mx-auto text-sm font-medium">Direct answers to common questions about our Digital Maturity Audit, pricing, and technology integrations.</p>
+            </div>
+            <div class="space-y-4">
+                <details class="group rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 overflow-hidden cursor-pointer">
+                    <summary class="flex items-center justify-between p-6 font-extrabold text-slate-900 dark:text-white text-base list-none select-none">
+                        <span class="flex items-center gap-3"><i class="fas fa-circle-question text-blue-700 dark:text-blue-400"></i> What is the 1-Week Digital Maturity Audit?</span>
+                        <i class="fas fa-chevron-down text-slate-400 text-xs group-open:rotate-180 transition-transform duration-200"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-5 space-y-3">
+                        <p>A 7-day intensive technical evaluation for <strong>₹35,000</strong> (100% credited toward your retainer) that pinpoints technical debt and operational bottlenecks.</p>
+                        <p class="font-bold text-slate-800 dark:text-white">What We Deliver:</p>
+                        <ul class="list-disc list-inside space-y-1 text-slate-500 dark:text-slate-400 text-xs pl-2">
+                            <li>Technical Debt &amp; Load Speed Diagnostic</li>
+                            <li>Conversion Funnel Leakage Report</li>
+                            <li>Custom System Architecture Diagram (Current vs. Future)</li>
+                            <li>12-Month Operational Modernization Roadmap PDF</li>
+                        </ul>
+                    </div>
+                </details>
+                <details class="group rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 overflow-hidden cursor-pointer">
+                    <summary class="flex items-center justify-between p-6 font-extrabold text-slate-900 dark:text-white text-base list-none select-none">
+                        <span class="flex items-center gap-3"><i class="fas fa-circle-question text-emerald-600 dark:text-emerald-400"></i> What are Naxa.One's retainer pricing tiers?</span>
+                        <i class="fas fa-chevron-down text-slate-400 text-xs group-open:rotate-180 transition-transform duration-200"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-5">
+                        3 transparent retainer tiers: <strong>Tier 1 (SMB Sprint)</strong> at ₹35,000–₹75,000/mo, <strong>Tier 2 (Mid-Market Scale)</strong> at ₹1.25L–₹3.0L/mo, and <strong>Tier 3 (Enterprise Pod)</strong> at ₹5.0L+/mo.
+                    </div>
+                </details>
+                <details class="group rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 overflow-hidden cursor-pointer">
+                    <summary class="flex items-center justify-between p-6 font-extrabold text-slate-900 dark:text-white text-base list-none select-none">
+                        <span class="flex items-center gap-3"><i class="fas fa-circle-question text-purple-600 dark:text-purple-400"></i> How does Tally ERP &amp; WhatsApp integration work?</span>
+                        <i class="fas fa-chevron-down text-slate-400 text-xs group-open:rotate-180 transition-transform duration-200"></i>
+                    </summary>
+                    <div class="px-6 pb-6 text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-5">
+                        We build custom web middleware connecting your web forms, CRM, or eCommerce store directly to Tally ERP and Interakt/WhatsApp APIs, eliminating manual data entry and speeding up order processing.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer id="contact" class="bg-slate-950 dark:bg-black text-white border-t border-slate-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="logo.png" alt="Naxa.One Logo" class="w-8 h-8 object-contain rounded">
+                        <span class="font-extrabold text-lg text-white">Naxa<span class="text-emerald-500">.</span>One</span>
+                    </div>
+                    <p class="text-slate-400 text-sm max-w-sm mb-6">Bridging the gap between executive vision and flawless digital execution. Elevating Indian businesses through technology and literacy.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-emerald-400 transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-emerald-400 transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-emerald-400 transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">Get in Touch</h3>
+                    <div class="text-sm text-slate-400 space-y-2">
+                        <p>Digital Advisory &amp; Development</p>
+                        <p><a href="mailto:hello@naxa.one" class="text-emerald-400 hover:underline font-bold">hello@naxa.one</a></p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">Service Hubs</h3>
+                    <ul class="text-sm text-slate-400 space-y-2">
+                        <li><a href="/ecommerce" class="hover:text-white transition-colors">Sell Online (eCommerce)</a></li>
+                        <li><a href="/content" class="hover:text-white transition-colors">Look Professional (Content)</a></li>
+                        <li><a href="/seo" class="hover:text-white transition-colors">Get Found (SEO)</a></li>
+                        <li><a href="/smm" class="hover:text-white transition-colors">Build Following (SMM)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-500 text-xs">© 2026 Naxa.One. All rights reserved.</p>
+                <p class="text-slate-500 text-xs mt-2 md:mt-0">Designed for scale.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic & Animations -->
+    <script>
         // Transparent Navbar at top -> Collapses Desktop Links into Hamburger Button on Scroll
         const navbar = document.getElementById('navbar');
         const desktopNavLinks = document.getElementById('desktop-nav-links');
@@ -642,35 +1061,19 @@
 
         function handleScroll() {
             const scrollY = window.scrollY;
-            const brandText = document.getElementById('nav-brand-text');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const themeToggle = document.getElementById('theme-toggle');
-            const hamburgerBtn = document.getElementById('nav-hamburger-btn');
             
+            // Sticky menu bar remains 100% completely transparent while scrolling
+            navbar.classList.add('bg-transparent');
+            navbar.classList.remove('bg-white', 'bg-white/95', 'backdrop-blur-md', 'shadow-md', 'border-b', 'border-slate-200');
+
             if (scrollY > 50) {
-                // Scrolled down state (solid background, borders)
-                navbar.className = "fixed w-full z-50 transition-all duration-300 py-2 bg-white/95 border-b border-slate-200/80 dark:bg-navy-900/95 dark:border-navy-800/80 backdrop-blur-md shadow-sm";
-                if (brandText) brandText.className = "font-extrabold text-xl tracking-tight text-navy-900 dark:text-white transition-colors duration-300";
-                navLinks.forEach(link => {
-                    link.className = "nav-link text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-gold-500 transition-colors duration-300";
-                });
-                if (themeToggle) themeToggle.className = "w-10 h-10 flex items-center justify-center rounded-sm border border-slate-200 bg-slate-100 dark:border-navy-700 dark:bg-navy-800 text-slate-600 dark:text-slate-300 hover:text-gold-500 transition-all";
-                if (hamburgerBtn) hamburgerBtn.className = "md:hidden w-10 h-10 flex items-center justify-center rounded-sm border border-slate-200 bg-slate-100 dark:border-navy-700 dark:bg-navy-800 text-slate-600 dark:text-slate-300 transition-all";
-                
-                // Transitional fade-out for links
-                if (desktopNavLinks) desktopNavLinks.className = "hidden md:flex items-center space-x-8 transition-all duration-300 opacity-0 pointer-events-none -translate-y-2";
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+                if (desktopNavLinks) desktopNavLinks.classList.add('md:hidden');
             } else {
-                // Top header state (transparent)
-                navbar.className = "fixed w-full z-50 transition-all duration-300 py-4 bg-transparent border-b border-transparent";
-                if (brandText) brandText.className = "font-extrabold text-xl tracking-tight text-white transition-colors duration-300";
-                navLinks.forEach(link => {
-                    link.className = "nav-link text-sm font-bold text-slate-300 hover:text-gold-400 transition-colors duration-300";
-                });
-                if (themeToggle) themeToggle.className = "w-10 h-10 flex items-center justify-center rounded-sm border border-navy-700 bg-navy-800 hover:bg-navy-700 text-slate-300 hover:text-gold-400 transition-all";
-                if (hamburgerBtn) hamburgerBtn.className = "md:hidden w-10 h-10 flex items-center justify-center rounded-sm border border-navy-700 bg-navy-800 text-white transition-all";
-                
-                // Visible at top
-                if (desktopNavLinks) desktopNavLinks.className = "hidden md:flex items-center space-x-8 transition-all duration-300 opacity-100 translate-y-0";
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
+                if (desktopNavLinks) desktopNavLinks.classList.remove('md:hidden');
             }
 
             // Parallax Scroll Effect for Hero and Calculator Videos
@@ -848,7 +1251,41 @@
             animate();
         })();
     </script>
-<script>
+
+    <!-- Floating WhatsApp CTA -->
+    <a href="https://wa.me/917018979508?text=Hi%20Naxa.One%2C%20I%27d%20like%20to%20book%20a%2015-Min%20Discovery%20Call." target="_blank" rel="noopener noreferrer"
+       class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-3 rounded-full shadow-xl flex items-center gap-2.5 transition-all hover:scale-105"
+       aria-label="Chat on WhatsApp">
+        <svg class="w-5 h-5 fill-current flex-shrink-0" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        <span class="font-semibold text-sm hidden md:inline">Talk to our Expert</span>
+    </a>
+
+    <!-- Lead Capture Modal -->
+    <div id="lead-modal" class="hidden fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative border border-slate-200">
+            <button onclick="closeLeadModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900 text-xl leading-none transition-colors">&times;</button>
+            <span class="inline-block px-3 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-xs font-bold text-emerald-700 mb-4 uppercase tracking-wider">Free Audit Report</span>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Unlock Your Digital Maturity Score</h3>
+            <p class="text-sm text-slate-500 mb-6 leading-relaxed">Enter your details to reveal your score instantly and receive a customized 12-month operational roadmap.</p>
+            <form id="audit-lead-form" onsubmit="handleAuditLeadSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Full Name *</label>
+                    <input type="text" name="fullName" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-slate-50" placeholder="e.g. Vikram Mehta">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Work Email / WhatsApp *</label>
+                    <input type="text" name="contactInfo" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-slate-50" placeholder="vikram@company.com or +91 98765...">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-700 mb-1">Company / Brand *</label>
+                    <input type="text" name="companyName" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 bg-slate-50" placeholder="Your Business Name">
+                </div>
+                <button type="submit" class="w-full mt-4 bg-blue-700 hover:bg-blue-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-blue-700/25">Unlock My Results &rarr;</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
         // Set your Google Apps Script Web App URL here after creating your Google Sheet receiver script
         const GOOGLE_SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbxrg5pjAy98DA87-tWJJ-a_ybhuVbZTSGz1AlJtYmuA4FLbv1-ZwKxDQ5RmpZi5HUSngg/exec';
 
@@ -952,7 +1389,8 @@
             alert('Thank you ' + payload.fullName + '! Your 15-minute discovery call request for ' + payload.companyName + ' has been received. Our architect will reach out via ' + payload.contactInfo + ' shortly.');
         }
     </script>
-<script>
+
+    <script>
         // Preloader Logic: Wait until all images, fonts, videos and assets are fully loaded
         (function() {
             const bar = document.getElementById('loader-bar');
@@ -978,7 +1416,9 @@
             });
         })();
     </script>
-<script>
+
+    <!-- Typewriter Effect -->
+    <script>
         (function() {
             const el = document.getElementById('typewriter-target');
             if (!el) return;
@@ -1014,7 +1454,10 @@
             typewriter();
         })();
     </script>
-<script>
+
+
+    <!-- Theme Toggle Logic -->
+    <script>
         function toggleTheme() {
             const html = document.documentElement;
             const isDark = html.classList.toggle('dark');
