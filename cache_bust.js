@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const version = '3.0.0'; // Incremented to 3.0.0 for new layout rollback cache bust
+const version = '3.0.1'; // Incremented to 3.0.1 for typewriter layout shift fix
 
 const files = [
     'index.html',
