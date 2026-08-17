@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const version = '3.0.2'; // Incremented to 3.0.2 for typewriter layout bottom clipping fix
+const version = '3.0.3'; // Incremented to 3.0.3 for hero subtext white color update
 
 const files = [
     'index.html',
